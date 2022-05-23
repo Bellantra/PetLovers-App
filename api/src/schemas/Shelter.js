@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const ShelterSchema = new Schema({
+const shelterSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -30,4 +30,4 @@ const ShelterSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Shelter', ShelterSchema)
+module.exports = mongoose.model('Shelter', shelterSchema)
