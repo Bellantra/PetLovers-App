@@ -9,15 +9,19 @@ const mongoose = require('mongoose');
 const { DB_USER, DB_PASSWORD } = process.env;
 
 // -----------Connection with mongodbAtlas -----------
-const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.sqvps.mongodb.net/?retryWrites=true&w=majority`
-mongoose.connect(uri, { useNewUrlParser: true});
-const db = mongoose.connection;
-db.on("error",(err)=>{
-  console.error(err)
-})
-db.once("open", () => {
-  console.log("Connection successfully")
-})
+const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@petlovers.sqvps.mongodb.net/?retryWrites=true&w=majority`
+const connectDB = async () => {
+  try {
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      heartbeatFrequencyMS:7000, // 7 segundos para comprobar la conexión, ejecuta evento 'disconnect' si falla
+    },null);
+    console.log('Connection successfully');
+  } catch (err) {
+    console.error('Failed to connect to MongoDB', err);
+  }
+};
+connectDB()
 
 //-------------------- Schema ----------------------------
 const Schema = mongoose.Schema;
