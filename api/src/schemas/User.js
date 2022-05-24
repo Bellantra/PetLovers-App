@@ -6,7 +6,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    nombre: {
+    fullName: {
         type: String,
     },
     email: {
@@ -23,11 +23,17 @@ const userSchema = new Schema({
         required: true,
     },
     isAdmin: {
-        type: boolean,
+        type: Boolean,
         default: false,
     },
-    shelterName: {
+    shelter: {
+        type: Schema.Types.ObjectId,
+        ref: 'Shelter',
+    },
+    status: {
         type: String,
+        enum: ['Active', 'Deleted'],
+        default: 'Active',
     },
 })
 
