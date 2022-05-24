@@ -4,20 +4,17 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "plugin:react/recommended",
     "standard",
     "eslint-config-prettier",
-    "plugin:react/jsx-runtime",
   ],
 
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      js: true,
     },
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
   rules: {
     semi: "off",
   },
