@@ -8,33 +8,18 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const { DB_URL } = process.env
 
-// -----------Connection with mongodbAtlas -----------
-const uri = DB_URL
-const connectDB = async () => {
-    try {
-        await mongoose.connect(
-            uri,
-            {
-                useNewUrlParser: true,
-                heartbeatFrequencyMS: 7000, // 7 segundos para comprobar la conexión, ejecuta evento 'disconnect' si falla
-            },
-            null
-        )
-        console.log('Connection successfully')
-    } catch (err) {
-        console.error('Failed to connect to MongoDB', err)
-    }
-}
-connectDB()
-
 //----------------Server configuration -------------------
 const app = express()
 app.use(express.json())
-app.use(cors())
-app.name = 'API'
+app.use(
+    cors({
+        origin: '*',
+        credentials: true,
+    })
+)
 
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
-app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(morgan('dev'))
 app.use((req, res, next) => {
@@ -59,5 +44,26 @@ app.use((err, req, res, next) => {
     console.error(err)
     res.status(status).send(message)
 })
+
+app.use('/', routes)
+
+// -----------Connection with mongodbAtlas -----------
+const uri = DB_URL
+const connectDB = async () => {
+    try {
+        mongoose.connect(
+            uri,
+            {
+                useNewUrlParser: true,
+                heartbeatFrequencyMS: 7000, // 7 segundos para comprobar la conexión, ejecuta evento 'disconnect' si falla
+            },
+            null
+        )
+        console.log('Connection successfully')
+    } catch (err) {
+        console.error('Failed to connect to MongoDB', err)
+    }
+}
+connectDB()
 
 module.exports = app

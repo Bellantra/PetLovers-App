@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const ShelterSchema = new Schema({
+const shelterSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -28,6 +28,11 @@ const ShelterSchema = new Schema({
         type: String,
         default: '#F5917C', //Elegir mejor color!!
     },
+    status: {
+        type: String,
+        enum: ['Active', 'Deleted'],
+        default: 'Active',
+    },
 })
 
-module.exports = mongoose.model('Shelter', ShelterSchema)
+module.exports = mongoose.model('Shelter', shelterSchema)
