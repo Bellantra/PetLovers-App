@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NavBar */
+.navContainer{
+    background-color: white !important;
+}
+
+/* Hero */
+.hero{
+    display: flex;
+    width: 100%;
+}
+.textHero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* width: 50%; */
+}
