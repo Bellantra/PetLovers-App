@@ -29,6 +29,7 @@ const userSchema = new Schema({
     shelter: {
         type: Schema.Types.ObjectId,
         ref: 'Shelter',
+        default: null,
     },
     status: {
         type: String,
