@@ -14,7 +14,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
 
-const pages = ['Home', 'About Us', 'Organizations', 'Adoptions'];
+const pages = ['Shelters', 'Adoptions', 'About Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
@@ -41,26 +41,7 @@ const NavBar = () => {
       <Container maxWidth="xl" className='navContainer'>
         <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-        <div>
-            <img src={logo} alt='logo'/>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color:'#515151',
-              textDecoration: 'none',
-            }}
-          >
-            Pet Lovers
-          </Typography>
-        </div>
+            <img src={logo} alt='logo' className='imageLogo'/>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -131,7 +112,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Button variant="contained">Log In</Button>
+                <Button variant="contained" className='buttonLogIn'>Log In</Button>
               </IconButton>
             </Tooltip>
             <Menu
