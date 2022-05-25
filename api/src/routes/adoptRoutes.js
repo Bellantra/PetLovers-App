@@ -3,9 +3,8 @@ const postAdoptablePet = require('../controllers/adopt/postAdoptablePet')
 const updatePetToAdopt = require('../controllers/adopt/updatePetToAdopt')
 const removePet = require('../controllers/adopt/removePet')
 const express = require('express')
-const { Router } = require('express')
+const router = express.Router()
 
-const router = Router()
 router.use(express.json())
 
 router.get('/', getAdoptablePets)

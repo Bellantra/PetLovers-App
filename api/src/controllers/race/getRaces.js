@@ -1,6 +1,6 @@
 const Race = require('../../schemas/Race')
 
-const getAdoptablePets = async (req, res) => {
+const getRaces = async (req, res) => {
     try {
         const Races = await Race.find()
         res.json(Races)
@@ -10,4 +10,4 @@ const getAdoptablePets = async (req, res) => {
     }
 }
 
-module.exports = getAdoptablePets
+module.exports = getRaces
