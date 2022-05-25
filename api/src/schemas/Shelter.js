@@ -10,7 +10,11 @@ const shelterSchema = new Schema({
         type: String,
         //Debemos hacer un logo default nuestro!!!
         default:
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.domestika.org%2Ffr%2Fprojects%2F49250-logo-protectora-el-refugio&psig=AOvVaw0SANK09xrc3AGl5dxTp73V&ust=1653413371608000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjR2_2S9vcCFQAAAAAdAAAAABAU',
+            'https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1334245221/content-items/000/228/813/tr10h-original.jpg?1334245221',
+    },
+    img: {
+        type: Array,
+        default: ['https://elrefugio.org/img/El-Refugio-imgQuienesSomos.jpg'],
     },
     state: {
         type: String,
@@ -28,6 +32,18 @@ const shelterSchema = new Schema({
         type: String,
         default: '#F5917C', //Elegir mejor color!!
     },
+    user: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+    ],
+    petsAdoption: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Pet',
+        },
+    ],
     status: {
         type: String,
         enum: ['Active', 'Deleted'],
