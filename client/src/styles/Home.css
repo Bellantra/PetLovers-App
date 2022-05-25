@@ -109,3 +109,9 @@
     top: 81%;
     bottom: -15.83%;
 }
+
+/* About us */
+.aboutUs{
+    background-image: url(../assets/about-us-bkg.png);
+    height: 100vh;
+}

@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
+import {Link as LinkRouter} from "react-router-dom";
 
 const pages = ['Shelters', 'Adoptions', 'About Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -73,7 +74,7 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center"><LinkRouter to={"*"}>{page}</LinkRouter></Typography>
                 </MenuItem>
               ))}
             </Menu>
