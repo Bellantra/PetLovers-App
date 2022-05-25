@@ -3,6 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+.UnderConstruction{
+    text-align: center;
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 7rem;
+    background: linear-gradient(180deg, #0987E0 0%, #1F4795 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    mix-blend-mode: normal;
+}
 
 /* NavBar */
 .navContainer{
@@ -13,6 +24,10 @@
     background-color: #1565C0 !important;
     box-shadow:  2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important;
     border-radius: 4px !important;
+}
+.navButtons{
+    text-decoration: none;
+    color: #515151;
 }
 
 /* Hero */
@@ -113,5 +128,28 @@
 /* About us */
 .aboutUs{
     background-image: url(../assets/about-us-bkg.png);
+    background-size: cover;
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AboutTitle{
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 5rem;
+    color: white;
+}
+.paragraphAbout{
+    width: 40rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 2rem;
+    background-color: #51515184;
+    padding: 1em;
+    border-radius: 2em;
+    margin-top: 2em;
 }

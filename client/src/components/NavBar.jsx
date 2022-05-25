@@ -42,7 +42,7 @@ const NavBar = () => {
       <Container maxWidth="xl" className='navContainer'>
         <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <img src={logo} alt='logo' className='imageLogo'/>
+            <LinkRouter to={"/home"}><img src={logo} alt='logo' className='imageLogo'/></LinkRouter>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -74,7 +74,7 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><LinkRouter to={"*"}>{page}</LinkRouter></Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -100,13 +100,13 @@ const NavBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color:'#515151', display: 'block' }}
-              >
-                {page}
-              </Button>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color:'#515151', display: 'block' }}
+                >
+                  <LinkRouter to={"/underConstruction"} className='navButtons'>{page}</LinkRouter>
+                </Button>
             ))}
           </Box>
 
