@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NavBar */
+.navContainer{
+    background-color: white !important;
+    box-shadow: none !important;
+}
+.buttonLogIn{
+    background-color: #1565C0 !important;
+    box-shadow:  2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 4px !important;
+}
+
+/* Hero */
+.hero{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.textHero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.divImgHero{
+    margin-right: 1rem;
+}
+.imageHero{
+    margin-top: 2rem;
+}
+.weCare{
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 7rem;
+    background: linear-gradient(180deg, #0987E0 0%, #1F4795 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    mix-blend-mode: normal;
+}
+.aboutPets{
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 6rem;
+}
+.imageHero{
+    margin-right: 2rem;
+}
+.paragraphHero{
+    width: 60%;
+    margin-left: 1rem;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 20px;
+    margin-top: 1rem;
+}
+.divButtonAdopt{
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    margin-top: 3rem;
+}
+.buttonAdoptNow{
+    background-color: #1565C0 !important;
+    box-shadow:  2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 4px !important;
+}
+.imageLogo{
+    margin-right: 3rem;
+}
+.imageDogPaw1{
+    position: absolute;
+    left: 15%;
+    right: 30%;
+    top: 30%;
+    bottom: -15%;
+}
+.imageDogPaw2{
+    position: absolute;
+    left: 29%;
+    right: 16.81%;
+    top: 30%;
+    bottom: -15.1%;
+}
+.imageDogPaw3{
+    position: absolute;
+    left: 18%;
+    right: 30%;
+    top: 100%;
+    bottom: -15.83%;
+}
+.imageDogPaw4{
+    position: absolute;
+    left: 29%;
+    right: -10.59%;
+    top: 95%;
+    bottom: -1.72%;
+}
+.imageDogPaw5{
+    position: absolute;
+    left: 40%;
+    right: 25.73%;
+    top: 81%;
+    bottom: -15.83%;
+}
+
+/* About us */
+.aboutUs{
+    background-image: url(../assets/about-us-bkg.png);
+    height: 100vh;
+}
