@@ -8,4 +8,4 @@ const subraceSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Race', subraceSchema)
+module.exports = mongoose.model('Subrace', subraceSchema)
