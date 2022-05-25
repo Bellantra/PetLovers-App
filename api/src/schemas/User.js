@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
     userName: {
         type: String,
         required: true,
     },
-    nombre: {
+    fullName: {
         type: String,
     },
     email: {
@@ -23,12 +23,19 @@ const UserSchema = new Schema({
         required: true,
     },
     isAdmin: {
-        type: boolean,
+        type: Boolean,
         default: false,
     },
-    shelterName: {
+    shelter: {
+        type: Schema.Types.ObjectId,
+        ref: 'Shelter',
+        default: null,
+    },
+    status: {
         type: String,
+        enum: ['Active', 'Deleted'],
+        default: 'Active',
     },
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', userSchema)
