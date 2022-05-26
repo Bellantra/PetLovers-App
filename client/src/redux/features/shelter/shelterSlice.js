@@ -1,21 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { extraGetAdoptablePets } from '../../asyncActions/getAllAdoptablePets'
+import {
+    extraGetAllShelters,
+    getAllShelters,
+} from '../../asyncActions/shelter/getAllShelters'
+import {
+    extraGetShelterById,
+    getShelterById,
+} from '../../asyncActions/shelter/getShelterById'
 
 const initialState = {
-    adoptPets: [],
+    shelters: [],
+    shelterDetail: {},
     status: 'loading',
+    statusDetail: 'loading',
     error: '',
-    value: 0,
 }
 
-const adoptSlice = createSlice({
-    name: 'adopt', // name of the state
+const shelterSlice = createSlice({
+    name: 'shelter', // name of the state
     initialState,
-    reducers: {
-        increment: (state) => (state.value += 1),
+    reducers: {},
+    extraReducers: {
+        ...extraGetAllShelters,
+        ...extraGetShelterById,
     },
-    extraReducers: { ...extraGetAdoptablePets },
 })
 
-export const { increment } = adoptSlice.actions
-export default adoptSlice.reducer
+export { getAllShelters, getShelterById }
+export default shelterSlice.reducer

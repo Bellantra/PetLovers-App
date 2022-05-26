@@ -2,26 +2,26 @@ import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 export const API_ROUTE = 'http://localhost:4001'
 
-export const getAllShelters = createAsyncThunk(
-    'shelter/getAllShelters',
-    async () => {
+export const getShelterById = createAsyncThunk(
+    'shelter/getShelterById',
+    async (id) => {
         try {
-            return await axios.get(`${API_ROUTE}/shelters`)
+            return await axios.get(`${API_ROUTE}/shelters/${id}`)
         } catch (err) {
             console.log(err)
         }
     }
 )
 
-export const extraGetAllShelters = {
-    [getAllShelters.pending]: (state, action) => {
-        state.status = 'loading'
+export const extraGetShelterById = {
+    [getShelterById.pending]: (state, action) => {
+        state.statusDetail = 'loading'
     },
-    [getAllShelters.fulfilled]: (state, action) => {
-        state.status = 'success'
-        state.adoptPets = action.payload.data
+    [getShelterById.fulfilled]: (state, action) => {
+        state.statusDetail = 'success'
+        state.shelterDetail = action.payload.data
     },
-    [getAllShelters.rejected]: (state, action) => {
-        state.status = 'failed'
+    [getShelterById.rejected]: (state, action) => {
+        state.statusDetail = 'failed'
     },
 }
