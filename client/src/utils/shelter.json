@@ -1,0 +1,87 @@
+[
+  {
+    "_id": { "$oid": "628ef0b4fc13ae3528000033" },
+    "name": "Patitas del Sur",
+    "logo": "https://elrefugio.org/img/El-Refugio-imgQuienesSomos.jpg",
+    "state": "Budapest",
+    "city": "Budapest",
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+    "color": "#4c66c2",
+    "user": { "$oid": "628ef134fc13ae6efa000068" },
+    "petsAdoption": [
+      { "$oid": "628eef61fc13ae428b00023d" },
+      { "$oid": "628eef61fc13ae428b000251" },
+      { "$oid": "628eef61fc13ae428b00023d" },
+      { "$oid": "628eef61fc13ae428b000229" }
+    ],
+    "status": "Active"
+  },
+  {
+    "_id": { "$oid": "628ef0b4fc13ae3528000034" },
+    "name": "Isopropyl Alcohol",
+    "logo": "http://dummyimage.com/230x100.png/cc0000/ffffff",
+    "state": "Bretagne",
+    "city": "Vannes",
+    "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+    "color": "#aeadb2",
+    "user": { "$oid": "628ef134fc13ae6efa000069" },
+    "petsAdoption": [
+      { "$oid": "628eef61fc13ae428b000252" },
+      { "$oid": "628eef61fc13ae428b00023e" },
+      { "$oid": "628eef61fc13ae428b00023e" },
+      { "$oid": "628eef61fc13ae428b000252" }
+    ],
+    "status": "Active"
+  },
+  {
+    "_id": { "$oid": "628ef0b4fc13ae3528000035" },
+    "name": "Lytensopril",
+    "logo": "http://dummyimage.com/168x100.png/dddddd/000000",
+    "state": "Bragança",
+    "city": "Vinhais",
+    "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.",
+    "color": "#4af01a",
+    "user": { "$oid": "628ef134fc13ae6efa00006a" },
+    "petsAdoption": [
+      { "$oid": "628eef61fc13ae428b000253" },
+      { "$oid": "628eef61fc13ae428b00023f" },
+      { "$oid": "628eef61fc13ae428b000253" },
+      { "$oid": "628eef61fc13ae428b000253" }
+    ],
+    "status": "Active"
+  },
+  {
+    "_id": { "$oid": "628ef0b4fc13ae3528000036" },
+    "name": "Tandem OB",
+    "logo": "http://dummyimage.com/179x100.png/ff4444/ffffff",
+    "state": "Bretagne",
+    "city": "Landivisiau",
+    "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+    "color": "#af5c39",
+    "user": { "$oid": "628ef134fc13ae6efa00006b" },
+    "petsAdoption": [
+      { "$oid": "628eef61fc13ae428b00022c" },
+      { "$oid": "628eef61fc13ae428b00022c" },
+      { "$oid": "628eef61fc13ae428b000240" },
+      { "$oid": "628eef61fc13ae428b000240" }
+    ],
+    "status": "Active"
+  },
+  {
+    "_id": { "$oid": "628ef0b4fc13ae3528000037" },
+    "name": "Black Rice Platinum Absolute Youth SPF 15",
+    "logo": "http://dummyimage.com/174x100.png/5fa2dd/ffffff",
+    "state": "Beja",
+    "city": "Cuba",
+    "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.\n\nFusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.\n\nSed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "color": "#20ec3c",
+    "user": { "$oid": "628ef134fc13ae6efa00006c" },
+    "petsAdoption": [
+      { "$oid": "628eef61fc13ae428b00022d" },
+      { "$oid": "628eef61fc13ae428b000255" },
+      { "$oid": "628eef61fc13ae428b00022d" },
+      { "$oid": "628eef61fc13ae428b000255" }
+    ],
+    "status": "Active"
+  }
+]
