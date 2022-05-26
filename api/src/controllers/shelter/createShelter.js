@@ -7,6 +7,8 @@ module.exports = async (req, res, next) => {
     try {
         const { name, state, city, description } = req.body
 
+        // const { name, logo, img, state, city, description, color, user, petsAdoption} = req.body
+
         console.log(name)
 
         const newShelter = new Shelter({ name, state, city, description })
