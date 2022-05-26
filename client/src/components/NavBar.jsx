@@ -105,7 +105,7 @@ const NavBar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color:'#515151', display: 'block' }}
                 >
-                  <LinkRouter to={"/underConstruction"} className='navButtons'>{page}</LinkRouter>
+                  <LinkRouter to={`/${page}`} className='navButtons'>{page}</LinkRouter>
                 </Button>
             ))}
           </Box>
