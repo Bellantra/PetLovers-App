@@ -1,26 +1,35 @@
-import { useEffect, useState } from 'react'
-import { Typography, Container, Divider, Grid } from '@mui/material'
-import { Carousel, CarouselSlide } from 'react-material-ui-carousel'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import {
+    CardActionArea,
+    Typography,
+    Container,
+    Divider,
+    Grid,
+} from '@mui/material'
+
+import Carousel from 'react-material-ui-carousel'
+import { getShelterById } from '../redux/features/shelter/shelterSlice'
 
 const Shelter = () => {
-    const [shelter, setShelter] = useState()
-
-    const getShelter = () => {
-        fetch('./src/utils/shelter.json')
-            .then((response) => response.json())
-            .then((data) => setShelter(data))
-    }
+    const id = '628ef0b4fc13ae3528000033'
+    const dispatch = useDispatch()
+    const { shelterDetail, statusDetail } = useSelector(
+        (state) => state.shelter
+    )
 
     useEffect(() => {
-        getShelter()
+        if (!shelterDetail.name) dispatch(getShelterById(id))
     }, [])
 
-    console.log(shelter)
-    console.log('object aaaaaaaaa')
+    console.log(shelterDetail)
 
     return (
         <div>
-            {shelter ? (
+            {statusDetail === 'success' ? (
                 <Container>
                     <Typography
                         variant="h3"
@@ -28,7 +37,7 @@ const Shelter = () => {
                         color="text.primary"
                         gutterBottom
                     >
-                        Refugio {shelter[0].name}{' '}
+                        Refugio {shelterDetail.name}{' '}
                     </Typography>
                     <Divider variant="middle"></Divider>
 
@@ -40,7 +49,7 @@ const Shelter = () => {
                         marginTop={5}
                         gutterBottom
                     >
-                        {shelter[0].description}
+                        {shelterDetail.description}
                     </Typography>
 
                     <Typography
@@ -52,7 +61,51 @@ const Shelter = () => {
                     >
                         Nuestros animales en Adopcion
                     </Typography>
-                    {/* <Grid>Carrusel de cards de animales en adopcion</Grid> */}
+                    <Grid marginBottom={25}>
+                        <Carousel>
+                            {shelterDetail.petsAdoption.map(
+                                ({ nickname, image, key }) => (
+                                    <Grid key={key} align={'center'}>
+                                        <Card
+                                            sx={{
+                                                maxWidth: 345,
+                                                height: 450,
+                                            }}
+                                        >
+                                            <CardActionArea>
+                                                <CardMedia
+                                                    component={'img'}
+                                                    height="140"
+                                                    image={image}
+                                                    alt="green iguana"
+                                                />
+                                                <CardContent>
+                                                    <Typography
+                                                        gutterBottom
+                                                        variant="h5"
+                                                        component="div"
+                                                    >
+                                                        {nickname}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                    >
+                                                        Lizards are a widespread
+                                                        group of squamate
+                                                        reptiles, with over
+                                                        6,000 species, ranging
+                                                        across all continents
+                                                        except Antarctica
+                                                    </Typography>
+                                                </CardContent>
+                                            </CardActionArea>
+                                        </Card>
+                                    </Grid>
+                                )
+                            )}
+                        </Carousel>
+                    </Grid>
                 </Container>
             ) : (
                 <div>Loading</div>
