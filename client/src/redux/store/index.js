@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import getAdoptSlice from '../features/adopt/getAdoptSlice'
+import adoptSlice from '../features/adopt/adoptSlice'
+import shelterSlice from '../features/shelter/shelterSlice'
 
 const store = configureStore({
     reducer: {
-        adopt: getAdoptSlice,
+        adopt: adoptSlice,
+        shelter: shelterSlice,
     },
 })
 
