@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import Grid from '@mui/material/Grid'
@@ -6,22 +7,19 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import AdoptCard from '../components/AdoptCard'
+import { getAllAdoptablePets } from '../redux/asyncActions/getAllAdoptablePets'
 
 const theme = createTheme()
 
 export default function Adoptions() {
-    const [pets, setPets] = useState([])
-
-    const getPets = () => {
-        fetch('./src/utils/pets.json')
-            .then((response) => response.json())
-            .then((data) => setPets(data))
-    }
+    const { adoptPets, status } = useSelector((state) => state.adopt)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        getPets()
+        if (adoptPets.length < 1) dispatch(getAllAdoptablePets())
     }, [])
 
+    console.log(adoptPets)
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -59,21 +57,25 @@ export default function Adoptions() {
                 </Box>
                 <Container sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {pets.map((pets) => (
-                            <Grid item key={pets} xs={12} sm={6} md={4}>
-                                <AdoptCard
-                                    sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                    pets={pets}
-                                    key={pets._id}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    {status === 'success' ? (
+                        <Grid container spacing={4}>
+                            {adoptPets.map((pets) => (
+                                <Grid item key={pets} xs={12} sm={6} md={4}>
+                                    <AdoptCard
+                                        sx={{
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                        }}
+                                        pets={pets}
+                                        key={pets._id}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    ) : (
+                        <h1> LOADING</h1>
+                    )}
                 </Container>
             </main>
         </ThemeProvider>
