@@ -2,6 +2,7 @@ import NavBar from './components/NavBar'
 import Home from './views/Home'
 import UnderConstruction from './components/UnderConstruction'
 import Adoptions from './views/Adoptions'
+import Shelter from './views/Shelter'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
                     path="/underConstruction"
                     element={<UnderConstruction />}
                 />
+                <Route path="/shelter" element={<Shelter />} />
             </Routes>
         </BrowserRouter>
     )
