@@ -9,7 +9,7 @@ const updateShelter = require('../controllers/shelter/updateShelter')
 router.get('/', getAllShelters)
 router.get('/:id', getById)
 router.post('/createShelter', createShelter)
-router.put('/update/:id', updateShelter)
+// router.put('/update/:id', updateShelter)
 router.delete('/')
 
 module.exports = router
