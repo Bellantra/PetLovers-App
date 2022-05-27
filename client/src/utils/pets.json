@@ -1,0 +1,826 @@
+[
+    {
+        "_id": { "$oid": "628e7121f032395bc2000205" },
+        "age": 0,
+        "nickname": "Openbill stork",
+        "city": "São Sebastião do Paraíso",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b320001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e230002a4" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395bc2000204" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395bc2000206" },
+        "age": 2,
+        "nickname": "Tropical buckeye butterfly",
+        "city": "Ngenden",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e230002a1" },
+                { "$oid": "628e6f6ef032395c0c0001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395780000203" },
+        "age": 9,
+        "nickname": "Cat, tiger",
+        "city": "Kauswagan",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef03239592e0001f7" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b13000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395780000204" },
+        "age": 12,
+        "nickname": "Vulture, bengal",
+        "city": "Rajhradice",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323957800001f7" },
+                { "$oid": "628e6f6ef0323958d00001f8" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f03239592e000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323958d0000203" },
+        "age": 3,
+        "nickname": "Blue-footed booby",
+        "city": "La Jagua de Ibirico",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395c0c0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef03239592e0001fb" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323958d0000204" },
+        "age": 2,
+        "nickname": "Squirrel, eastern fox",
+        "city": "Matur",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323958ff0001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395c0c0001f9" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7121f032395b13000203" },
+        "age": 2,
+        "nickname": "Zorro, common",
+        "city": "Zheshan",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323957800001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395dce0001fa" },
+                { "$oid": "628e6f6ef032395c0c0001f9" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395910000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b13000204" },
+        "age": 0,
+        "nickname": "Bat, little brown",
+        "city": "Pavlivka",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f03239592e0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e230002a1" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f03239592e000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b67000203" },
+        "age": 9,
+        "nickname": "Stork, white-necked",
+        "city": "Dahu Satu",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323958ff0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef03239592e0001f9" },
+                { "$oid": "628e6f6ef032395b670001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b67000204" },
+        "age": 5,
+        "nickname": "Crow, house",
+        "city": "Karangharjo",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323959100001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395dce0001fb" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b13000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395910000203" },
+        "age": 11,
+        "nickname": "Gull, silver",
+        "city": "Tāndo Mittha Khān",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e230002aa" },
+                { "$oid": "628e6f6ef032395b320001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395780000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395910000204" },
+        "age": 9,
+        "nickname": "Common wombat",
+        "city": "Chortkiv",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b320001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395b320001fa" },
+                { "$oid": "628e6f6ef03239592e0001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395ac0000203" },
+        "age": 10,
+        "nickname": "Deer, roe",
+        "city": "Yantian",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323959100001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395dce0001f9" },
+                { "$oid": "628e6f6ef032395b260001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395ac0000204" },
+        "age": 10,
+        "nickname": "African red-eyed bulbul",
+        "city": "Long Xuyên",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395ac00001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef03239592e0001f9" },
+                { "$oid": "628e6f6ef032395c630001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395d82000203" },
+        "age": 5,
+        "nickname": "Phascogale, red-tailed",
+        "city": "Mashizhai",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395e230002af" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323957db0001fb" },
+                { "$oid": "628e6f6ef032395dce0001f9" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b67000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395d82000204" },
+        "age": 12,
+        "nickname": "Golden jackal",
+        "city": "Ust’-Omchug",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323957db0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e2300029e" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f03239592e000203" },
+        "age": 8,
+        "nickname": "Javanese cormorant",
+        "city": "Passo Fundo",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323957db0001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef0323957db0001fb" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f03239592e000204" },
+        "age": 9,
+        "nickname": "Mara",
+        "city": "Cork",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395c630001f9" },
+                { "$oid": "628e6f6ef03239587b0001f9" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b13000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f03239587b000203" },
+        "age": 7,
+        "nickname": "Brush-tailed rat kangaroo",
+        "city": "Antabamba",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b180001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395d820001fa" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395910000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f03239587b000204" },
+        "age": 10,
+        "nickname": "Rattlesnake, dusky",
+        "city": "Beauvais",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395b320001f7" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b18000202" },
+        "age": 6,
+        "nickname": "Lion, galapagos sea",
+        "city": "Bontoc",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323958ff0001f8" },
+                { "$oid": "628e6f6ef0323958d00001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395bc2000204" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b18000203" },
+        "age": 5,
+        "nickname": "Malay squirrel (unidentified)",
+        "city": "Mawu",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395ac00001fa" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e5f000202" },
+        "age": 11,
+        "nickname": "Arctic tern",
+        "city": "Clermont-Ferrand",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323957800001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e5f0001fb" },
+                { "$oid": "628e6f6ef032395bc20001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e5f000203" },
+        "age": 3,
+        "nickname": "Possum, ring-tailed",
+        "city": "Barurao",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395e230002b3" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef0323957800001fb" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395b67000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323957db000202" },
+        "age": 4,
+        "nickname": "Plains zebra",
+        "city": "Hamburg Winterhude",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e2300029b" },
+                { "$oid": "628e6f6ef032395d820001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323957db000203" },
+        "age": 12,
+        "nickname": "Racer snake",
+        "city": "Praimarada",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395e230002af" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395ac00001f7" },
+                { "$oid": "628e6f6ef03239587b0001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395d82000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395c0c000202" },
+        "age": 11,
+        "nickname": "Dog, bush",
+        "city": "Maple Creek",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e2300029e" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395d82000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395c0c000203" },
+        "age": 9,
+        "nickname": "White-tailed deer",
+        "city": "Basak",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e5f0001fb" },
+                { "$oid": "628e6f6ef0323959100001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395780000202" }
+    },
+    {
+        "_id": { "$oid": "628e7121f032395b32000202" },
+        "age": 11,
+        "nickname": "Red lava crab",
+        "city": "Sam Khok",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395c0c0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e23000297" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b32000203" },
+        "age": 11,
+        "nickname": "Spotted hyena",
+        "city": "Sudoměřice",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395d820001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef0323958d00001f9" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b13000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395dce000202" },
+        "age": 0,
+        "nickname": "Black-footed ferret",
+        "city": "Färgelanda",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323957db0001fa" },
+                { "$oid": "628e6f6ef032395b670001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395780000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395dce000203" },
+        "age": 3,
+        "nickname": "Crab, sally lightfoot",
+        "city": "Amsterdam Noord west",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b130001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395ac00001f8" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b26000202" },
+        "age": 6,
+        "nickname": "Creeper, black-tailed tree",
+        "city": "Legok",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323957db0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e23000299" },
+                { "$oid": "628e6f6ef032395e230002a5" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395b26000203" },
+        "age": 11,
+        "nickname": "Waxbill, black-cheeked",
+        "city": "Valencia",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f03239587b0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323957800001f9" },
+                { "$oid": "628e6f6ef0323958d00001f8" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b67000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323958ff000202" },
+        "age": 5,
+        "nickname": "Lemur, grey mouse",
+        "city": "Stockholm",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395b670001f8" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f0323958ff000203" },
+        "age": 11,
+        "nickname": "Wallaby, whip-tailed",
+        "city": "Zhengji",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323958ff0001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395b180001fa" },
+                { "$oid": "628e6f6ef032395c630001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395c63000202" },
+        "age": 8,
+        "nickname": "Goldeneye, common",
+        "city": "Samadua",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b180001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395b130001fa" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395d82000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395c63000203" },
+        "age": 10,
+        "nickname": "Brolga crane",
+        "city": "Skorogoszcz",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e23000299" },
+                { "$oid": "628e6f6ef032395ac00001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002cf" },
+        "age": 1,
+        "nickname": "Kingfisher, pied",
+        "city": "Na Chueak",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323958d00001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395ac00001f9" },
+                { "$oid": "628e6f6ef032395e2300029e" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b67000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d0" },
+        "age": 5,
+        "nickname": "Bat, little brown",
+        "city": "Dazaifu",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395c630001fa" },
+                { "$oid": "628e6f6ef032395b130001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395780000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d1" },
+        "age": 9,
+        "nickname": "Cape raven",
+        "city": "Viljoenskroon",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395ac00001fa" },
+                { "$oid": "628e6f6ef032395bc20001fb" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/dddddd/000000",
+        "shelter": { "$oid": "628e70a0f032395d82000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d2" },
+        "age": 11,
+        "nickname": "Common raccoon",
+        "city": "Hyesan-dong",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b670001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395b260001fa" },
+                { "$oid": "628e6f6ef032395b320001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d3" },
+        "age": 11,
+        "nickname": "Python, carpet",
+        "city": "Dearborn",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395d820001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323957800001f9" },
+                { "$oid": "628e6f6ef032395c0c0001f8" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f032395b13000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d4" },
+        "age": 6,
+        "nickname": "Bat, asian false vampire",
+        "city": "As Sukhnah",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395b260001f9" },
+                { "$oid": "628e6f6ef032395e5f0001fa" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/5fa2dd/ffffff",
+        "shelter": { "$oid": "628e70a0f03239592e000202" }
+    },
+    {
+        "_id": { "$oid": "628e7122f032395e230002d5" },
+        "age": 1,
+        "nickname": "Thrasher, curve-billed",
+        "city": "Amiens",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395bc20001fa" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/cc0000/ffffff",
+        "shelter": { "$oid": "628e70a0f03239587b000202" }
+    },
+    {
+        "_id": { "$oid": "628e7123f032395e230002d6" },
+        "age": 1,
+        "nickname": "Cobra, cape",
+        "city": "Otaslavice",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395c0c0001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395b180001fb" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f0323958d0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7123f032395e230002d7" },
+        "age": 0,
+        "nickname": "Common eland",
+        "city": "Tuchów",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f0323958ff0001fd" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef032395e230002a0" },
+                { "$oid": "628e6f6ef0323958d00001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395bc2000204" }
+    },
+    {
+        "_id": { "$oid": "628e7123f032395e230002d8" },
+        "age": 2,
+        "nickname": "Vine snake (unidentified)",
+        "city": "Timrå",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395e230002a5" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395910000202" }
+    },
+    {
+        "_id": { "$oid": "628e7123f032395e230002d9" },
+        "age": 6,
+        "nickname": "European stork",
+        "city": "Magapit",
+        "adopt": {
+            "is_adopted": true,
+            "adopt_by": { "$oid": "628e7015f032395b320001fc" }
+        },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [
+                { "$oid": "628e6f6ef0323958ff0001f8" },
+                { "$oid": "628e6f6ef0323957800001f7" }
+            ]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395ac0000202" }
+    },
+    {
+        "_id": { "$oid": "628e7123f032395e230002da" },
+        "age": 5,
+        "nickname": "Lion, african",
+        "city": "Nové Sedlo",
+        "adopt": { "is_adopted": false },
+        "race": {
+            "race": { "$oid": "628e6fcbf032395bc20001fd" },
+            "subrace": [{ "$oid": "628e6f6ef032395c0c0001f9" }]
+        },
+        "image": "http://dummyimage.com/250x250.png/ff4444/ffffff",
+        "shelter": { "$oid": "628e70a0f032395780000202" }
+    }
+]
