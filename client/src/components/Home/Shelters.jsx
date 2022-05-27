@@ -1,30 +1,42 @@
-import { Grid } from '@mui/material'
+import {
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    // Card,
+    // CardActionArea,
+    // CardContent,
+    // CardMedia,
+    Grid,
+} from '@mui/material'
 import Typography from '@mui/material/node/Typography'
 import { Box } from '@mui/system'
 import { createTheme } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
 import { useEffect } from 'react'
-import ShelterCard from '../ShelterCard'
+// import ShelterCard from '../ShelterCard'
 
 const theme = createTheme({
     palette: {
         text: {
-            primary: '#FFFFFF',
+            primary: '#E9D5CA',
         },
     },
 })
 
 const Shelters = () => {
     const dispatch = useDispatch()
-    const { shelters, status } = useSelector((state) => state.shelter)
+    let { shelters, status } = useSelector((state) => state.shelter)
 
     useEffect(() => {
         if (status !== 'success') dispatch(getAllShelters())
     }, [])
 
+    shelters = shelters.slice(0, 4)
+    console.log(shelters)
     return (
-        <Grid bgcolor={'#660000'}>
+        <Grid bgcolor={'#293462'}>
             <Box paddingY={5}>
                 <Typography
                     theme={theme}
@@ -32,27 +44,63 @@ const Shelters = () => {
                     fontWeight={800}
                     color={'text.primary'}
                     align="center"
+                    marginY={10}
                 >
-                    Nuestros Refugios
+                    Our Shelters
                 </Typography>
-                {status === 'success' ? (
-                    <Grid container spacing={2} align={'center'}>
-                        {shelters.map((shelter) => (
-                            <Grid item key={shelter._id} xs={50} sm={6} md={2}>
-                                <ShelterCard
-                                    sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                    shelter={shelter}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
-                ) : (
-                    <div>Loading</div>
-                )}
+
+                <Grid
+                    container
+                    spacing={2}
+                    gap={3}
+                    justifyContent={'space-around'}
+                >
+                    {status === 'success' ? (
+                        shelters.map((shelter, index) => (
+                            // <Grid
+                            //     container
+                            //     key={index}
+                            //     bgcolor={'#E9D5CA'}
+                            //     maxWidth={250}
+                            //     maxHeight={250}
+                            // >
+                            //     <Grid item minWidth={150}>
+                            //         <img alt="Example Alt" src={shelter.logo} />
+                            //     </Grid>
+
+                            //     <Grid item>
+                            //         <Typography variant={'h6'}>
+                            //             {shelter.name}
+                            //         </Typography>
+                            //     </Grid>
+                            // </Grid>
+                            <Card
+                                sx={{ maxWidth: 345 }}
+                                key={index}
+                                align="center"
+                            >
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        image={shelter.logo}
+                                        alt="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="div"
+                                        >
+                                            {shelter.name}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        ))
+                    ) : (
+                        <div>Loading</div>
+                    )}
+                </Grid>
             </Box>
         </Grid>
     )
