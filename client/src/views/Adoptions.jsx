@@ -89,7 +89,7 @@ export default function Adoptions() {
                     {status === 'success' ? (
                         <Grid container spacing={4}>
                             {adoptPets.map((pets) => (
-                                <Grid item key={pets} xs={12} sm={6} md={4}>
+                                <Grid item key={pets._id} xs={12} sm={6} md={4}>
                                     <AdoptCard
                                         sx={{
                                             height: '100%',
@@ -97,7 +97,6 @@ export default function Adoptions() {
                                             flexDirection: 'column',
                                         }}
                                         pets={pets}
-                                        key={pets._id}
                                     />
                                 </Grid>
                             ))}

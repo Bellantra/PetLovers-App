@@ -15,7 +15,7 @@ import Carousel from 'react-material-ui-carousel'
 import { getShelterById } from '../redux/features/shelter/shelterSlice'
 
 const Shelter = () => {
-    const id = '628ef0b4fc13ae3528000033'
+    const id = '628ef0b4fc13ae3528000033' // harcodeado por ahora!!!
     const dispatch = useDispatch()
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
