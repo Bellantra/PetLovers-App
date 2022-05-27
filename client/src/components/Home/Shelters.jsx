@@ -57,23 +57,6 @@ const Shelters = () => {
                 >
                     {status === 'success' ? (
                         shelters.map((shelter, index) => (
-                            // <Grid
-                            //     container
-                            //     key={index}
-                            //     bgcolor={'#E9D5CA'}
-                            //     maxWidth={250}
-                            //     maxHeight={250}
-                            // >
-                            //     <Grid item minWidth={150}>
-                            //         <img alt="Example Alt" src={shelter.logo} />
-                            //     </Grid>
-
-                            //     <Grid item>
-                            //         <Typography variant={'h6'}>
-                            //             {shelter.name}
-                            //         </Typography>
-                            //     </Grid>
-                            // </Grid>
                             <Card
                                 sx={{ maxWidth: 345 }}
                                 key={index}
