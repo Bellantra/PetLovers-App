@@ -15,6 +15,7 @@ import { createTheme } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
 import { useEffect } from 'react'
+import { Link as LinkRouter } from 'react-router-dom'
 // import ShelterCard from '../ShelterCard'
 
 const theme = createTheme({
@@ -57,28 +58,47 @@ const Shelters = () => {
                 >
                     {status === 'success' ? (
                         shelters.map((shelter, index) => (
-                            <Card
-                                sx={{ maxWidth: 345 }}
+                            // <Grid
+                            //     container
+                            //     key={index}
+                            //     bgcolor={'#E9D5CA'}
+                            //     maxWidth={250}
+                            //     maxHeight={250}
+                            // >
+                            //     <Grid item minWidth={150}>
+                            //         <img alt="Example Alt" src={shelter.logo} />
+                            //     </Grid>
+
+                            //     <Grid item>
+                            //         <Typography variant={'h6'}>
+                            //             {shelter.name}
+                            //         </Typography>
+                            //     </Grid>
+                            // </Grid>
+                            <LinkRouter
+                                to={`/shelter/${shelter._id}`}
                                 key={index}
-                                align="center"
                             >
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        image={shelter.logo}
-                                        alt="green iguana"
-                                    />
-                                    <CardContent>
-                                        <Typography
-                                            gutterBottom
-                                            variant="h5"
-                                            component="div"
-                                        >
-                                            {shelter.name}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
+                                <Card sx={{ maxWidth: 250 }} align="center">
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            image={shelter.logo}
+                                            alt="green iguana"
+                                            height={'200'}
+                                        />
+                                        <CardContent>
+                                            <Typography
+                                                gutterBottom
+                                                variant="h5"
+                                                component="div"
+                                            >
+                                                {shelter.name}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </LinkRouter>
                         ))
                     ) : (
                         <div>Loading</div>
