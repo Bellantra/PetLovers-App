@@ -5,6 +5,7 @@ import { createTheme } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
 import { useEffect } from 'react'
+import ShelterCard from '../ShelterCard'
 
 const theme = createTheme({
     palette: {
@@ -16,13 +17,11 @@ const theme = createTheme({
 
 const Shelters = () => {
     const dispatch = useDispatch()
-    const { shelters } = useSelector((state) => state.shelter)
+    const { shelters, status } = useSelector((state) => state.shelter)
 
     useEffect(() => {
-        if (!shelters) dispatch(getAllShelters())
+        if (status !== 'success') dispatch(getAllShelters())
     }, [])
-
-    console.log(shelters)
 
     return (
         <Grid bgcolor={'#660000'}>
@@ -36,7 +35,24 @@ const Shelters = () => {
                 >
                     Nuestros Refugios
                 </Typography>
-                {shelters ? <Grid></Grid> : <div>Loading</div>}
+                {status === 'success' ? (
+                    <Grid container spacing={2} align={'center'}>
+                        {shelters.map((shelter) => (
+                            <Grid item key={shelter._id} xs={50} sm={6} md={2}>
+                                <ShelterCard
+                                    sx={{
+                                        height: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
+                                    shelter={shelter}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                ) : (
+                    <div>Loading</div>
+                )}
             </Box>
         </Grid>
     )
