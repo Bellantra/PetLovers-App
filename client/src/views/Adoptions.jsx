@@ -57,15 +57,15 @@ export default function Adoptions() {
                     {/* End hero unit */}
                     {status === 'success' ? (
                         <Grid container spacing={4}>
-                            {adoptPets.map((pets) => (
-                                <Grid item key={pets._id} xs={12} sm={6} md={4}>
+                            {adoptPets.map((pet) => (
+                                <Grid item key={pet._id} xs={12} sm={6} md={4}>
                                     <AdoptCard
                                         sx={{
                                             height: '100%',
                                             display: 'flex',
                                             flexDirection: 'column',
                                         }}
-                                        pets={pets}
+                                        pet={pet}
                                     />
                                 </Grid>
                             ))}

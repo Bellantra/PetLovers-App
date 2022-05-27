@@ -62,8 +62,8 @@ const Shelter = () => {
                     <Grid marginBottom={25}>
                         <Carousel>
                             {shelterDetail.petsAdoption.map(
-                                ({ nickname, image, key }) => (
-                                    <Grid key={key} align={'center'}>
+                                ({ nickname, image }, index) => (
+                                    <Grid key={index} align={'center'}>
                                         <Card
                                             sx={{
                                                 maxWidth: 345,

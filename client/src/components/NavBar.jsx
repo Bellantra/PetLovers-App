@@ -8,14 +8,13 @@ import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
 import { Link as LinkRouter } from 'react-router-dom'
 
-const pages = ['Shelters', 'Adoptions', 'About Us']
+const pages = ['Shelter', 'Adoptions', 'About Us']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const NavBar = () => {
@@ -36,6 +35,8 @@ const NavBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null)
     }
+
+    const handleOpenShelters = () => {}
 
     return (
         <AppBar position="static" className="navContainer">
@@ -120,36 +121,55 @@ const NavBar = () => {
                             display: { xs: 'none', md: 'flex' },
                         }}
                     >
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{
-                                    my: 2,
-                                    color: '#515151',
-                                    display: 'block',
-                                }}
+                        <Button
+                            onClick={handleOpenShelters}
+                            sx={{
+                                my: 2,
+                                color: '#515151',
+                                display: 'block',
+                            }}
+                        >
+                            Shelters
+                        </Button>
+
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                my: 2,
+                                color: '#515151',
+                                display: 'block',
+                            }}
+                        >
+                            <LinkRouter to={`Adoptions`} className="navButtons">
+                                Adoptions
+                            </LinkRouter>
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{
+                                my: 2,
+                                color: '#515151',
+                                display: 'block',
+                            }}
+                        >
+                            <LinkRouter
+                                to={`/underConstruction`}
+                                className="navButtons"
                             >
-                                <LinkRouter
-                                    to={`/${page}`}
-                                    className="navButtons"
-                                >
-                                    {page}
-                                </LinkRouter>
-                            </Button>
-                        ))}
+                                About us
+                            </LinkRouter>
+                        </Button>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <Button
-                                onClick={handleOpenUserMenu}
-                                variant="contained"
-                                className="buttonLogIn"
-                            >
-                                Log In
-                            </Button>
-                        </Tooltip>
+                        <Button
+                            onClick={handleOpenUserMenu}
+                            variant="contained"
+                            className="buttonLogIn"
+                        >
+                            Log In
+                        </Button>
+
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
