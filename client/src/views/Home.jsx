@@ -1,13 +1,15 @@
 /* import React from 'react'; */
-import AboutUs from '../components/Home/AboutUs';
+import AboutUs from '../components/Home/AboutUs'
 import Hero from '../components/Home/Hero'
+import Shelters from '../components/Home/Shelters'
 
 const Home = () => {
-    return(
+    return (
         <>
             <Hero />
-            <AboutUs/>
+            <AboutUs />
+            <Shelters />
         </>
     )
 }
-export default Home;
+export default Home

@@ -24,7 +24,7 @@ export default function AdoptCard({ pet }) {
                         {nickname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        `age: {age} years`
+                        age: {age} years
                     </Typography>
                 </CardContent>
                 <CardActions>

@@ -66,7 +66,6 @@ export default function Adoptions() {
                                             flexDirection: 'column',
                                         }}
                                         pet={pet}
-                                        key={pet._id}
                                     />
                                 </Grid>
                             ))}

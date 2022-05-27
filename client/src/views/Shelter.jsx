@@ -15,7 +15,7 @@ import Carousel from 'react-material-ui-carousel'
 import { getShelterById } from '../redux/features/shelter/shelterSlice'
 
 const Shelter = () => {
-    const id = '628ef0b4fc13ae3528000033'
+    const id = '628ef0b4fc13ae3528000033' // harcodeado por ahora!!!
     const dispatch = useDispatch()
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
@@ -24,8 +24,6 @@ const Shelter = () => {
     useEffect(() => {
         if (!shelterDetail.name) dispatch(getShelterById(id))
     }, [])
-
-    console.log(shelterDetail)
 
     return (
         <div>
@@ -64,8 +62,8 @@ const Shelter = () => {
                     <Grid marginBottom={25}>
                         <Carousel>
                             {shelterDetail.petsAdoption.map(
-                                ({ nickname, image, key }) => (
-                                    <Grid key={key} align={'center'}>
+                                ({ nickname, image }, index) => (
+                                    <Grid key={index} align={'center'}>
                                         <Card
                                             sx={{
                                                 maxWidth: 345,
