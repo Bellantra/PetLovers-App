@@ -85,7 +85,7 @@ const Shelters = () => {
                                             component="img"
                                             image={shelter.logo}
                                             alt="green iguana"
-                                            height="140"
+                                            height={'200'}
                                         />
                                         <CardContent>
                                             <Typography
