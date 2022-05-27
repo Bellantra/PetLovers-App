@@ -7,6 +7,13 @@ const store = configureStore({
         adopt: adoptSlice,
         shelter: shelterSlice,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                // Ignore these field paths in all actions
+                ignoredActionPaths: ['payload'],
+            },
+        }),
 })
 
 export default store
