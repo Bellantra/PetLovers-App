@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -12,10 +13,13 @@ import {
 } from '@mui/material'
 
 import Carousel from 'react-material-ui-carousel'
-import { getShelterById } from '../redux/features/shelter/shelterSlice'
+import {
+    getShelterById,
+    cleanDetail,
+} from '../redux/features/shelter/shelterSlice'
 
 const Shelter = () => {
-    const id = '628ef0b4fc13ae3528000033' // harcodeado por ahora!!!
+    const { id } = useParams()
     const dispatch = useDispatch()
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
@@ -23,8 +27,8 @@ const Shelter = () => {
 
     useEffect(() => {
         if (!shelterDetail.name) dispatch(getShelterById(id))
+        return () => dispatch(cleanDetail())
     }, [])
-
     return (
         <div>
             {statusDetail === 'success' ? (

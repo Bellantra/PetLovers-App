@@ -3,6 +3,10 @@ import {
     CardActionArea,
     CardContent,
     CardMedia,
+    // Card,
+    // CardActionArea,
+    // CardContent,
+    // CardMedia,
     Grid,
 } from '@mui/material'
 import Typography from '@mui/material/node/Typography'
@@ -11,6 +15,7 @@ import { createTheme } from '@mui/material/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
 import { useEffect } from 'react'
+// import ShelterCard from '../ShelterCard'
 
 const theme = createTheme({
     palette: {
@@ -20,39 +25,16 @@ const theme = createTheme({
     },
 })
 
-const shelters1 = [
-    {
-        name: 'Patitas de Glew',
-        logo: 'https://res.cloudinary.com/petlovers1/image/upload/v1653649543/Shelters/Logos/logo4.png',
-    },
-    {
-        name: 'Arca de Noe',
-        logo: 'https://res.cloudinary.com/petlovers1/image/upload/v1653649499/Shelters/Logos/logo3.png',
-    },
-    {
-        name: 'Los Bandidos de Lomas',
-        logo: 'https://res.cloudinary.com/petlovers1/image/upload/v1653649455/Shelters/Logos/logo2.png',
-    },
-    {
-        name: 'Refugio Las renatas',
-        logo: 'https://res.cloudinary.com/petlovers1/image/upload/v1653649434/Shelters/Logos/logo1.png',
-    },
-    {
-        name: 'Los gatitos de Nora',
-        logo: 'https://res.cloudinary.com/petlovers1/image/upload/v1653649594/Shelters/Logos/logo6.png',
-    },
-]
-
 const Shelters = () => {
     const dispatch = useDispatch()
-    const { shelters } = useSelector((state) => state.shelter)
+    let { shelters, status } = useSelector((state) => state.shelter)
 
     useEffect(() => {
-        if (!shelters) dispatch(getAllShelters())
+        if (status !== 'success') dispatch(getAllShelters())
     }, [])
 
+    shelters = shelters.slice(0, 4)
     console.log(shelters)
-
     return (
         <Grid bgcolor={'#293462'}>
             <Box paddingY={5}>
@@ -66,14 +48,15 @@ const Shelters = () => {
                 >
                     Our Shelters
                 </Typography>
+
                 <Grid
                     container
                     spacing={2}
                     gap={3}
                     justifyContent={'space-around'}
                 >
-                    {shelters1 ? (
-                        shelters1.map((shelter, index) => (
+                    {status === 'success' ? (
+                        shelters.map((shelter, index) => (
                             // <Grid
                             //     container
                             //     key={index}
@@ -95,12 +78,10 @@ const Shelters = () => {
                                 sx={{ maxWidth: 345 }}
                                 key={index}
                                 align="center"
-                                item
                             >
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
-                                        maxWidth={250}
                                         image={shelter.logo}
                                         alt="green iguana"
                                     />

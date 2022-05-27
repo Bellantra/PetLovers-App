@@ -19,7 +19,12 @@ const initialState = {
 const shelterSlice = createSlice({
     name: 'shelter', // name of the state
     initialState,
-    reducers: {},
+    reducers: {
+        cleanDetail: (state) => {
+            state.shelterDetail = {}
+            state.statusDetail = 'loading'
+        },
+    },
     extraReducers: {
         ...extraGetAllShelters,
         ...extraGetShelterById,
@@ -27,4 +32,5 @@ const shelterSlice = createSlice({
 })
 
 export { getAllShelters, getShelterById }
+export const { cleanDetail } = shelterSlice.actions
 export default shelterSlice.reducer
