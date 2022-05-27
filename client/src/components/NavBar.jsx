@@ -99,15 +99,24 @@ const NavBar = () => {
             Pet Lovers
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color:'#515151', display: 'block' }}
                 >
-                  <LinkRouter to={`/${page}`} className='navButtons'>{page}</LinkRouter>
+                  <LinkRouter to={"/underConstruction"} className='navButtons'>Shelters</LinkRouter>
                 </Button>
-            ))}
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color:'#515151', display: 'block' }}
+                >
+                  <LinkRouter to={"/underConstruction"} className='navButtons'>Adoptions</LinkRouter>
+                </Button>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color:'#515151', display: 'block' }}
+                >
+                  <LinkRouter to={"/underConstruction"} className='navButtons'>About Us</LinkRouter>
+                </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
