@@ -13,7 +13,7 @@ export default function ShelterCard({ shelter }) {
 
     return (
         <div>
-            <Card sx={{ maxWidth: 170 }}>
+            <Card>
                 <CardMedia
                     component="img"
                     alt="Imagen de un animal"
