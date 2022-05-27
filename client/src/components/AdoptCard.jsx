@@ -5,16 +5,17 @@ import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 
-export default function AdoptCard(props) {
+// eslint-disable-next-line react/prop-types
+export default function AdoptCard({ pet }) {
     // eslint-disable-next-line react/prop-types
-    const { image, nickname, age } = props
+    const { image, nickname, age } = pet
 
     return (
         <div>
-            <Card sx={{ maxWidth: 375 }}>
+            <Card sx={{ maxWidth: 250 }}>
                 <CardMedia
                     component="img"
-                    alt={image}
+                    alt="Imagen de un animal"
                     height="140"
                     image={image}
                 />
