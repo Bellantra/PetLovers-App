@@ -25,8 +25,6 @@ const Shelter = () => {
         if (!shelterDetail.name) dispatch(getShelterById(id))
     }, [])
 
-    console.log(shelterDetail)
-
     return (
         <div>
             {statusDetail === 'success' ? (
