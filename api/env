@@ -1,0 +1,3 @@
+DB_URL=mongodb+srv://petlovers:Mipassword123!@petlovers.sqvps.mongodb.net/PetLovers?retryWrites=true&w=majority
+
+PORT=4001
