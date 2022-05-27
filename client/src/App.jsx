@@ -17,7 +17,7 @@ const App = () => {
                     path="/underConstruction"
                     element={<UnderConstruction />}
                 />
-                <Route path="/shelter/:id" element={<Shelter />} />
+                <Route path="/shelter" element={<Shelter />} />
             </Routes>
         </BrowserRouter>
     )
