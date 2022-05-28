@@ -53,6 +53,11 @@ const petSchema = new Schema({
         ref: 'Shelter',
         required: true,
     },
+    description: {
+        type: String,
+        required: true,
+        default: 'It is a dog',
+    },
 })
 
 module.exports = mongoose.model('Pet', petSchema)
