@@ -3,13 +3,12 @@ const router = express.Router()
 
 const createShelter = require('../controllers/shelter/createShelter')
 const getAllShelters = require('../controllers/shelter/getAllShelters')
-const getById = require('../controllers/shelter/getById')
+const getShelterById = require('../controllers/shelter/getShelterById')
 const updateShelter = require('../controllers/shelter/updateShelter')
 
 router.get('/', getAllShelters)
-router.get('/:id', getById)
+router.get('/:id', getShelterById)
 router.post('/createShelter', createShelter)
-//router.put('/update/:id', updateShelter)
-router.delete('/')
+router.put('/update/:id', updateShelter) //Con esta ruta tambien se cambia el status a usuario no activo
 
 module.exports = router

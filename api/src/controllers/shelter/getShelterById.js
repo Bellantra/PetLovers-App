@@ -5,8 +5,8 @@ module.exports = async (req, res, next) => {
 
     try {
         const shelter = await Shelter.findOne({ _id: id, status: 'Active' })
-            .populate('user') //establecer que datos se popula
-            .populate('petsAdoption') //establecer que datos se popula
+        // .populate('user') //establecer que datos se popula
+        // .populate('petsAdoption') //establecer que datos se popula
 
         if (shelter) {
             res.json(shelter)
