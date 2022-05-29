@@ -53,6 +53,31 @@ const petSchema = new Schema({
         ref: 'Shelter',
         required: true,
     },
+    description: {
+        type: String,
+        required: true,
+        default: 'It is a animal',
+    },
+    genre: {
+        type: String,
+        enum: ['Male', 'Female', 'Undefined'],
+        default: 'Undefined',
+    },
+    color: {
+        type: [String],
+        required: true,
+        default: 'Undefined',
+    },
+    vaccinated: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    status: {
+        type: String,
+        enum: ['Active', 'Deleted'],
+        default: 'Active',
+    },
 })
 
 module.exports = mongoose.model('Pet', petSchema)
