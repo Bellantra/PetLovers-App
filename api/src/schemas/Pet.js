@@ -60,7 +60,7 @@ const petSchema = new Schema({
     },
     genre: {
         type: String,
-        required: true,
+        enum: ['Male', 'Female', 'Undefined'],
         default: 'Undefined',
     },
     color: {
@@ -72,6 +72,11 @@ const petSchema = new Schema({
         type: Boolean,
         required: true,
         default: false,
+    },
+    status: {
+        type: String,
+        enum: ['Active', 'Deleted'],
+        default: 'Active',
     },
 })
 
