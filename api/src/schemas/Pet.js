@@ -56,7 +56,22 @@ const petSchema = new Schema({
     description: {
         type: String,
         required: true,
-        default: 'It is a dog',
+        default: 'It is a animal',
+    },
+    genre: {
+        type: String,
+        required: true,
+        default: 'Undefined',
+    },
+    color: {
+        type: [String],
+        required: true,
+        default: 'Undefined',
+    },
+    vaccinated: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
 })
 
