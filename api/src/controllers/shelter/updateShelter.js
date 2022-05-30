@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
     const newData = req.body
     try {
         const shelterUpdate = await Shelter.findOneAndUpdate(
-            { _id: id },
+            { _id: id, status: 'Active' },
             newData,
             {
                 new: true,
