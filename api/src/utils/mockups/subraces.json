@@ -1,0 +1,581 @@
+[{
+  "_id": {
+    "$oid": "628eef65f032395bc20002c1"
+  },
+  "race": "Affenpinscher"
+},{
+  "_id": {
+    "$oid": "628eef65f032395bc20002c2"
+  },
+  "race": "Afghan hound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395bc20002c3"
+  },
+  "race": "Airedale terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395bc20002c4"
+  },
+  "race": "Akita"
+},{
+  "_id": {
+    "$oid": "628eef65f032395bc20002c5"
+  },
+  "race": "Alaskan Malamute"
+},{
+  "_id": {
+    "$oid": "628eef65f032395780000246"
+  },
+  "race": "American Staffordshire terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395780000247"
+  },
+  "race": "American water spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f032395780000248"
+  },
+  "race": "Australian cattle dog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395780000249"
+  },
+  "race": "Australian shepherd"
+},{
+  "_id": {
+    "$oid": "628eef65f03239578000024a"
+  },
+  "race": "Australian terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958d0000246"
+  },
+  "race": "Basenji"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958d0000247"
+  },
+  "race": "Basset hound"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958d0000248"
+  },
+  "race": "Beagle"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958d0000249"
+  },
+  "race": "Bearded collie"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958d000024a"
+  },
+  "race": "Bedlington terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b13000246"
+  },
+  "race": "Bernese mountain dog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b13000247"
+  },
+  "race": "Bichon frise"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b13000248"
+  },
+  "race": "Black and tan coonhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b13000249"
+  },
+  "race": "Bloodhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b1300024a"
+  },
+  "race": "Border collie"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b67000246"
+  },
+  "race": "Border terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b67000247"
+  },
+  "race": "Borzoi"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b67000248"
+  },
+  "race": "Boston terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b67000249"
+  },
+  "race": "Bouvier des Flandres"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b6700024a"
+  },
+  "race": "Boxer"
+},{
+  "_id": {
+    "$oid": "628eef65f032395910000246"
+  },
+  "race": "Briard"
+},{
+  "_id": {
+    "$oid": "628eef65f032395910000247"
+  },
+  "race": "Brittany"
+},{
+  "_id": {
+    "$oid": "628eef65f032395910000248"
+  },
+  "race": "Brussels griffon"
+},{
+  "_id": {
+    "$oid": "628eef65f032395910000249"
+  },
+  "race": "Bull terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f03239591000024a"
+  },
+  "race": "Bulldog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395ac0000246"
+  },
+  "race": "Bullmastiff"
+},{
+  "_id": {
+    "$oid": "628eef65f032395ac0000247"
+  },
+  "race": "Cairn terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395ac0000248"
+  },
+  "race": "Canaan dog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395ac0000249"
+  },
+  "race": "Chesapeake Bay retriever"
+},{
+  "_id": {
+    "$oid": "628eef65f032395ac000024a"
+  },
+  "race": "Chihuahua"
+},{
+  "_id": {
+    "$oid": "628eef65f032395d82000246"
+  },
+  "race": "Chinese crested"
+},{
+  "_id": {
+    "$oid": "628eef65f032395d82000247"
+  },
+  "race": "Chinese shar-pei"
+},{
+  "_id": {
+    "$oid": "628eef65f032395d82000248"
+  },
+  "race": "Chow chow"
+},{
+  "_id": {
+    "$oid": "628eef65f032395d82000249"
+  },
+  "race": "Clumber spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f032395d8200024a"
+  },
+  "race": "Cocker spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f03239592e000246"
+  },
+  "race": "Collie"
+},{
+  "_id": {
+    "$oid": "628eef65f03239592e000247"
+  },
+  "race": "Curly-coated retriever"
+},{
+  "_id": {
+    "$oid": "628eef65f03239592e000248"
+  },
+  "race": "Dachshund"
+},{
+  "_id": {
+    "$oid": "628eef65f03239592e000249"
+  },
+  "race": "Dalmatian"
+},{
+  "_id": {
+    "$oid": "628eef65f03239592e00024a"
+  },
+  "race": "Doberman pinscher"
+},{
+  "_id": {
+    "$oid": "628eef65f03239587b000246"
+  },
+  "race": "English cocker spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f03239587b000247"
+  },
+  "race": "English setter"
+},{
+  "_id": {
+    "$oid": "628eef65f03239587b000248"
+  },
+  "race": "English springer spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f03239587b000249"
+  },
+  "race": "English toy spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f03239587b00024a"
+  },
+  "race": "Eskimo dog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b18000245"
+  },
+  "race": "Finnish spitz"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b18000246"
+  },
+  "race": "flat-coated retriever"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b18000247"
+  },
+  "race": "fox terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b18000248"
+  },
+  "race": "foxhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b18000249"
+  },
+  "race": "French bulldog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e5f000245"
+  },
+  "race": "German shepherd"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e5f000246"
+  },
+  "race": "German shorthaired pointer"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e5f000247"
+  },
+  "race": "German wirehaired pointer"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e5f000248"
+  },
+  "race": "golden retriever"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e5f000249"
+  },
+  "race": "Gordon setter"
+},{
+  "_id": {
+    "$oid": "628eef65f0323957db000245"
+  },
+  "race": "Great Dane"
+},{
+  "_id": {
+    "$oid": "628eef65f0323957db000246"
+  },
+  "race": "greyhound"
+},{
+  "_id": {
+    "$oid": "628eef65f0323957db000247"
+  },
+  "race": "Irish setter"
+},{
+  "_id": {
+    "$oid": "628eef65f0323957db000248"
+  },
+  "race": "Irish water spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f0323957db000249"
+  },
+  "race": "Irish wolfhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c0c000245"
+  },
+  "race": "Jack Russell terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c0c000246"
+  },
+  "race": "Japanese spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c0c000247"
+  },
+  "race": "keeshond"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c0c000248"
+  },
+  "race": "Kerry blue terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c0c000249"
+  },
+  "race": "komondor"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b32000245"
+  },
+  "race": "kuvasz"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b32000246"
+  },
+  "race": "Labrador retriever"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b32000247"
+  },
+  "race": "Lakeland terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b32000248"
+  },
+  "race": "Lhasa apso"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b32000249"
+  },
+  "race": "Maltese"
+},{
+  "_id": {
+    "$oid": "628eef65f032395dce000245"
+  },
+  "race": "Manchester terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395dce000246"
+  },
+  "race": "mastiff"
+},{
+  "_id": {
+    "$oid": "628eef65f032395dce000247"
+  },
+  "race": "Mexican hairless"
+},{
+  "_id": {
+    "$oid": "628eef65f032395dce000248"
+  },
+  "race": "Newfoundland"
+},{
+  "_id": {
+    "$oid": "628eef65f032395dce000249"
+  },
+  "race": "Norwegian elkhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b26000245"
+  },
+  "race": "Norwich terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b26000246"
+  },
+  "race": "otterhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b26000247"
+  },
+  "race": "papillon"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b26000248"
+  },
+  "race": "Pekingese"
+},{
+  "_id": {
+    "$oid": "628eef65f032395b26000249"
+  },
+  "race": "pointer"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958ff000245"
+  },
+  "race": "Pomeranian"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958ff000246"
+  },
+  "race": "poodle"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958ff000247"
+  },
+  "race": "pug"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958ff000248"
+  },
+  "race": "puli"
+},{
+  "_id": {
+    "$oid": "628eef65f0323958ff000249"
+  },
+  "race": "Rhodesian ridgeback"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c63000245"
+  },
+  "race": "Rottweiler"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c63000246"
+  },
+  "race": "Saint Bernard"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c63000247"
+  },
+  "race": "saluki"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c63000248"
+  },
+  "race": "Samoyed"
+},{
+  "_id": {
+    "$oid": "628eef65f032395c63000249"
+  },
+  "race": "schipperke"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000365"
+  },
+  "race": "schnauzer"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000366"
+  },
+  "race": "Scottish deerhound"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000367"
+  },
+  "race": "Scottish terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000368"
+  },
+  "race": "Sealyham terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000369"
+  },
+  "race": "Shetland sheepdog"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036a"
+  },
+  "race": "shih tzu"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036b"
+  },
+  "race": "Siberian husky"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036c"
+  },
+  "race": "silky terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036d"
+  },
+  "race": "Skye terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036e"
+  },
+  "race": "Staffordshire bull terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e2300036f"
+  },
+  "race": "soft-coated wheaten terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000370"
+  },
+  "race": "Sussex spaniel"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000371"
+  },
+  "race": "spitz"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000372"
+  },
+  "race": "Tibetan terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000373"
+  },
+  "race": "vizsla"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000374"
+  },
+  "race": "Weimaraner"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000375"
+  },
+  "race": "Welsh terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000376"
+  },
+  "race": "West Highland white terrier"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000377"
+  },
+  "race": "whippet"
+},{
+  "_id": {
+    "$oid": "628eef65f032395e23000378"
+  },
+  "race": "Yorkshire terrier"
+},{
+  "_id": {
+    "$oid": "629285fd85d8bb01453baafe"
+  },
+  "race": "mixed-breed"
+}]
