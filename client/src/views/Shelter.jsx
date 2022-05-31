@@ -13,12 +13,12 @@ import { Paginations } from '../components/Home/Paginations'
 import products from '../utils/products.json'
 import AdoptCard from '../components/AdoptCard'
 
-const img = [
-    'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
-    'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/objetivos-albergue-animales_jpg.webp',
-    'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/protocolo-admision-albergue-animales_jpg.webp',
-    'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/dia-a-dia-albergue-animales_jpg.webp',
-]
+// const img = [
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/objetivos-albergue-animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/protocolo-admision-albergue-animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/dia-a-dia-albergue-animales_jpg.webp',
+// ]
 
 const Shelter = () => {
     const { id } = useParams()
@@ -61,7 +61,7 @@ const Shelter = () => {
 
                     <Container maxWidth="md" align={'center'}>
                         <Carousel height="500px">
-                            {img.map((pic, index) => (
+                            {shelterDetail.img.map((pic, index) => (
                                 <img
                                     key={index}
                                     src={pic}
