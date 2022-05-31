@@ -12,22 +12,30 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {Avatar, Divider, ListItemIcon} from '@mui/material';
 import AdbIcon from '@mui/icons-material/Adb';
+import LogoutIcon from '@mui/icons-material/Logout';
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
 import {Link as LinkRouter, useNavigate} from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+
 
 const pages = ['Shelters', 'Adoptions', 'About Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
+  const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
+    useAuth0();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const openMenu = Boolean(anchorEl);
+  const openMenuUser = Boolean(anchorElUser);
   const shelterItems = useSelector(state=>state.shelter.shelters);
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -47,15 +55,12 @@ const handleClose = (event) => {
   
 
   const handleOpenUserMenu = (event) => {
-  //  setAnchorElUser(event.currentTarget);
+    setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-  //  setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    //setAnchorElUser(null);
+   const handleCloseUserMenu = () => {
+      
+    setAnchorElUser(null);
   };
 
   return (
@@ -64,41 +69,7 @@ const handleClose = (event) => {
         <Toolbar disableGutters>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <LinkRouter to={"/home"}><img src={logo} alt='logo' className='imageLogo'/></LinkRouter>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -126,8 +97,7 @@ const handleClose = (event) => {
                   aria-haspopup = 'true'
                   aria-expanded = {openMenu? 'true' : undefined }
                 >
-                  {//<LinkRouter to={"/underConstruction"} className='navButtons'>Shelters</LinkRouter>
-                  }Shelters
+                 Shelters
                 </Button>
                 <Menu id='sheltersMenu'
                 anchorEl={anchorEl}
@@ -142,51 +112,106 @@ const handleClose = (event) => {
                   }
                 </Menu>
                 <Button
-                  onClick={handleCloseNavMenu}
+                  
                   sx={{ my: 2, color:'#515151', display: 'block' }}
                 >
                   <LinkRouter to={"/underConstruction"} className='navButtons'>Adoptions</LinkRouter>
                 </Button>
                 <Button
-                  onClick={handleCloseNavMenu}
+                  
                   sx={{ my: 2, color:'#515151', display: 'block' }}
                 >
                   <LinkRouter to={"/underConstruction"} className='navButtons'>About Us</LinkRouter>
                 </Button>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Button variant="contained" className='buttonLogIn'>Log In</Button>
-              </IconButton>
-            </Tooltip>
+         
+          <Box style={{ display:'flex', flexDirection:'row', gap:'10px'}}>
+          { (isAuthenticated&&!isLoading)?(
+                    
+
+               <Box style={{display:'flex', flexDirection:'row'}}>
+               
+
+               <Avatar
+               alt='Remy Sharp'
+               sx={{ marginLeft: 'auto' }}
+               src={user?.picture}
+               to='/profile'
+               component={LinkRouter}
+             />
+                         
+              <MenuIcon
+                onClick={handleOpenUserMenu}
+                color="primary" 
+                fontSize='large'
+                sx={{ marginLeft: '10px' }}
+                aria-controls={openMenuUser ? 'account-menu' : undefined}
+                aria-haspopup='true'
+                aria-expanded={openMenuUser ? 'true' : undefined}
+                />
+                
+                </Box>
+                
+                ): 
+                <Button variant="contained" className='buttonLogIn' style={{width:'120px', padding:'5px 10px'}} onClick={loginWithRedirect} >Login</Button>
+         
+                }
+
+            </Box>
             <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
-};
-export default NavBar;
+          anchorEl={anchorElUser}
+          id='account-menu'
+          open={openMenuUser}
+          onClose={handleCloseUserMenu}
+          onClick={handleCloseUserMenu}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
+            },
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem to='/profile' component={LinkRouter}>
+            <Avatar src={user?.picture} /> {user?.name}
+          </MenuItem>
+          <Divider />
+          <MenuItem onClick={logout}>
+            <ListItemIcon>
+              <LogoutIcon fontSize='small' />
+            </ListItemIcon>
+            Salir
+          </MenuItem>
+        </Menu>
+
+                </Toolbar>
+                </Container>
+                </AppBar>
+              
+  )
+              }
+              
+
+        export default NavBar;    
