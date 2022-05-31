@@ -60,7 +60,7 @@ const Shelter = () => {
                     </Typography>
 
                     <Container maxWidth="md" align={'center'}>
-                        <Carousel>
+                        <Carousel height="500px">
                             {img.map((pic, index) => (
                                 <img
                                     key={index}
