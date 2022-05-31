@@ -53,10 +53,7 @@ const NavBar = () => {
         navigate(`/shelter/${sh[0]._id}`)
     }
 
-    const handleOpenUserMenu = (event) => {
-        //  setAnchorElUser(event.currentTarget);
-    }
-
+   
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
