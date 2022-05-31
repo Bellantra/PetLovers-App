@@ -17,8 +17,6 @@ import {
     getShelterById,
     cleanDetail,
 } from '../redux/features/shelter/shelterSlice'
-import { Paginations } from '../components/Home/Paginations'
-import products from '../utils/products.json'; 
 
 const Shelter = () => {
     const { id } = useParams()
@@ -110,26 +108,11 @@ const Shelter = () => {
                             )}
                         </Carousel>
                     </Grid>
-                    <Grid align={'center'}>
-                    <Typography
-                        marginTop={5}
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        gutterBottom
-                    >
-                        Nuestros Productos
-                    </Typography>
-
-                    <Paginations array={products} arrayType='products' petPerPage={Number('10')} />
-                    </Grid>
                 </Container>
             ) : (
                 <div>Loading</div>
             )}
-           
         </div>
-        
     )
 }
 
