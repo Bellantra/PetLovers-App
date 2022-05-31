@@ -3,35 +3,11 @@ const Shelter = require('../../schemas/Shelter')
 
 const postAdoptablePet = async (req, res, next) => {
     try {
-        const {
-            nickname,
-            age,
-            city,
-            adopt,
-            race,
-            image,
-            shelter,
-            description,
-            genre,
-            color,
-            vaccinated,
-        } = req.body
-        const newPet = new Pet({
-            nickname,
-            age,
-            city,
-            adopt,
-            race,
-            image,
-            shelter,
-            description,
-            genre,
-            color,
-            vaccinated,
-        })
+        const petInfo = req.body
+        const newPet = new Pet(petInfo)
 
         const updatedShelter = await Shelter.findByIdAndUpdate(
-            shelter,
+            petInfo.shelter,
             { $push: { petsAdoption: newPet._id } },
             { new: true }
         )
