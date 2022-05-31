@@ -1,16 +1,8 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import {
-    CardActionArea,
-    Typography,
-    Container,
-    Divider,
-    Grid,
-} from '@mui/material'
+
+import { Typography, Container, Divider, Grid } from '@mui/material'
 
 import Carousel from 'react-material-ui-carousel'
 import {
@@ -18,7 +10,15 @@ import {
     cleanDetail,
 } from '../redux/features/shelter/shelterSlice'
 import { Paginations } from '../components/Home/Paginations'
-import products from '../utils/products.json'; 
+import products from '../utils/products.json'
+import AdoptCard from '../components/AdoptCard'
+
+// const img = [
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/objetivos-albergue-animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/protocolo-admision-albergue-animales_jpg.webp',
+//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/dia-a-dia-albergue-animales_jpg.webp',
+// ]
 
 const Shelter = () => {
     const { id } = useParams()
@@ -28,9 +28,12 @@ const Shelter = () => {
     )
 
     useEffect(() => {
-        if (!shelterDetail.name) dispatch(getShelterById(id))
+        dispatch(getShelterById(id))
         return () => dispatch(cleanDetail())
-    }, [])
+    }, [dispatch, id])
+
+    // console.log(shelterDetail)
+
     return (
         <div>
             {statusDetail === 'success' ? (
@@ -51,85 +54,110 @@ const Shelter = () => {
                         width={'75%'}
                         margin={'auto'}
                         marginTop={5}
-                        gutterBottom
+                        marginBottom={10}
                     >
                         {shelterDetail.description}
                     </Typography>
 
+                    <Container maxWidth="md" align={'center'}>
+                        <Carousel height="500px">
+                            {shelterDetail.img.map((pic, index) => (
+                                <img
+                                    key={index}
+                                    src={pic}
+                                    alt="refugio pic"
+                                    width="700px"
+                                />
+                            ))}
+                        </Carousel>
+                    </Container>
+
                     <Typography
                         marginTop={5}
                         variant="h3"
                         align="center"
                         color="text.primary"
-                        gutterBottom
+                        marginBottom={10}
                     >
                         Nuestros animales en Adopcion
                     </Typography>
-                    <Grid marginBottom={25}>
-                        <Carousel>
-                            {shelterDetail.petsAdoption.map(
-                                ({ nickname, image }, index) => (
-                                    <Grid key={index} align={'center'}>
-                                        <Card
-                                            sx={{
-                                                maxWidth: 345,
-                                                height: 450,
-                                            }}
-                                        >
-                                            <CardActionArea>
-                                                <CardMedia
-                                                    component={'img'}
-                                                    height="140"
-                                                    image={image}
-                                                    alt="green iguana"
-                                                />
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="div"
-                                                    >
-                                                        {nickname}
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body2"
-                                                        color="text.secondary"
-                                                    >
-                                                        Lizards are a widespread
-                                                        group of squamate
-                                                        reptiles, with over
-                                                        6,000 species, ranging
-                                                        across all continents
-                                                        except Antarctica
-                                                    </Typography>
-                                                </CardContent>
-                                            </CardActionArea>
-                                        </Card>
-                                    </Grid>
-                                )
-                            )}
-                        </Carousel>
+                    <Grid
+                        container
+                        marginBottom={25}
+                        spacing={4}
+                        justifyContent={'center'}
+                    >
+                        {/* <Carousel> */}
+                        {shelterDetail.petsAdoption.map((pet, index) => (
+                            <Grid item key={index} xs={12} sm={6} md={4}>
+                                <AdoptCard
+                                    pet={pet}
+                                    sx={{
+                                        height: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
+                                ></AdoptCard>
+                                {/* <Card
+                                        sx={{
+                                            maxWidth: 345,
+                                            height: 450,
+                                        }}
+                                    >
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component={'img'}
+                                                height="140"
+                                                image={image[0]}
+                                                alt={nickname}
+                                            />
+                                            <CardContent>
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="div"
+                                                >
+                                                    {nickname}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    color="text.secondary"
+                                                >
+                                                    Lizards are a widespread
+                                                    group of squamate reptiles,
+                                                    with over 6,000 species,
+                                                    ranging across all
+                                                    continents except Antarctica
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card> */}
+                            </Grid>
+                        ))}
+                        {/* </Carousel> */}
                     </Grid>
                     <Grid align={'center'}>
-                    <Typography
-                        marginTop={5}
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        gutterBottom
-                    >
-                        Nuestros Productos
-                    </Typography>
+                        <Typography
+                            marginTop={5}
+                            variant="h3"
+                            align="center"
+                            color="text.primary"
+                            gutterBottom
+                        >
+                            Nuestros Productos
+                        </Typography>
 
-                    <Paginations array={products} arrayType='products' petPerPage={Number('10')} />
+                        <Paginations
+                            array={products}
+                            arrayType="products"
+                            petPerPage={Number('10')}
+                        />
                     </Grid>
                 </Container>
             ) : (
                 <div>Loading</div>
             )}
-           
         </div>
-        
     )
 }
 

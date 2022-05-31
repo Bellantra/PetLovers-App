@@ -22,8 +22,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 
-const pages = ['Shelters', 'Adoptions', 'About Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Shelters', 'Adoptions', 'About Us']
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const NavBar = () => {
   const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
@@ -40,19 +40,22 @@ const NavBar = () => {
     setAnchorEl(event.currentTarget);
   };
 
-const handleClose = (event) => {
-    setAnchorEl(null);
-  };
-  
-  const handleShelters = (event) => {
-    const sh=shelterItems.filter(el=>el.name === event.target.innerText);
-    console.log(sh[0]._id);
-    handleClose();
-    navigate(`/shelter/${sh[0]._id}`);
+    const handleClose = (event) => {
+        setAnchorEl(null)
+    }
 
-  };
+    const handleShelters = (event) => {
+        const sh = shelterItems.filter(
+            (el) => el.name === event.target.innerText
+        )
+        console.log(sh[0]._id)
+        handleClose()
+        navigate(`/shelter/${sh[0]._id}`)
+    }
 
-  
+    const handleOpenUserMenu = (event) => {
+        //  setAnchorElUser(event.currentTarget);
+    }
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);

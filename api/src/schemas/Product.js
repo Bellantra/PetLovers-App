@@ -26,7 +26,6 @@ const productSchema = new Schema({
     shelter: {
         type: Schema.Types.ObjectId,
         ref: 'Shelter',
-        default: null, //Porque null gabriel???
     },
     status: {
         type: String,
