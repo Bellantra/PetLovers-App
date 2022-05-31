@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { extraGetAdoptablePets } from '../../asyncActions/adopt/getAllAdoptablePets'
+import { extraGetAdoptablePets } from '../../asyncActions/pet/getAdoptablePets'
 
 const initialState = {
     adoptPets: [],

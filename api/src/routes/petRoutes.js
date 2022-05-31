@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.use(express.json())
 
-router.get('/:id', getPetById)
+router.get('/detail/:id', getPetById)
 
 router.get('/adoptable', getAdoptablePets)
 

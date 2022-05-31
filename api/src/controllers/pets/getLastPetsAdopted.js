@@ -7,7 +7,7 @@ const getLastPetsAdopted = async (req, res) => {
                 'adopt.is_adopted': true,
                 status: 'Active',
             },
-            'nickname image adopt.adopt_by'
+            'nickname image pet.adopt_by'
         ).populate([{ path: 'shelter', select: 'name logo' }])
         Pets ? res.json(Pets) : res.json({ msg: 'No pets was be adopted' })
     } catch (err) {
