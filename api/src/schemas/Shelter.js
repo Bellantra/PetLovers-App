@@ -4,6 +4,7 @@ const { Schema } = mongoose
 const shelterSchema = new Schema({
     name: {
         type: String,
+        unique: true,
         required: true,
     },
     logo: {
