@@ -12,19 +12,15 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import {Avatar} from '@mui/material';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
 import {Link as LinkRouter, useNavigate} from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
 
 const pages = ['Shelters', 'Adoptions', 'About Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
-  const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
-    useAuth0();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
@@ -130,7 +126,8 @@ const handleClose = (event) => {
                   aria-haspopup = 'true'
                   aria-expanded = {openMenu? 'true' : undefined }
                 >
-                 Shelters
+                  {//<LinkRouter to={"/underConstruction"} className='navButtons'>Shelters</LinkRouter>
+                  }Shelters
                 </Button>
                 <Menu id='sheltersMenu'
                 anchorEl={anchorEl}
@@ -158,41 +155,12 @@ const handleClose = (event) => {
                 </Button>
           </Box>
 
-          <Box style={{ display:'flex', flexDirection:'row', gap:'10px'}}>
+          <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={!isAuthenticated&&!isLoading?loginWithRedirect: logout} sx={{ p: 0 }}>
-                <Button variant="contained" className='buttonLogIn'>{!isAuthenticated&&!isLoading?'Login': 'Logout'}</Button>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Button variant="contained" className='buttonLogIn'>Log In</Button>
               </IconButton>
-                
-              </Tooltip>
-
-              { (isAuthenticated||isLoading)&&(
-               <>
-               <Avatar
-               alt='Remy Sharp'
-               sx={{ marginLeft: 'auto' }}
-               src={user?.picture}
-               to='/profile'
-               component={LinkRouter}
-             />
-             
-             
-              <MenuIcon
-                onClick={handleClick}
-                fontSize='large'
-                sx={{ marginLeft: '10px' }}
-                aria-controls={open ? 'account-menu' : undefined}
-                aria-haspopup='true'
-                aria-expanded={open ? 'true' : undefined}
-              />
-            
-                
-                </>
-                )}
-              
-
-              
-
+            </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
