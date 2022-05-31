@@ -62,7 +62,7 @@
                 "$oid": "6292b0ae87eb4458ce8030ad"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771877/Shelters/fundaciontepa/Manchas/manchas1_rxt1rb.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771877/Shelters/fundaciontepa/Manchas/manchas1_rxt1rb.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653771889/Shelters/fundaciontepa/Manchas/manchas3_nizr8n.jpg"],
         "shelter": {
             "$oid": "629296ae85d8bb01453bab05"
         },
@@ -99,7 +99,7 @@
                 "$oid": "6292b0fe87eb4458ce8030b3"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771150/Shelters/fundaciontepa/Tomasino/tomasino1_y5q05w.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771150/Shelters/fundaciontepa/Tomasino/tomasino1_y5q05w.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653771163/Shelters/fundaciontepa/Tomasino/tomasino2_bllqyn.jpg"],
         "shelter": {
             "$oid": "629296ae85d8bb01453bab05"
         },
@@ -136,7 +136,7 @@
                 "$oid": "6292b10c87eb4458ce8030b9"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653772360/Shelters/fundaciontepa/Tara/tara2_yjhf6q.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653772360/Shelters/fundaciontepa/Tara/tara2_yjhf6q.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653772336/Shelters/fundaciontepa/Tara/tara1_zpon5s.jpg"],
         "shelter": {
             "$oid": "629296ae85d8bb01453bab05"
         },
@@ -210,7 +210,7 @@
                 "$oid": "6292b12387eb4458ce8030c5"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771349/Shelters/fundaciontepa/Milu/milu1_ofu29w.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653771349/Shelters/fundaciontepa/Milu/milu1_ofu29w.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653771390/Shelters/fundaciontepa/Milu/milu3_knv2vv.jpg"],
         "shelter": {
             "$oid": "629296ae85d8bb01453bab05"
         },
@@ -247,7 +247,7 @@
                 "$oid": "6292fb17076d079bfe6a4c30"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799165/Shelters/OrangeCounty/Prince/DisplayImage_c5vpji.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799165/Shelters/OrangeCounty/Prince/DisplayImage_c5vpji.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653799180/Shelters/OrangeCounty/Prince/DisplayImage_asq4cf.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653799208/Shelters/OrangeCounty/Prince/DisplayImage_coi0ol.jpg"],
         "shelter": {
             "$oid": "6292f6343dbf456abd0d76fc"
         },
@@ -284,7 +284,7 @@
                 "$oid": "6292fb24076d079bfe6a4c37"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653798688/Shelters/OrangeCounty/Red/DisplayImage_wfmzox.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653798688/Shelters/OrangeCounty/Red/DisplayImage_wfmzox.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653798714/Shelters/OrangeCounty/Red/DisplayImage_wym0ws.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653798726/Shelters/OrangeCounty/Red/DisplayImage_xeb4a1.jpg"],
         "shelter": {
             "$oid": "6292f6343dbf456abd0d76fc"
         },
@@ -321,7 +321,7 @@
                 "$oid": "6292fb25076d079bfe6a4c3d"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799001/Shelters/OrangeCounty/Thor/DisplayImage_vmhffz.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799001/Shelters/OrangeCounty/Thor/DisplayImage_vmhffz.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653799020/Shelters/OrangeCounty/Thor/DisplayImage_nytrhl.jpg"],
         "shelter": {
             "$oid": "6292f6343dbf456abd0d76fc"
         },
@@ -358,7 +358,7 @@
                 "$oid": "6292fb68076d079bfe6a4c43"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799499/Shelters/OrangeCounty/Bob/DisplayImage_oldp5n.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653799499/Shelters/OrangeCounty/Bob/DisplayImage_oldp5n.jpg",""],
         "shelter": {
             "$oid": "6292f6343dbf456abd0d76fc"
         },
@@ -395,7 +395,7 @@
                 "$oid": "62937f2728d56d0c3d919ce6"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653829245/Shelters/FundacionHuellaAnimal/Dulce/dulce_0000_1_wm00bb.png"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653829245/Shelters/FundacionHuellaAnimal/Dulce/dulce_0000_1_wm00bb.png","https://res.cloudinary.com/petlovers1/image/upload/v1653829206/Shelters/FundacionHuellaAnimal/Dulce/dulce_0002_3_mp5kjo.png"],
         "shelter": {
             "$oid": "6293772a545316ac4d6924ac"
         },
@@ -432,7 +432,7 @@
                 "$oid": "62937f7e28d56d0c3d919d11"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653831919/Shelters/FundacionHuellaAnimal/Cleito/IMG_4510-1536x1536_ywvqmd.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653831919/Shelters/FundacionHuellaAnimal/Cleito/IMG_4510-1536x1536_ywvqmd.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653829538/Shelters/FundacionHuellaAnimal/Cleito/IMG_4515-1536x1536_xreqku.jpg"],
         "shelter": {
             "$oid": "6293772a545316ac4d6924ac"
         },
@@ -469,7 +469,7 @@
                 "$oid": "62937f8328d56d0c3d919d17"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832353/Shelters/FundacionHuellaAnimal/Horacio/horacio-_0004_IMG_5519_aznav5.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832353/Shelters/FundacionHuellaAnimal/Horacio/horacio-_0004_IMG_5519_aznav5.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653832313/Shelters/FundacionHuellaAnimal/Horacio/horacio-_0006_IMG_5508_behjbs.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653832254/Shelters/FundacionHuellaAnimal/Horacio/horacio-_0003_IMG_5529_qorrmq.jpg"],
         "shelter": {
             "$oid": "6293772a545316ac4d6924ac"
         },
@@ -506,7 +506,7 @@
                 "$oid": "62937f8728d56d0c3d919d1d"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832187/Shelters/FundacionHuellaAnimal/Kafka/0004_Kafka_x1qzal.jpg"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832187/Shelters/FundacionHuellaAnimal/Kafka/0004_Kafka_x1qzal.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653832216/Shelters/FundacionHuellaAnimal/Kafka/kafka-1_ejgyaq.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653832160/Shelters/FundacionHuellaAnimal/Kafka/kafka-2_bno4bg.png","https://res.cloudinary.com/petlovers1/image/upload/v1653832124/Shelters/FundacionHuellaAnimal/Kafka/0012_kafka-3_ckowpp.jpg"],
         "shelter": {
             "$oid": "6293772a545316ac4d6924ac"
         },
@@ -543,7 +543,7 @@
                 "$oid": "62937f8c28d56d0c3d919d23"
             }
         },
-        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832941/Shelters/FundacionHuellaAnimal/Zeta/zeta_0001_4_sbw0qs.png"],
+        "image": ["https://res.cloudinary.com/petlovers1/image/upload/v1653832941/Shelters/FundacionHuellaAnimal/Zeta/zeta_0001_4_sbw0qs.png","https://res.cloudinary.com/petlovers1/image/upload/v1653832098/Shelters/FundacionHuellaAnimal/Zeta/0023_zeta-3_igofdk.jpg","https://res.cloudinary.com/petlovers1/image/upload/v1653832071/Shelters/FundacionHuellaAnimal/Zeta/Captura-de-Pantalla-2022-01-18-a-las-04.56.41_bpf8oe.png","https://res.cloudinary.com/petlovers1/image/upload/v1653832052/Shelters/FundacionHuellaAnimal/Zeta/Captura-de-Pantalla-2022-01-18-a-las-04.56.31_bwm8ed.png","https://res.cloudinary.com/petlovers1/image/upload/v1653832019/Shelters/FundacionHuellaAnimal/Zeta/Captura-de-Pantalla-2022-01-18-a-las-04.56.47_mwqthv.png","https://res.cloudinary.com/petlovers1/image/upload/v1653832002/Shelters/FundacionHuellaAnimal/Zeta/0005_Zeta_fkswhb.jpg"],
         "shelter": {
             "$oid": "6293772a545316ac4d6924ac"
         },

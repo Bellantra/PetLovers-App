@@ -17,7 +17,7 @@ export default function AdoptCard({ pet }) {
                     component="img"
                     alt="Imagen de un animal"
                     height="140"
-                    image={image}
+                    image={image[0]}
                 />
                 <CardContent sx={{ flexGrow: 1, minHeight: '125px' }}>
                     <Typography gutterBottom variant="h5" component="div">

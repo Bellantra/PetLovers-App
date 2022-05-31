@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -13,28 +15,46 @@ import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 import logo from '../assets/logo.png'
 import '../styles/Home.css'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 
 const pages = ['Shelters', 'Adoptions', 'About Us']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const NavBar = () => {
+    const navigate = useNavigate()
+    const [anchorEl, setAnchorEl] = useState(null)
+    const openMenu = Boolean(anchorEl)
+    const shelterItems = useSelector((state) => state.shelter.shelters)
     const [anchorElNav, setAnchorElNav] = React.useState(null)
     const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget)
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
     }
+
+    const handleClose = (event) => {
+        setAnchorEl(null)
+    }
+
+    const handleShelters = (event) => {
+        const sh = shelterItems.filter(
+            (el) => el.name === event.target.innerText
+        )
+        console.log(sh[0]._id)
+        handleClose()
+        navigate(`/shelter/${sh[0]._id}`)
+    }
+
     const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget)
+        //  setAnchorElUser(event.currentTarget);
     }
 
     const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
+        //  setAnchorElNav(null);
     }
 
     const handleCloseUserMenu = () => {
-        setAnchorElUser(null)
+        // setAnchorElUser(null);
     }
 
     return (
@@ -58,7 +78,6 @@ const NavBar = () => {
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
                             color="inherit"
                         >
                             <MenuIcon />
@@ -121,16 +140,33 @@ const NavBar = () => {
                         }}
                     >
                         <Button
-                            onClick={handleCloseNavMenu}
+                            onClick={handleClick}
                             sx={{ my: 2, color: '#515151', display: 'block' }}
+                            aria-control={openMenu ? 'sheltersMenu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={openMenu ? 'true' : undefined}
                         >
-                            <LinkRouter
-                                to={'/underConstruction'}
-                                className="navButtons"
-                            >
-                                Shelters
-                            </LinkRouter>
+                            {
+                                // <LinkRouter to={"/underConstruction"} className='navButtons'>Shelters</LinkRouter>
+                            }
+                            Shelters
                         </Button>
+                        <Menu
+                            id="sheltersMenu"
+                            anchorEl={anchorEl}
+                            open={openMenu}
+                            onClose={handleClose}
+                        >
+                            {shelterItems.length &&
+                                shelterItems.map((el, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        onClick={handleShelters}
+                                    >
+                                        {el.name}
+                                    </MenuItem>
+                                ))}
+                        </Menu>
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: '#515151', display: 'block' }}
