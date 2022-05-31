@@ -1,7 +1,7 @@
 const Pet = require('../../schemas/Pet')
 const Shelter = require('../../schemas/Shelter')
 
-const postAdoptablePet = async (req, res, next) => {
+const createPet = async (req, res, next) => {
     try {
         const petInfo = req.body
         const newPet = new Pet(petInfo)
@@ -27,4 +27,4 @@ const postAdoptablePet = async (req, res, next) => {
     }
 }
 
-module.exports = postAdoptablePet
+module.exports = createPet
