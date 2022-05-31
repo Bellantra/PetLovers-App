@@ -16,7 +16,4 @@ router.use('/races', raceRoutes)
 const subracesRoutes = require('./subraceRoutes')
 router.use('/subraces', subracesRoutes)
 
-const productRoutes = require('./productRoutes')
-router.use('/products', productRoutes)
-
 module.exports = router
