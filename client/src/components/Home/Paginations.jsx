@@ -35,7 +35,7 @@ export const Paginations = ({ array, arrayType, petPerPage }) => {
     
     <div style={{display:'flex', flexDirection:'row', flexWrap:'wrap', gap:'20px', justifyContent:'center', marginBottom:'20px' }}>
     {data.length&&data.map((el,index)=>(
-      arrayType==='products'&&(<ProductCard product={el} />)
+      arrayType==='products'&&(<ProductCard key={index} product={el} />)
     ))}
     </div>
     <Box display='center' justifyContent='center' marginBottom='20px'>
