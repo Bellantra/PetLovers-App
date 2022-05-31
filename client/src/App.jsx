@@ -8,7 +8,7 @@ import Footer from '../src/components/Footer'
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <>
             <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ const App = () => {
                 <Route path="/shelter/:id" element={<Shelter />} />
             </Routes>
             <Footer />
-        </BrowserRouter>
+        </>
     )
 }
 
