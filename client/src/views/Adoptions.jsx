@@ -7,7 +7,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import AdoptCard from '../components/AdoptCard'
-import { getAllAdoptablePets } from '../redux/asyncActions/adopt/getAllAdoptablePets'
+import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 const theme = createTheme()
 
 export default function Adoptions() {
@@ -15,7 +15,7 @@ export default function Adoptions() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (adoptPets.length < 1) dispatch(getAllAdoptablePets())
+        if (adoptPets.length < 1) dispatch(getAdoptablePets())
     }, [])
 
     return (

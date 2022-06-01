@@ -27,21 +27,18 @@ const petSchema = new Schema({
         },
     },
     race: {
-        type: {
-            race: {
-                type: Schema.Types.ObjectId,
-                required: true,
-                ref: 'Race',
-            },
-            subrace: [
-                {
-                    type: Schema.Types.ObjectId,
-                    required: true,
-                    ref: 'Subrace',
-                },
-            ],
-        },
+        type: String,
+        enum: ['Dog', 'Cat', 'Undefined'],
+        default: 'Undefined',
+        required: true,
     },
+    subrace: [
+        {
+            type: Schema.Types.ObjectId,
+            required: true,
+            ref: 'Subrace',
+        },
+    ],
     image: {
         type: [String],
         required: true,

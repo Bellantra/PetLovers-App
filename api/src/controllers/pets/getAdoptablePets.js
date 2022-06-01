@@ -14,8 +14,8 @@ const getAdoptablePets = async (req, res) => {
             )
             .and(city ? { city: { $regex: `^${city}`, $options: 'i' } } : {})
             .and(color ? { color: { $regex: `^${color}`, $options: 'i' } } : {})
-            .and(race ? { 'race.race': race } : {})
-            .and(subrace ? { 'race.subrace': subrace } : {})
+            .and(race ? { race } : {})
+            .and(subrace ? { subrace } : {})
             .populate([
                 { path: 'race.race', select: '-_id' },
                 { path: 'race.subrace', select: '-_id' },

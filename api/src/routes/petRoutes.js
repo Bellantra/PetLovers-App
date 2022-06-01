@@ -1,15 +1,22 @@
 const getPetById = require('../controllers/pets/getPetById')
+const getAdoptablePets = require('../controllers/pets/getAdoptablePets')
+const getLastPetsAdopted = require('../controllers/pets/getLastPetsAdopted')
+const postAdoptablePet = require('../controllers/pets/createPet')
 const updatePet = require('../controllers/pets/updatePet')
-const addImagePet = require('../controllers/pets/addImagePet')
+
 const express = require('express')
 const router = express.Router()
 
 router.use(express.json())
 
-router.get('/:id', getPetById)
+router.get('/detail/:id', getPetById)
+
+router.get('/adoptable', getAdoptablePets)
+
+router.get('/lastAdopted', getLastPetsAdopted)
+
+router.post('/createPet', postAdoptablePet)
 
 router.put('/update/:id', updatePet)
-
-router.put('/addimg/:id', addImagePet)
 
 module.exports = router
