@@ -1,37 +1,60 @@
-[{
-  "_id": {
-    "$oid": "6292944e85d8bb01453bab01"
-  },
-  "userName": "PeluditosTepa",
-  "email": "info@peluditostepa.org",
-  "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653773598/Shelters/fundaciontepa/logo_tepa_wph9ma.png",
-  "password": "PeluditosTepa",
-  "isAdmin": true,
-  "status": "Active",
-  "__v": 0,
-  "shelter": {
-    "$oid": "629296ae85d8bb01453bab05"
-  }
-},{
-  "_id": {
-    "$oid": "6292f4503dbf456abd0d76fb"
-  },
-  "userName": "OrangeCounty",
-  "email": "AnimalServices@ocfl.net",
-  "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653797717/Shelters/OrangeCounty/wi16gyqydqvzwdnzj3i1.png",
-  "password": "AnimalService",
-  "isAdmin": true,
-  "status": "Active",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "629375c1545316ac4d6924a9"
-  },
-  "userName": "HuellaAnimal",
-  "email": "HuellaAnimal@fundacion.org",
-  "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653829893/Shelters/FundacionHuellaAnimal/images_dfqcwf.jpg",
-  "password": "HuellaAnimal",
-  "isAdmin": true,
-  "status": "Active",
-  "__v": 0
-}]
+[
+    {
+        "_id": "6292944e85d8bb01453bab01",
+        "userName": "GabrielG",
+        "fullName": "Gabriel Garcia",
+        "email": "gabrielgarciatorresm3@gmail.com",
+        "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653497353/Users/user4.jpg",
+        "password": "gabriel123",
+        "isAdmin": true,
+        "status": "Active",
+        "__v": 0,
+        "shelter": "629296ae85d8bb01453bab05"
+    },
+    {
+        "_id": "6292f4503dbf456abd0d76fb",
+        "userName": "YamilaP",
+        "fullName": "Yamila Paez",
+        "email": "yamilapaez2@hotmail.com",
+        "password": "Yamila123",
+        "shelter": "6292f6343dbf456abd0d76fc",
+        "isAdmin": true,
+        "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653497310/Users/user5.jpg",
+        "status": "Active",
+        "__v": 0
+    },
+    {
+        "_id": "629375c1545316ac4d6924a9",
+        "userName": "AliciaP",
+        "fullName": "Alicia Pak",
+        "email": "pet.lovers.g29@gmail.com",
+        "password": "Alicia123",
+        "shelter": "6293772a545316ac4d6924ac",
+        "isAdmin": true,
+        "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653497075/Users/user7.jpg",
+        "status": "Active",
+        "__v": 0
+    },
+    {
+        "_id": "6296ef4824658a6bffd7c5a0",
+        "userName": "GonzaloP",
+        "fullName": "Gonzalo Palomo",
+        "email": "gonzaloP@gmail.com",
+        "password": "Gonzalo123",
+        "isAdmin": false,
+        "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653497075/Users/user1.jpg",
+        "status": "Active",
+        "__v": 0
+    },
+    {
+        "_id": "6296ef9724658a6bffd7c5a1",
+        "userName": "ElianaE",
+        "fullName": "Eliana",
+        "email": "elianae@gmail.com",
+        "password": "Eliana123",
+        "isAdmin": false,
+        "img": "https://res.cloudinary.com/petlovers1/image/upload/v1653497075/Users/user8.jpg",
+        "status": "Active",
+        "__v": 0
+    }
+]
