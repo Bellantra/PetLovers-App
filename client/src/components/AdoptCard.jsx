@@ -35,10 +35,6 @@ export default function AdoptCard({ pet }) {
                         age: {age} years
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small">+Info</Button>
-                    <Button size="small">Adopt</Button>
-                </CardActions>
             </Card>
 
             <Modal
