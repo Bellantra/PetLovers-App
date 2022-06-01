@@ -128,12 +128,6 @@ const NavBar = () => {
                         <Button
                             sx={{ my: 2, color: '#515151', display: 'block' }}
                         >
-                            <LinkRouter
-                                to={'/underConstruction'}
-                                className="navButtons"
-                            >
-                                About Us
-                            </LinkRouter>
                         </Button>
                     </Box>
 
