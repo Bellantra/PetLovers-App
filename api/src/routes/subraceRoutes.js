@@ -1,4 +1,4 @@
-const getSubraces = require('../controllers/race/getSubraces')
+const getSubraces = require('../controllers/subrace/getSubraces')
 
 const express = require('express')
 const router = express.Router()

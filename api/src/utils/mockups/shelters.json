@@ -1,37 +1,18 @@
 [{
-  "_id": {
-    "$oid": "629296ae85d8bb01453bab05"
-  },
+  "_id": "629296ae85d8bb01453bab05",
   "name": "Fundación Tepa",
   "logo": "https://res.cloudinary.com/petlovers1/image/upload/v1653773598/Shelters/fundaciontepa/logo_tepa_wph9ma.png",
   "state": "Salta",
   "city": "Salta",
   "description": "Buscamos proteger la vida de perros y gatos en estado de maltrato y abandono. Les brindamos alimentos, medicamentos y albergue, con el fin de mejorar su calidad de vida y conseguirles un hogar.",
   "color": "#b255ba",
-  "user": [
-    {
-      "$oid": "6292944e85d8bb01453bab01"
-    }
-  ],
-  "petsAdoption": [
-    {
-      "$oid": "6292b07887eb4458ce8030a6"
-    },
-    {
-      "$oid": "6292b0ae87eb4458ce8030ac"
-    },
-    {
-      "$oid": "6292b0fe87eb4458ce8030b2"
-    },
-    {
-      "$oid": "6292b10c87eb4458ce8030b8"
-    },
-    {
-      "$oid": "6292b11887eb4458ce8030be"
-    },
-    {
-      "$oid": "6292b12387eb4458ce8030c4"
-    }
+  "user": ["6292944e85d8bb01453bab01"],
+  "petsAdoption": ["6292b07887eb4458ce8030a6","6292b0ae87eb4458ce8030ac","6292b0fe87eb4458ce8030b2","6292b10c87eb4458ce8030b8"
+    ,
+    "6292b11887eb4458ce8030be"
+    ,
+    "6292b12387eb4458ce8030c4"
+
   ],
   "status": "Active",
   "__v": 1,
@@ -42,32 +23,24 @@
     "https://res.cloudinary.com/petlovers1/image/upload/v1654034731/Shelters/fundaciontepa/FundacionTepa4_qdqc3l.jpg"
   ]
 },{
-  "_id": {
-    "$oid": "6292f6343dbf456abd0d76fc"
-  },
+  "_id": "6292f6343dbf456abd0d76fc",
   "name": "Orange County Animal Service",
   "logo": "https://res.cloudinary.com/petlovers1/image/upload/v1653797717/Shelters/OrangeCounty/wi16gyqydqvzwdnzj3i1.png",
   "state": "Buenos Aires",
   "city": "La Plata",
   "description": "Servicios para Animales en el Condado de Orange es una organización centrada en el bienestar animal progresivo, que cumple con el Código del Condado de Orange para proteger a los ciudadanos y los animales. Brindamos servicios a través del Condado de Orange, incluyendo todas las municipalidades.",
-  "user": [
-    {
-      "$oid": "6292f4503dbf456abd0d76fb"
-    }
+  "user": [ "6292f4503dbf456abd0d76fb"
+
   ],
   "petsAdoption": [
-    {
-      "$oid": "6292fb17076d079bfe6a4c2f"
-    },
-    {
-      "$oid": "6292fb24076d079bfe6a4c36"
-    },
-    {
-      "$oid": "6292fb25076d079bfe6a4c3c"
-    },
-    {
-      "$oid": "6292fb68076d079bfe6a4c42"
-    }
+     "6292fb17076d079bfe6a4c2f"
+    ,
+    "6292fb24076d079bfe6a4c36"
+    ,
+    "6292fb25076d079bfe6a4c3c"
+    ,
+    "6292fb68076d079bfe6a4c42"
+
   ],
   "status": "Active",
   "color": "#800080",
@@ -79,35 +52,27 @@
     "https://res.cloudinary.com/petlovers1/image/upload/v1654033310/Shelters/OrangeCounty/OrangeCounty4_wvmoyh.jpg"
   ]
 },{
-  "_id": {
-    "$oid": "6293772a545316ac4d6924ac"
-  },
+  "_id": "6293772a545316ac4d6924ac",
   "name": "Fundación Huella Animal",
   "logo": "https://res.cloudinary.com/petlovers1/image/upload/v1653826396/Shelters/FundacionHuellaAnimal/cropped-Logo_Fundacion-2_veiiih.png",
   "state": "Santa FeSantiago",
   "city": "Rosario",
   "description": "Fundación Huella Animal es una organización sin fines de lucro que nace el año 2015 con el propósito de dar solución a la problemática de Bienestar Animal y Tenencia Responsable de Mascotas y Animales de Compañía en Chile. Contamos con un equipo de voluntarios profesional y multidisciplinario, comprometido con el logro de nuestra misión.\nUno de nuestros sellos principales como organización consiste en el trabajo colaborativo que llevamos junto con actores del entorno, vecinos y vecinas del sector, municipalidades, establecimientos educacionales y organizaciones sociales.",
   "user": [
-    {
-      "$oid": "629375c1545316ac4d6924a9"
-    }
+    "629375c1545316ac4d6924a9"
+
   ],
   "petsAdoption": [
-    {
-      "$oid": "62937f2728d56d0c3d919ce5"
-    },
-    {
-      "$oid": "62937f7e28d56d0c3d919d10"
-    },
-    {
-      "$oid": "62937f8328d56d0c3d919d16"
-    },
-    {
-      "$oid": "62937f8728d56d0c3d919d1c"
-    },
-    {
-      "$oid": "62937f8c28d56d0c3d919d22"
-    }
+    "62937f2728d56d0c3d919ce5"
+    ,
+    "62937f7e28d56d0c3d919d10"
+    ,
+     "62937f8328d56d0c3d919d16"
+    ,
+    "62937f8728d56d0c3d919d1c"
+    ,
+    "62937f8c28d56d0c3d919d22"
+
   ],
   "status": "Active",
   "__v": 1,

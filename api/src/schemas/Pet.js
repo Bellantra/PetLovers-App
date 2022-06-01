@@ -14,17 +14,9 @@ const petSchema = new Schema({
         type: String,
         required: true,
     },
-    adopt: {
-        type: {
-            is_adopted: Boolean,
-            adopt_by: {
-                type: Schema.Types.ObjectId,
-                ref: 'User',
-            },
-        },
-        default: {
-            is_adopted: false,
-        },
+    adopt_by: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
     },
     race: {
         type: String,
@@ -73,7 +65,7 @@ const petSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Active', 'Deleted'],
+        enum: ['Active', 'Adopted', 'Deleted'],
         default: 'Active',
     },
 })
