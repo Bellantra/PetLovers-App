@@ -228,7 +228,7 @@ const NavBar = () => {
                             <ListItemIcon>
                                 <LogoutIcon fontSize="small" />
                             </ListItemIcon>
-                            Salir
+                            Log out
                         </MenuItem>
                     </Menu>
                 </Toolbar>
