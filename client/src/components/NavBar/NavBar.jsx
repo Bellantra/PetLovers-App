@@ -97,7 +97,7 @@ const NavBar = () => {
                         <Button
                             onClick={handleClick}
                             sx={{ my: 2, color: '#515151', display: 'block' }}
-                            aria-control={openMenu ? 'sheltersMenu' : undefined}
+                            // aria-control={openMenu ? 'sheltersMenu' : undefined}
                             aria-haspopup="true"
                             aria-expanded={openMenu ? 'true' : undefined}
                         >
@@ -159,11 +159,11 @@ const NavBar = () => {
                                     color="primary"
                                     fontSize="large"
                                     sx={{ marginLeft: '10px' }}
-                                    aria-controls={
-                                        openMenuUser
-                                            ? 'account-menu'
-                                            : undefined
-                                    }
+                                    // aria-controls={
+                                    //     openMenuUser
+                                    //         ? 'account-menu'
+                                    //         : undefined
+                                    // }
                                     aria-haspopup="true"
                                     aria-expanded={
                                         openMenuUser ? 'true' : undefined

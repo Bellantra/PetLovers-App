@@ -10,7 +10,7 @@ import imgContact from '../../assets/contact.png'
 import emailjs from "@emailjs/browser"
 import { Keys } from "./Keys"
 
-const theme = createTheme();
+const theme = createTheme()
 
 export default function Contact() {
   const sendEmail = (event) => {
@@ -94,24 +94,30 @@ export default function Contact() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3,
-                    mb: 2,
-                    backgroundColor: "#1565C0",
-                    width: 79
-                  }}
-            >
-              Submit
-            </Button>
-          </Box>
-        </Box>
-        <Box>
-            <img src={imgContact} alt="dog-and-owner" width={500} height={600}/>
-        </Box>
-      </Container>
-    </ThemeProvider>
-  );
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{
+                                mt: 3,
+                                mb: 2,
+                                backgroundColor: '#1565C0',
+                                width: 79,
+                            }}
+                        >
+                            Submit
+                        </Button>
+                    </Box>
+                </Box>
+                <Box>
+                    <img
+                        src={imgContact}
+                        alt="dog-and-owner"
+                        width={500}
+                        height={600}
+                    />
+                </Box>
+            </Container>
+        </ThemeProvider>
+    )
 }
