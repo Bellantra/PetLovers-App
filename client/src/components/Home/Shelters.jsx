@@ -10,7 +10,7 @@ import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
 
 const Shelters = () => {
     const dispatch = useDispatch()
-    let { shelters, status } = useSelector((state) => state.shelter)
+    const { shelters, status } = useSelector((state) => state.shelter)
 
     const navigate = useNavigate()
 
@@ -18,8 +18,6 @@ const Shelters = () => {
         if (status !== 'success') dispatch(getAllShelters())
     }, [])
 
-    shelters = shelters.slice(0, 4)
-    console.log(shelters)
     return (
         <Box paddingBottom={'8rem'}>
             <Typography
@@ -41,7 +39,7 @@ const Shelters = () => {
                             key={index}
                             onClick={() => navigate(`/shelter/${shelter._id}`)}
                         >
-                            <Paper elevation={6} align="center" rounded>
+                            <Paper elevation={6} align="center">
                                 <Box
                                     component="img"
                                     src={shelter.logo}
