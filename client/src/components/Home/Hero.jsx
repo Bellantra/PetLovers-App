@@ -1,4 +1,3 @@
-/* import React from 'react'; */
 import Button from '@mui/material/Button';
 import imgHero from '../../assets/img-home.png'
 import SendIcon from '@mui/icons-material/Send';
@@ -7,27 +6,46 @@ import dogPaw2 from '../../assets/dogpaw2.png'
 import dogPaw3 from '../../assets/dogpaw3.png'
 import dogPaw4 from '../../assets/dogpaw4.png'
 import dogPaw5 from '../../assets/dogpaw5.png'
+import {
+DivHero,
+TextHero,
+DivImgHero, 
+ImageHero,
+WeCare,
+AboutPets,
+ParagraphHero,
+DivButtonAdopt,
+ImageDogPaw1,
+ImageDogPaw2,
+ImageDogPaw3,
+ImageDogPaw4,
+ImageDogPaw5
+ } from "../styles/HomeStyle";
 
 const Hero = () => {
     return(
-        <div className='hero'>
-        <div className='textHero'>
-            <img src={dogPaw} alt='dog-paw' className='imageDogPaw1'/>
-            <img src={dogPaw2} alt='dog-paw' className='imageDogPaw2'/>
-            <h2 className='weCare'>WE CARE</h2>
-            <h2 className='aboutPets'>About Pets</h2>
-            <p className='paragraphHero'>Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish.</p>
-            <div className='divButtonAdopt'>
-            <Button variant="contained" className='buttonAdoptNow' endIcon={<SendIcon />}>Adopt Now</Button>
-            </div>
-            <img src={dogPaw3} alt='dog-paw' className='imageDogPaw3'/>
-            <img src={dogPaw4} alt='dog-paw' className='imageDogPaw4'/>
-            <img src={dogPaw5} alt='dog-paw' className='imageDogPaw5'/>
-        </div>
-        <div className='divImgHero'>
-            <img src={imgHero} alt='various-pets' className='imageHero'/>
-            </div>
-        </div>
+        <DivHero>
+        <TextHero>
+            <ImageDogPaw1 src={dogPaw} alt='dog-paw'/>
+            <ImageDogPaw2 src={dogPaw2} alt='dog-paw'/>
+            <WeCare>WE CARE</WeCare>
+            <AboutPets>About Pets</AboutPets>
+            <ParagraphHero>Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish.</ParagraphHero>
+            <DivButtonAdopt>
+            <Button variant="contained" endIcon={<SendIcon />}
+            sx={{backgroundColor: "#1565C0 !important",
+                boxShadow:  "2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important",
+                borderRadius: "4px !important"}}
+            >Adopt Now</Button>
+            </DivButtonAdopt>
+            <ImageDogPaw3 src={dogPaw3} alt='dog-paw'/>
+            <ImageDogPaw4 src={dogPaw4} alt='dog-paw'/>
+            <ImageDogPaw5 src={dogPaw5} alt='dog-paw'/>
+        </TextHero>
+        <DivImgHero>
+            <ImageHero src={imgHero} alt='various-pets'/>
+        </DivImgHero>
+        </DivHero>
     )
 }
 export default Hero;

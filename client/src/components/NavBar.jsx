@@ -53,8 +53,12 @@ const NavBar = () => {
     }
 
     return (
-        <AppBar position="static" className="navContainer">
-            <Container maxWidth="xl" className="navContainer">
+        <AppBar position="static"
+        sx={{backgroundColor: "white !important",
+            boxShadow: "none !important"}}>
+            <Container maxWidth="xl"
+            sx={{backgroundColor: "white !important",
+            boxShadow: "none !important"}}>
                 <Toolbar disableGutters>
                     <AdbIcon
                         sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
@@ -120,15 +124,15 @@ const NavBar = () => {
                         >
                             <LinkRouter
                                 to={'/Adoptions'}
-                                className="navButtons"
+                                /* className="navButtons" */
                             >
                                 Adoptions
                             </LinkRouter>
                         </Button>
-                        <Button
+                        {/* <Button
                             sx={{ my: 2, color: '#515151', display: 'block' }}
                         >
-                        </Button>
+                        </Button> */}
                     </Box>
 
                     <Box
@@ -172,8 +176,12 @@ const NavBar = () => {
                         ) : (
                             <Button
                                 variant="contained"
-                                className="buttonLogIn"
-                                style={{ width: '120px', padding: '5px 10px' }}
+                                style={{ width: '120px', 
+                                padding: '5px 10px',
+                                backgroundColor: "#1565C0 !important",
+                                boxShadow: "2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important",
+                                borderRadius: "4px !important"
+                            }}
                                 onClick={loginWithRedirect}
                             >
                                 Login

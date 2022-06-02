@@ -1,9 +1,9 @@
-
+import { UnderConstructionStyle } from "../styles/HomeStyle";
 
 const UnderConstruction = () => {
     return(
         <>
-        <h1 className="UnderConstruction">Under Construction</h1>
+        <UnderConstructionStyle>Under Construction</UnderConstructionStyle>
         </>
     )
 }

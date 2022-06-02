@@ -4,12 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "../../styles/Home.css";
 
 // import required modules
 import { Pagination } from "swiper";
-
+import { PhotoCarrousel, AdoptionDiv, AdoptionTitle } from "../../styles/HomeStyle";
 const photos = [
     {
         "photo": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
@@ -38,9 +37,9 @@ const photos = [
 export default function Carrousel() {
   return (
     <>
-        <div className="adoptiondiv">
-            <h2 className="adoptionTitle">Adoption</h2>
-        </div>
+        <AdoptionDiv>
+            <AdoptionTitle>Adoption</AdoptionTitle>
+        </AdoptionDiv>
         <Swiper
             slidesPerView={3}
             spaceBetween={30}
@@ -49,10 +48,11 @@ export default function Carrousel() {
         }}
         modules={[Pagination]}
         className="mySwiper"
+        sx={{display: "flex", alignItems: "center", marginBottom: "2rem"}}
       >
         {photos.map(pic=>
         <SwiperSlide sx={{height: 10}} key={pic.photo}>
-            <img src={pic.photo} className="photoCarrousel" alt="photos"/>
+            <PhotoCarrousel src={pic.photo} alt="photos"/>
           </SwiperSlide>   
         )}
       </Swiper>
