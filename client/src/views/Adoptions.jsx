@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import AdoptCard from '../components/AdoptCard'
+import AdoptCard from '../components/Adoptions/AdoptCard'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 import Filtros from '../components/PetFilter'
 
