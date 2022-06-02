@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {getAdoptablePets} from '../redux/asyncActions/pet/getAdoptablePets'
+import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 import { useDispatch } from 'react-redux'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -7,9 +7,7 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { Button } from '@mui/material'
 
-
-
-const Filtros = () => {
+const Filtros = (pet) => {
     const [filter, setFilter] = React.useState('')
     const dispatch = useDispatch()
 
@@ -32,6 +30,26 @@ const Filtros = () => {
                 marginBottom: '20px',
             }}
         >
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
+                <InputLabel id="demo-simple-select-standard-label">
+                    city
+                </InputLabel>
+                <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    onChange={handleChangeFilter}
+                    label="City"
+                    name={'city'}
+                    value={filter.city ? filter.city : ''}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={'La Plata'}>La Plata</MenuItem>
+                    <MenuItem value={'Salta'}>Salta</MenuItem>
+                    <MenuItem value={'Rosario'}>Rosario</MenuItem>
+                </Select>
+            </FormControl>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 80 }}>
                 <InputLabel id="demo-simple-select-standard-label">
                     race
@@ -75,6 +93,7 @@ const Filtros = () => {
                 </Select>
             </FormControl>
             <Button
+                sx={{ my: 2, display: 'block' }}
                 variant="contained"
                 onClick={() => {
                     handleOnFilter()

@@ -10,7 +10,7 @@ import UnderConstruction from './UnderConstruction'
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {
     // eslint-disable-next-line react/prop-types
-    const { image, nickname, age } = pet
+    const { image, nickname, age, city } = pet
     const [estadoModal1, setEstadoModal1] = useState(false)
 
     return (
@@ -31,6 +31,7 @@ export default function AdoptCard({ pet }) {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         age: {age} years
+                        city: {city}
                     </Typography>
                 </CardContent>
             </Card>
