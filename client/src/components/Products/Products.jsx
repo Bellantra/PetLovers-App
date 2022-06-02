@@ -43,7 +43,7 @@ export const Products = ({ array, arrayType, petPerPage }) => {
                             )
                     )}
             </div>
-            <Box display="center" justifyContent="center" marginBottom="20px">
+            <Box display="flex" justifyContent="center" margin="0px" gap='40px'>
                 <Pagination
                     count={count}
                     page={currentPage}

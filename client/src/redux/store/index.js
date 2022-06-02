@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import adoptSlice from '../features/adopt/adoptSlice'
 import shelterSlice from '../features/shelter/shelterSlice'
+import productSlice from '../features/product/productSlice';
 
 const store = configureStore({
     reducer: {
         adopt: adoptSlice,
         shelter: shelterSlice,
+        product: productSlice,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
