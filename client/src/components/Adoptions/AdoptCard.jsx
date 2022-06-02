@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography'
 
 import styled from 'styled-components'
 import Modal from '../Modal/Modal'
-import UnderConstruction from '../UnderConstruction/UnderConstruction'
+import Pet from '../../views/Pet'
 
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {
@@ -32,8 +32,7 @@ export default function AdoptCard({ pet }) {
                         {nickname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        age: {age} years
-                        city: {city}
+                        age: {age} years city: {city}
                     </Typography>
                 </CardContent>
             </Card>
@@ -56,12 +55,9 @@ export default function AdoptCard({ pet }) {
                         height="140"
                         image={image[0]}
                     />
-
                     <Typography gutterBottom variant="h5" component="div">
                         {nickname}
                     </Typography>
-
-                    <UnderConstruction></UnderConstruction>
                 </Contenido>
             </Modal>
         </div>

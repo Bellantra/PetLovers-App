@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
+import { getAdoptablePets } from '../../redux/asyncActions/pet/getAdoptablePets'
 import { useDispatch } from 'react-redux'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'

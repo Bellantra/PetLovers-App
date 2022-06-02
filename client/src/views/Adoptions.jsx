@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import AdoptCard from '../components/Adoptions/AdoptCard'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
-import Filtros from '../components/PetFilter'
+import Filtros from '../components/PetFilter/PetFilter'
 
 const theme = createTheme()
 
