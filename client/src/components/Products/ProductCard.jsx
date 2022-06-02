@@ -15,27 +15,34 @@ export const ProductCard = ({ product }) => {
         <Card
             sx={{
                 height: '260px',
-                width: '180px',
+                width: '220px',
                 border: 'solid 1px lightgrey',
             }}
         >
             <CardMedia
                 component="img"
-                height="140"
+                height="170"
                 image={img}
                 alt="nombre"
                 sx={{ marginBottom: '0px', padding: '0px' }}
             />
             <CardContent sx={{ marginTop: '0px', padding: '0px' }}>
                 <Typography
+                    style={{margin:'0px', padding:'0px'}}
                     align="center"
                     color="textPrimary"
                     gutterBottom
-                    variant="h6"
+                    variant="body1"
+                    component="div"
                 >
                     {name}
                 </Typography>
-                <Typography align="center" color="textPrimary" variant="body1">
+                <Typography 
+                style={{margin:'0px', padding:'0px'}}
+                align="center"
+                color="textPrimary"
+                 variant="body2"
+                 component="div">
                     Price: {price}
                 </Typography>
             </CardContent>
@@ -44,8 +51,9 @@ export const ProductCard = ({ product }) => {
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
-                    marginBottom: '10px',
+                    marginBottom: '0px',
                     alignItems: 'center',
+                    padding:'0px'
                 }}
             >
                 <Button size="medium" variant="contained">

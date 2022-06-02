@@ -13,6 +13,9 @@ import { Products } from '../components/Products/Products'
 import products from '../utils/products.json'
 import AdoptCard from '../components/Adoptions/AdoptCard'
 import Pagination from '../components/Pagination/Pagination'
+import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
+
+
 
 const Shelter = () => {
     const { id } = useParams()
@@ -20,11 +23,19 @@ const Shelter = () => {
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
     )
+    
+    const prod= useSelector(state=>state.product.products);
+    console.log(prod);
 
     useEffect(() => {
         dispatch(getShelterById(id))
         return () => dispatch(cleanDetail())
     }, [dispatch, id])
+
+    useEffect(() => {
+        dispatch(getAllProducts())
+        return () => dispatch(cleanDetail())
+    }, [dispatch])
 
     // ----------   PAGINADO------------
     const perPage = 3
@@ -36,6 +47,7 @@ const Shelter = () => {
 
     const data = shelterDetail.petsAdoption?.slice(leftLimit, rightLimit)
     // -----------FIN PAGINADO----------------
+    const shelterProducts= prod.filter(el=>el.shelter._id===id);
 
     return (
         <div>
@@ -123,11 +135,12 @@ const Shelter = () => {
                             Nuestros Productos
                         </Typography>
 
-                        <Products
-                            array={products}
+                        {(shelterProducts.length>0)&&<Products
+                            array={shelterProducts}
                             arrayType="products"
                             petPerPage={Number('10')}
                         />
+}
                     </Grid>
                 </Container>
             ) : (
