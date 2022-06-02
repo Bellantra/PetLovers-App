@@ -13,15 +13,15 @@ import Pagination from '../Pagination/Pagination'
 //
 
 export const Products = ({ array, arrayType, petPerPage }) => {
+    // ----------   PAGINADO------------
     const perPage = petPerPage
     const [currentPage, setCurrentPage] = useState(1)
     const count = Math.ceil(array.length / perPage)
-    console.log(count)
     const leftLimit = currentPage * perPage - perPage
     const rightLimit = leftLimit + perPage
-    console.log(leftLimit, rightLimit)
+
     const data = array.slice(leftLimit, rightLimit)
-    console.log(data)
+    // -----------FIN PAGINADO----------------
 
     return (
         <div>

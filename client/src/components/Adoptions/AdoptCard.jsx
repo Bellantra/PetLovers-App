@@ -19,56 +19,54 @@ export default function AdoptCard({ pet }) {
     const [estadoModal1, setEstadoModal1] = useState(false)
 
     return (
-        <Container>
-            <Grid>
-                <Card
-                    sx={{ maxWidth: 250 }}
-                    onClick={() => setEstadoModal1(!estadoModal1)}
-                >
+        <div>
+            <Card
+                sx={{ maxWidth: 250 }}
+                onClick={() => setEstadoModal1(!estadoModal1)}
+            >
+                <CardMedia
+                    component="img"
+                    alt="Imagen de un animal"
+                    height="140"
+                    image={image[0]}
+                />
+                <CardContent sx={{ flexGrow: 1, minHeight: '125px' }}>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {nickname}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        age: {age} years
+                    </Typography>
+                </CardContent>
+            </Card>
+
+            <Modal
+                estado={estadoModal1}
+                setEstado={setEstadoModal1}
+                titulo=""
+                mostrarHeader={true}
+                mostrarOverlay={true}
+                /* lo puedo sacar, queda center por defecto */
+                posicionModal={'center'}
+                /* lo puedo sacar, queda 20px por defecto */
+                padding={'20px'}
+            >
+                <Contenido>
                     <CardMedia
                         component="img"
                         alt="Imagen de un animal"
                         height="140"
                         image={image[0]}
                     />
-                    <CardContent sx={{ flexGrow: 1, minHeight: '125px' }}>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {nickname}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            age: {age} years
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-        </Container>
 
-        // <Modal
-        //     estado={estadoModal1}
-        //     setEstado={setEstadoModal1}
-        //     titulo=""
-        //     mostrarHeader={true}
-        //     mostrarOverlay={true}
-        //     /* lo puedo sacar, queda center por defecto */
-        //     posicionModal={'center'}
-        //     /* lo puedo sacar, queda 20px por defecto */
-        //     padding={'20px'}
-        // >
-        //     <Contenido>
-        //         <CardMedia
-        //             component="img"
-        //             alt="Imagen de un animal"
-        //             height="140"
-        //             image={image[0]}
-        //         />
+                    <Typography gutterBottom variant="h5" component="div">
+                        {nickname}
+                    </Typography>
 
-        //         <Typography gutterBottom variant="h5" component="div">
-        //             {nickname}
-        //         </Typography>
-
-        //         <UnderConstruction></UnderConstruction>
-        //     </Contenido>
-        // </Modal>
+                    <UnderConstruction></UnderConstruction>
+                </Contenido>
+            </Modal>
+        </div>
     )
 }
 
