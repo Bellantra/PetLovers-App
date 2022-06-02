@@ -12,28 +12,12 @@ export const UnderConstructionStyle = styled.h1`
     mix-blend-mode: normal;
 `;
 
-/* NavBar */
-/* export const NavContainer= styled.div`
-    background-color: white !important;
-    box-shadow: none !important;
-` */
-/* .buttonLogIn{
-    background-color: #1565C0 !important;
-    box-shadow:  2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important;
-    border-radius: 4px !important;
-} */
-/* .navButtons{
-    text-decoration: none;
-    color: #515151;
-}
- */
 /* Hero */
 export const DivHero = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
 `;
-
 export const TextHero = styled.div`
     display: flex;
     flex-direction: column;
@@ -57,11 +41,17 @@ export const WeCare = styled.h2`
     -webkit-background-clip: text;
     background-clip: text;
     mix-blend-mode: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
 `;
 export const AboutPets = styled.h2`
     font-size: 6rem;
     font-weight: 300;
     line-height: 6rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 `;
 export const ParagraphHero = styled.p`
     width: 60%;
@@ -77,14 +67,6 @@ export const DivButtonAdopt = styled.div`
     width: 60%;
     margin-top: 3rem;
 `;
-/* .buttonAdoptNow{
-    background-color: #1565C0 !important;
-    box-shadow:  2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important;
-    border-radius: 4px !important;
-} */
-/* .imageLogo{
-    margin-right: 3rem;
-} */
 export const ImageDogPaw1 = styled.img`
     position: absolute;
     left: 15%;
@@ -123,8 +105,8 @@ export const ImageDogPaw5 = styled.img`
 
 /* About us */
 export const DivAboutUs = styled.div`
-    background-image: url(../assets/about-us-bkg.png);
-    background-size: cover;
+    /* background-image: url(../../assets/about-us-bkg.png);
+    background-size: cover; */
     height: 100vh;
     width: 100%;
     display: flex;
@@ -153,40 +135,6 @@ export const ParagraphAbout = styled.p`
 `
 
 /* Carrousel */
-/* .swiper {
-    width: 100%;
-    height: 100%;
-  } */
-/* .mySwiper{
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-} */
-/*   .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-/*     display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  } */
 export const PhotoCarrousel = styled.img`
     height: 25rem;
     width: 25rem;

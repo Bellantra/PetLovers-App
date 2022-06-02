@@ -1,23 +1,30 @@
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import imgContact from '../../assets/contact.png'
+import emailjs from "@emailjs/browser"
+import { Keys } from "./Keys"
 
 const theme = createTheme();
 
 export default function Contact() {
-  const handleSubmit = (event) => {
+  const sendEmail = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      message: data.get('password'),
-    });
+
+    emailjs.sendForm(Keys.serviceID, Keys.templateID, event.target, Keys.publicKey)
+    .then(
+      (response) => {
+        console.log(response)
+    }, (error) => {
+      console.log(error)
+    }
+    )
+    event.target.reset()
   };
 
   return (
@@ -42,7 +49,7 @@ export default function Contact() {
           <Typography component="h1" variant="h5" sx={{fontWeight: 800, fontSize: 80}}>
             Contact Us
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit}
+          <Box component="form" noValidate onSubmit={sendEmail}
           sx={{ mt: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>

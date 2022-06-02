@@ -4,11 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "../../styles/Home.css";
 
 // import required modules
 import { Pagination } from "swiper";
-import { PhotoCarrousel, AdoptionDiv, AdoptionTitle } from "../../styles/HomeStyle";
+import { PhotoCarrousel, AdoptionDiv, AdoptionTitle } from "./HomeStyle";
 const photos = [
     {
         "photo": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"

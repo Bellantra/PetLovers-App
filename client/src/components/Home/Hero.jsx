@@ -20,7 +20,8 @@ ImageDogPaw2,
 ImageDogPaw3,
 ImageDogPaw4,
 ImageDogPaw5
- } from "../styles/HomeStyle";
+ } from "./HomeStyle";
+ import { Link as LinkRouter } from 'react-router-dom'
 
 const Hero = () => {
     return(
@@ -32,11 +33,13 @@ const Hero = () => {
             <AboutPets>About Pets</AboutPets>
             <ParagraphHero>Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish.</ParagraphHero>
             <DivButtonAdopt>
+            <LinkRouter to={"/Adoptions"} className="notUnderlined">
             <Button variant="contained" endIcon={<SendIcon />}
             sx={{backgroundColor: "#1565C0 !important",
                 boxShadow:  "2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important",
                 borderRadius: "4px !important"}}
             >Adopt Now</Button>
+            </LinkRouter>
             </DivButtonAdopt>
             <ImageDogPaw3 src={dogPaw3} alt='dog-paw'/>
             <ImageDogPaw4 src={dogPaw4} alt='dog-paw'/>

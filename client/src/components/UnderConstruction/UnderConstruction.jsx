@@ -1,4 +1,4 @@
-import { UnderConstructionStyle } from "../styles/HomeStyle";
+import { UnderConstructionStyle } from "../Home/HomeStyle";
 
 const UnderConstruction = () => {
     return(
