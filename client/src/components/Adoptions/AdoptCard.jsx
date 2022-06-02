@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography'
 
 import styled from 'styled-components'
 import Modal from '../Modal/Modal'
-import Pagination from '../Pagination/Pagination'
+import { ButtonGroup, Button } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {
@@ -17,10 +17,7 @@ export default function AdoptCard({ pet }) {
 
     return (
         <div>
-            <Card
-                sx={{ maxWidth: 250 }}
-                onClick={() => setEstadoModal1(!estadoModal1)}
-            >
+            <Card sx={{ maxWidth: 250 }}>
                 <CardMedia
                     component="img"
                     alt="Imagen de un animal"
@@ -32,8 +29,21 @@ export default function AdoptCard({ pet }) {
                         {nickname}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        age: {age} years city: {city}
+                        age: {age} years 
                     </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                     city: {city}
+                    </Typography>
+
+                    <ButtonGroup
+                        variant="text"
+                        aria-label="outlined button group"
+                    >
+                        <Button onClick={() => setEstadoModal1(!estadoModal1)}>
+                            +Info
+                        </Button>
+                        <Button>Adopt Me!</Button>
+                    </ButtonGroup>
                 </CardContent>
             </Card>
 
