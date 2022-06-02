@@ -1,11 +1,12 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { Grid, Link, Paper } from '@mui/material'
 import Typography from '@mui/material/node/Typography'
 import { Box } from '@mui/system'
-
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const Shelters = () => {
     const dispatch = useDispatch()
