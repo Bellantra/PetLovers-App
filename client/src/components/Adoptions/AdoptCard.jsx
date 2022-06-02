@@ -7,7 +7,10 @@ import Typography from '@mui/material/Typography'
 
 import styled from 'styled-components'
 import Modal from '../Modal/Modal'
-import Pet from '../../views/Pet'
+import UnderConstruction from '../UnderConstruction/UnderConstruction'
+import Pagination from '../Pagination/Pagination'
+import { Container } from '@mui/system'
+import { Grid } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {

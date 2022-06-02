@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -12,13 +12,7 @@ import {
 import { Products } from '../components/Products/Products'
 import products from '../utils/products.json'
 import AdoptCard from '../components/Adoptions/AdoptCard'
-
-// const img = [
-//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
-//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/objetivos-albergue-animales_jpg.webp',
-//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/protocolo-admision-albergue-animales_jpg.webp',
-//     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/articulos/dia-a-dia-albergue-animales_jpg.webp',
-// ]
+import Pagination from '../components/Pagination/Pagination'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -32,7 +26,16 @@ const Shelter = () => {
         return () => dispatch(cleanDetail())
     }, [dispatch, id])
 
-    // console.log(shelterDetail)
+    // ----------   PAGINADO------------
+    const perPage = 3
+    const [currentPage, setCurrentPage] = useState(1)
+    const count = Math.ceil(shelterDetail.petsAdoption?.length / perPage)
+
+    const leftLimit = currentPage * perPage - perPage
+    const rightLimit = leftLimit + perPage
+
+    const data = shelterDetail.petsAdoption?.slice(leftLimit, rightLimit)
+    // -----------FIN PAGINADO----------------
 
     return (
         <div>
@@ -46,6 +49,7 @@ const Shelter = () => {
                     >
                         Refugio {shelterDetail.name}{' '}
                     </Typography>
+
                     <Divider variant="middle"></Divider>
 
                     <Typography
@@ -73,7 +77,7 @@ const Shelter = () => {
                     </Container>
 
                     <Typography
-                        marginTop={5}
+                        marginTop={15}
                         variant="h3"
                         align="center"
                         color="text.primary"
@@ -83,12 +87,11 @@ const Shelter = () => {
                     </Typography>
                     <Grid
                         container
-                        marginBottom={25}
+                        marginBottom={5}
                         spacing={4}
                         justifyContent={'center'}
                     >
-                        {/* <Carousel> */}
-                        {shelterDetail.petsAdoption.map((pet, index) => (
+                        {data.map((pet, index) => (
                             <Grid item key={index} xs={12} sm={6} md={4}>
                                 <AdoptCard
                                     pet={pet}
@@ -98,43 +101,16 @@ const Shelter = () => {
                                         flexDirection: 'column',
                                     }}
                                 ></AdoptCard>
-                                {/* <Card
-                                        sx={{
-                                            maxWidth: 345,
-                                            height: 450,
-                                        }}
-                                    >
-                                        <CardActionArea>
-                                            <CardMedia
-                                                component={'img'}
-                                                height="140"
-                                                image={image[0]}
-                                                alt={nickname}
-                                            />
-                                            <CardContent>
-                                                <Typography
-                                                    gutterBottom
-                                                    variant="h5"
-                                                    component="div"
-                                                >
-                                                    {nickname}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                >
-                                                    Lizards are a widespread
-                                                    group of squamate reptiles,
-                                                    with over 6,000 species,
-                                                    ranging across all
-                                                    continents except Antarctica
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card> */}
                             </Grid>
                         ))}
-                        {/* </Carousel> */}
+                    </Grid>
+                    <Grid container justifyContent={'center'}>
+                        <Pagination
+                            count={count}
+                            page={currentPage}
+                            setPage={setCurrentPage}
+                            color="primary"
+                        ></Pagination>
                     </Grid>
                     <Grid align={'center'}>
                         <Typography
