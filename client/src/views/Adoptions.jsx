@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import AdoptCard from '../components/AdoptCard'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
+import Filtros from '../components/Filtros'
+
 const theme = createTheme()
 
 export default function Adoptions() {
@@ -53,6 +55,7 @@ export default function Adoptions() {
                         </Typography>
                     </Container>
                 </Box>
+                <Filtros></Filtros>
                 <Container sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
                     {status === 'success' ? (

@@ -3,7 +3,7 @@ import Home from './views/Home'
 import UnderConstruction from './components/UnderConstruction'
 import Adoptions from './views/Adoptions'
 import Shelter from './views/Shelter'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Footer from '../src/components/Footer'
 
 const App = () => {
