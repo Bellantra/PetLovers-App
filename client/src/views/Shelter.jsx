@@ -9,9 +9,9 @@ import {
     getShelterById,
     cleanDetail,
 } from '../redux/features/shelter/shelterSlice'
-import { Paginations } from '../components/Home/Paginations'
+import { Products } from '../components/Products/Products'
 import products from '../utils/products.json'
-import AdoptCard from '../components/AdoptCard'
+import AdoptCard from '../components/Adoptions/AdoptCard'
 
 // const img = [
 //     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
@@ -147,7 +147,7 @@ const Shelter = () => {
                             Nuestros Productos
                         </Typography>
 
-                        <Paginations
+                        <Products
                             array={products}
                             arrayType="products"
                             petPerPage={Number('10')}
