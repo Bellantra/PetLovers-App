@@ -1,13 +1,13 @@
+import { useState } from 'react'
+
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
-import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { useState } from 'react'
+
 import styled from 'styled-components'
-import Modal from './Modal'
-import UnderConstruction from './UnderConstruction'
+import Modal from '../Modal/Modal'
+import UnderConstruction from '../UnderConstruction/UnderConstruction'
 
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {

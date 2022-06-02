@@ -12,8 +12,8 @@ import MenuItem from '@mui/material/MenuItem'
 import { Avatar, Divider, ListItemIcon } from '@mui/material'
 import AdbIcon from '@mui/icons-material/Adb'
 import LogoutIcon from '@mui/icons-material/Logout'
-import logo from '../assets/logo.png'
-import '../styles/Home.css'
+import logo from '../../assets/logo.png'
+import '../../styles/Home.css'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -127,8 +127,7 @@ const NavBar = () => {
                         </Button>
                         <Button
                             sx={{ my: 2, color: '#515151', display: 'block' }}
-                        >
-                        </Button>
+                        ></Button>
                     </Box>
 
                     <Box
