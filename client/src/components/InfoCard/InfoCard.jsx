@@ -56,8 +56,7 @@ export default function InfoCard({
             <CardMedia
                 component="img"
                 alt={IMG_ALT}
-                width="250"
-                height="250"
+                height={type === 'pet' ? '250' : '300'}
                 image={IMG}
                 sx={{ objectFit: 'cover' }}
             />
