@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
+import Loading from '../components/Loading/Loading'
 const theme = createTheme()
 
 export default function Adoptions() {
@@ -59,7 +60,7 @@ export default function Adoptions() {
                         itemsPerPage={6}
                     />
                 ) : (
-                    <h1>LOADING</h1>
+                    <Loading />
                 )}
             </main>
         </ThemeProvider>

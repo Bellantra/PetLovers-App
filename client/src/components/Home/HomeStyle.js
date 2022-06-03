@@ -8,7 +8,7 @@ export const UnderConstructionStyle = styled.h1`
     background: linear-gradient(180deg, #0987e0 0%, #1f4795 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-clip: initial; // text
+    background-clip: text; // text
     mix-blend-mode: normal;
 `
 
@@ -39,7 +39,7 @@ export const WeCare = styled.h2`
     background: linear-gradient(180deg, #0987e0 0%, #1f4795 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-clip: initial; // text
+    background-clip: text; // text
     mix-blend-mode: normal;
     margin: 0;
     padding: 0;

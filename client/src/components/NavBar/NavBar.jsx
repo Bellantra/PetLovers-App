@@ -17,6 +17,7 @@ import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
+import Loading from '../Loading/Loading'
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -43,7 +44,6 @@ const NavBar = () => {
 
     const handleShelters = (event) => {
         const sh = shelters.filter((el) => el.name === event.target.innerText)
-        console.log(sh[0]._id)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
     }
@@ -121,7 +121,7 @@ const NavBar = () => {
                             open={openMenu}
                             onClose={handleClose}
                         >
-                            {shelters.length &&
+                            {status === 'success' ? (
                                 shelters.map((el, index) => (
                                     <MenuItem
                                         key={index}
@@ -129,7 +129,10 @@ const NavBar = () => {
                                     >
                                         {el.name}
                                     </MenuItem>
-                                ))}
+                                ))
+                            ) : (
+                                <Loading size={30} margin={'1px 30px'} />
+                            )}
                         </Menu>
 
                         <Button

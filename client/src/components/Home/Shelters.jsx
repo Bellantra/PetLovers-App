@@ -4,6 +4,7 @@ import { Grid, Link, Paper } from '@mui/material'
 import Typography from '@mui/material/node/Typography'
 import { Box } from '@mui/system'
 import { useSelector } from 'react-redux'
+import Loading from '../Loading/Loading'
 
 const Shelters = () => {
     const { shelters, status } = useSelector((state) => state.shelter)
@@ -52,7 +53,7 @@ const Shelters = () => {
                         </Link>
                     ))
                 ) : (
-                    <div>Loading</div>
+                    <Loading />
                 )}
             </Grid>
         </Box>
