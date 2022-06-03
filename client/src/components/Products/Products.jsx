@@ -12,19 +12,16 @@ import InfoCard from '../InfoCard/InfoCard'
 //
 
 export const Products = ({ array, arrayType, petPerPage }) => {
+    // ----------   PAGINADO------------
     const perPage = petPerPage
     const [currentPage, setCurrentPage] = useState(1)
     const count = Math.ceil(array.length / perPage)
     console.log(count)
     const leftLimit = currentPage * perPage - perPage
     const rightLimit = leftLimit + perPage
-    console.log(leftLimit, rightLimit)
-    const data = array.slice(leftLimit, rightLimit)
-    console.log(data)
 
-    const handleChange = (e, p) => {
-        setCurrentPage(p)
-    }
+    const data = array.slice(leftLimit, rightLimit)
+    // -----------FIN PAGINADO----------------
 
     return (
         <div>
@@ -50,11 +47,11 @@ export const Products = ({ array, arrayType, petPerPage }) => {
                             )
                     )}
             </div>
-            <Box display="center" justifyContent="center" marginBottom="20px">
+            <Box display="flex" justifyContent="center" margin="0px" gap="40px">
                 <Pagination
                     count={count}
                     page={currentPage}
-                    onChange={handleChange}
+                    setPage={setCurrentPage}
                     color="primary"
                 />
             </Box>

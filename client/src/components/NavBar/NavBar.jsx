@@ -13,9 +13,9 @@ import { Avatar, Divider, ListItemIcon } from '@mui/material'
 import AdbIcon from '@mui/icons-material/Adb'
 import LogoutIcon from '@mui/icons-material/Logout'
 import logo from '../../assets/logo.png'
-import '../../styles/Home.css'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import '../../App.css'
 
 const NavBar = () => {
     const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
@@ -31,7 +31,7 @@ const NavBar = () => {
         setAnchorEl(event.currentTarget)
     }
 
-    const handleClose = (event) => {
+    const handleClose = () => {
         setAnchorEl(null)
     }
 
@@ -53,8 +53,20 @@ const NavBar = () => {
     }
 
     return (
-        <AppBar position="static" className="navContainer">
-            <Container maxWidth="xl" className="navContainer">
+        <AppBar
+            position="static"
+            sx={{
+                backgroundColor: 'white !important',
+                boxShadow: 'none !important',
+            }}
+        >
+            <Container
+                maxWidth="xl"
+                sx={{
+                    backgroundColor: 'white !important',
+                    boxShadow: 'none !important',
+                }}
+            >
                 <Toolbar disableGutters>
                     <AdbIcon
                         sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
@@ -93,7 +105,7 @@ const NavBar = () => {
                         <Button
                             onClick={handleClick}
                             sx={{ my: 2, color: '#515151', display: 'block' }}
-                            aria-control={openMenu ? 'sheltersMenu' : undefined}
+                            // aria-control={openMenu ? 'sheltersMenu' : undefined}
                             aria-haspopup="true"
                             aria-expanded={openMenu ? 'true' : undefined}
                         >
@@ -115,6 +127,7 @@ const NavBar = () => {
                                     </MenuItem>
                                 ))}
                         </Menu>
+
                         <Button
                             sx={{ my: 2, color: '#515151', display: 'block' }}
                         >
@@ -125,9 +138,6 @@ const NavBar = () => {
                                 Adoptions
                             </LinkRouter>
                         </Button>
-                        <Button
-                            sx={{ my: 2, color: '#515151', display: 'block' }}
-                        ></Button>
                     </Box>
 
                     <Box
@@ -157,11 +167,11 @@ const NavBar = () => {
                                     color="primary"
                                     fontSize="large"
                                     sx={{ marginLeft: '10px' }}
-                                    aria-controls={
-                                        openMenuUser
-                                            ? 'account-menu'
-                                            : undefined
-                                    }
+                                    // aria-controls={
+                                    //     openMenuUser
+                                    //         ? 'account-menu'
+                                    //         : undefined
+                                    // }
                                     aria-haspopup="true"
                                     aria-expanded={
                                         openMenuUser ? 'true' : undefined
@@ -171,8 +181,14 @@ const NavBar = () => {
                         ) : (
                             <Button
                                 variant="contained"
-                                className="buttonLogIn"
-                                style={{ width: '120px', padding: '5px 10px' }}
+                                style={{
+                                    width: '120px',
+                                    padding: '5px 10px',
+                                    backgroundColor: '#1565C0 !important',
+                                    boxShadow:
+                                        '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
+                                    borderRadius: '4px !important',
+                                }}
                                 onClick={loginWithRedirect}
                             >
                                 Login
@@ -228,7 +244,7 @@ const NavBar = () => {
                             <ListItemIcon>
                                 <LogoutIcon fontSize="small" />
                             </ListItemIcon>
-                            Salir
+                            Log out
                         </MenuItem>
                     </Menu>
                 </Toolbar>
