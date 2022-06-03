@@ -12,6 +12,7 @@ import {
 
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
+import Loading from '../components/Loading/Loading'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -111,7 +112,7 @@ const Shelter = () => {
                     </Grid>
                 </Container>
             ) : (
-                <div>Loading</div>
+                <Loading />
             )}
         </div>
     )
