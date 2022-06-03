@@ -1,50 +1,50 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const UnderConstructionStyle = styled.h1`
     text-align: center;
     font-size: 7rem;
     font-weight: 800;
     line-height: 7rem;
-    background: linear-gradient(180deg, #0987E0 0%, #1F4795 100%);
+    background: linear-gradient(180deg, #0987e0 0%, #1f4795 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-clip: text;
+    background-clip: initial; // text
     mix-blend-mode: normal;
-`;
+`
 
 /* Hero */
 export const DivHero = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-`;
+`
 export const TextHero = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-`;
+`
 export const DivImgHero = styled.div`
     margin-right: 1rem;
-`;
+`
 export const ImageHero = styled.img`
     margin-top: 2rem;
     margin-right: 2rem;
-`;
+`
 export const WeCare = styled.h2`
     font-size: 7rem;
     font-weight: 800;
     line-height: 7rem;
-    background: linear-gradient(180deg, #0987E0 0%, #1F4795 100%);
+    background: linear-gradient(180deg, #0987e0 0%, #1f4795 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-clip: text;
+    background-clip: initial; // text
     mix-blend-mode: normal;
     margin: 0;
     padding: 0;
-    box-sizing: border-box
-`;
+    box-sizing: border-box;
+`
 export const AboutPets = styled.h2`
     font-size: 6rem;
     font-weight: 300;
@@ -52,7 +52,7 @@ export const AboutPets = styled.h2`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-`;
+`
 export const ParagraphHero = styled.p`
     width: 60%;
     margin-left: 1rem;
@@ -60,48 +60,48 @@ export const ParagraphHero = styled.p`
     font-size: 1rem;
     line-height: 20px;
     margin-top: 1rem;
-`;
+`
 export const DivButtonAdopt = styled.div`
     display: flex;
     justify-content: flex-start;
     width: 60%;
     margin-top: 3rem;
-`;
+`
 export const ImageDogPaw1 = styled.img`
     position: absolute;
     left: 15%;
     right: 30%;
     top: 30%;
     bottom: -15%;
-`;
+`
 export const ImageDogPaw2 = styled.img`
     position: absolute;
     left: 29%;
     right: 16.81%;
     top: 30%;
     bottom: -15.1%;
-`;
+`
 export const ImageDogPaw3 = styled.img`
     position: absolute;
     left: 18%;
     right: 30%;
     top: 100%;
     bottom: -15.83%;
-`;
+`
 export const ImageDogPaw4 = styled.img`
     position: absolute;
     left: 29%;
     right: -10.59%;
     top: 95%;
     bottom: -1.72%;
-`;
+`
 export const ImageDogPaw5 = styled.img`
     position: absolute;
     left: 40%;
     right: 25.73%;
     top: 81%;
     bottom: -15.83%;
-`;
+`
 
 /* About us */
 export const DivAboutUs = styled.div`
@@ -115,13 +115,13 @@ export const DivAboutUs = styled.div`
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-`;
+`
 export const AboutTitle = styled.h1`
     font-weight: 800;
     font-size: 5rem;
     line-height: 5rem;
     color: white;
-`;
+`
 export const ParagraphAbout = styled.p`
     width: 40rem;
     font-weight: 300;

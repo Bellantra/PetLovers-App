@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { Box } from '@mui/material'
+import { Pagination, Box } from '@mui/material'
 
-import { ProductCard } from './ProductCard'
-import Pagination from '../Pagination/Pagination'
+import InfoCard from '../InfoCard/InfoCard'
 
 // Este componente realiza el paginado y renderizado de un array de Objetos
 // Recibe 3 parametros por Props
@@ -17,6 +16,7 @@ export const Products = ({ array, arrayType, petPerPage }) => {
     const perPage = petPerPage
     const [currentPage, setCurrentPage] = useState(1)
     const count = Math.ceil(array.length / perPage)
+    console.log(count)
     const leftLimit = currentPage * perPage - perPage
     const rightLimit = leftLimit + perPage
 
@@ -37,13 +37,17 @@ export const Products = ({ array, arrayType, petPerPage }) => {
             >
                 {data.length &&
                     data.map(
-                        (el, index) =>
+                        (product, index) =>
                             arrayType === 'products' && (
-                                <ProductCard key={index} product={el} />
+                                <InfoCard
+                                    key={index}
+                                    item={product}
+                                    type={'product'}
+                                />
                             )
                     )}
             </div>
-            <Box display="flex" justifyContent="center" margin="0px" gap='40px'>
+            <Box display="flex" justifyContent="center" margin="0px" gap="40px">
                 <Pagination
                     count={count}
                     page={currentPage}

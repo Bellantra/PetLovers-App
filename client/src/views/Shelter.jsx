@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -9,13 +9,9 @@ import {
     getShelterById,
     cleanDetail,
 } from '../redux/features/shelter/shelterSlice'
-import { Products } from '../components/Products/Products'
-import products from '../utils/products.json'
-import AdoptCard from '../components/Adoptions/AdoptCard'
-import Pagination from '../components/Pagination/Pagination'
+
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
-
-
+import PaginateArray from '../components/PaginateArray/PaginateArray'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -23,9 +19,8 @@ const Shelter = () => {
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
     )
-    
-    const prod= useSelector(state=>state.product.products);
-    console.log(prod);
+
+    const prod = useSelector((state) => state.product.products)
 
     useEffect(() => {
         dispatch(getShelterById(id))
@@ -37,17 +32,7 @@ const Shelter = () => {
         return () => dispatch(cleanDetail())
     }, [dispatch])
 
-    // ----------   PAGINADO------------
-    const perPage = 3
-    const [currentPage, setCurrentPage] = useState(1)
-    const count = Math.ceil(shelterDetail.petsAdoption?.length / perPage)
-
-    const leftLimit = currentPage * perPage - perPage
-    const rightLimit = leftLimit + perPage
-
-    const data = shelterDetail.petsAdoption?.slice(leftLimit, rightLimit)
-    // -----------FIN PAGINADO----------------
-    const shelterProducts= prod.filter(el=>el.shelter._id===id);
+    const shelterProducts = prod.filter((el) => el.shelter._id === id)
 
     return (
         <div>
@@ -61,7 +46,6 @@ const Shelter = () => {
                     >
                         Refugio {shelterDetail.name}{' '}
                     </Typography>
-
                     <Divider variant="middle"></Divider>
 
                     <Typography
@@ -95,52 +79,35 @@ const Shelter = () => {
                         color="text.primary"
                         marginBottom={10}
                     >
-                        Nuestros animales en Adopcion
+                        Nuestros animales en Adopción
                     </Typography>
-                    <Grid
-                        container
-                        marginBottom={5}
-                        spacing={4}
-                        justifyContent={'center'}
-                    >
-                        {data.map((pet, index) => (
-                            <Grid item key={index} xs={12} sm={6} md={4}>
-                                <AdoptCard
-                                    pet={pet}
-                                    sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                ></AdoptCard>
-                            </Grid>
-                        ))}
-                    </Grid>
-                    <Grid container justifyContent={'center'}>
-                        <Pagination
-                            count={count}
-                            page={currentPage}
-                            setPage={setCurrentPage}
-                            color="primary"
-                        ></Pagination>
-                    </Grid>
-                    <Grid align={'center'}>
-                        <Typography
-                            marginTop={5}
-                            variant="h3"
-                            align="center"
-                            color="text.primary"
-                            gutterBottom
-                        >
-                            Nuestros Productos
-                        </Typography>
 
-                        {(shelterProducts.length>0)&&<Products
-                            array={shelterProducts}
-                            arrayType="products"
-                            petPerPage={Number('10')}
-                        />
-}
+                    <PaginateArray
+                        arrayType={'pet'}
+                        arrayData={shelterDetail.petsAdoption}
+                        itemsPerPage={3}
+                    />
+                    <Grid align={'center'}>
+                        {shelterProducts.length > 0 && (
+                            <>
+                                <Typography
+                                    marginTop={5}
+                                    variant="h3"
+                                    align="center"
+                                    color="text.primary"
+                                    gutterBottom
+                                >
+                                    Nuestros Productos
+                                </Typography>
+                                <PaginateArray
+                                    arrayType="products"
+                                    arrayData={shelterProducts}
+                                    itemsPerPage={6}
+                                    md={4}
+                                    cardSize={'lg'}
+                                />
+                            </>
+                        )}
                     </Grid>
                 </Container>
             ) : (

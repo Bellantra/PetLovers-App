@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -15,9 +15,11 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import logo from '../../assets/logo.png'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import "../../App.css"
+import '../../App.css'
+import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 
 const NavBar = () => {
+    const dispatch = useDispatch()
     const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
         useAuth0()
     const navigate = useNavigate()
@@ -25,20 +27,22 @@ const NavBar = () => {
     const [anchorElUser, setAnchorElUser] = useState(null)
     const openMenu = Boolean(anchorEl)
     const openMenuUser = Boolean(anchorElUser)
-    const shelterItems = useSelector((state) => state.shelter.shelters)
+
+    const { shelters, status } = useSelector((state) => state.shelter)
+    useEffect(() => {
+        if (status !== 'success') dispatch(getAllShelters())
+    }, [])
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
     }
 
-    const handleClose = (event) => {
+    const handleClose = () => {
         setAnchorEl(null)
     }
 
     const handleShelters = (event) => {
-        const sh = shelterItems.filter(
-            (el) => el.name === event.target.innerText
-        )
+        const sh = shelters.filter((el) => el.name === event.target.innerText)
         console.log(sh[0]._id)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
@@ -53,12 +57,20 @@ const NavBar = () => {
     }
 
     return (
-        <AppBar position="static"
-        sx={{backgroundColor: "white !important",
-            boxShadow: "none !important"}}>
-            <Container maxWidth="xl"
-            sx={{backgroundColor: "white !important",
-            boxShadow: "none !important"}}>
+        <AppBar
+            position="static"
+            sx={{
+                backgroundColor: 'white !important',
+                boxShadow: 'none !important',
+            }}
+        >
+            <Container
+                maxWidth="xl"
+                sx={{
+                    backgroundColor: 'white !important',
+                    boxShadow: 'none !important',
+                }}
+            >
                 <Toolbar disableGutters>
                     <AdbIcon
                         sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
@@ -109,8 +121,8 @@ const NavBar = () => {
                             open={openMenu}
                             onClose={handleClose}
                         >
-                            {shelterItems.length &&
-                                shelterItems.map((el, index) => (
+                            {shelters.length &&
+                                shelters.map((el, index) => (
                                     <MenuItem
                                         key={index}
                                         onClick={handleShelters}
@@ -119,7 +131,7 @@ const NavBar = () => {
                                     </MenuItem>
                                 ))}
                         </Menu>
-                        
+
                         <Button
                             sx={{ my: 2, color: '#515151', display: 'block' }}
                         >
@@ -127,7 +139,7 @@ const NavBar = () => {
                                 to={'/Adoptions'}
                                 className="navButtons"
                             >
-                            Adoptions
+                                Adoptions
                             </LinkRouter>
                         </Button>
                     </Box>
@@ -173,12 +185,14 @@ const NavBar = () => {
                         ) : (
                             <Button
                                 variant="contained"
-                                style={{ width: '120px', 
-                                padding: '5px 10px',
-                                backgroundColor: "#1565C0 !important",
-                                boxShadow: "2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important",
-                                borderRadius: "4px !important"
-                            }}
+                                style={{
+                                    width: '120px',
+                                    padding: '5px 10px',
+                                    backgroundColor: '#1565C0 !important',
+                                    boxShadow:
+                                        '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
+                                    borderRadius: '4px !important',
+                                }}
                                 onClick={loginWithRedirect}
                             >
                                 Login
