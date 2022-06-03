@@ -105,6 +105,7 @@ const NavBar = () => {
                             flexGrow: 1,
                             display: { xs: 'none', md: 'flex' },
                         }}
+                        marginX={5}
                     >
                         <Button
                             onClick={handleClick}
@@ -256,6 +257,7 @@ const NavBar = () => {
                     </Menu>
                 </Toolbar>
             </Container>
+            <Divider></Divider>
         </AppBar>
     )
 }

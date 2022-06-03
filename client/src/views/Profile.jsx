@@ -1,5 +1,5 @@
 import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react'
-import Home from './Home'
+import Loading from '../components/Loading/Loading'
 
 const Profile = () => {
     const { user } = useAuth0()
@@ -30,5 +30,5 @@ const Profile = () => {
 }
 
 export default withAuthenticationRequired(Profile, {
-    onRedirecting: () => <Home />,
+    onRedirecting: () => <Loading />,
 })
