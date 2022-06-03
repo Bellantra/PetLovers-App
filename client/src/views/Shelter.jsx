@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { Typography, Container, Divider, Grid, Pagination } from '@mui/material'
+import { Typography, Container, Divider, Grid } from '@mui/material'
 
 import Carousel from 'react-material-ui-carousel'
 import {
     getShelterById,
     cleanDetail,
 } from '../redux/features/shelter/shelterSlice'
-import { Products } from '../components/Products/Products'
-import InfoCard from '../components/InfoCard/InfoCard'
+
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
+import PaginateArray from '../components/PaginateArray/PaginateArray'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -21,7 +21,6 @@ const Shelter = () => {
     )
 
     const prod = useSelector((state) => state.product.products)
-    console.log(prod)
 
     useEffect(() => {
         dispatch(getShelterById(id))
@@ -33,16 +32,6 @@ const Shelter = () => {
         return () => dispatch(cleanDetail())
     }, [dispatch])
 
-    // ----------   PAGINADO------------
-    const perPage = 3
-    const [currentPage, setCurrentPage] = useState(1)
-    const count = Math.ceil(shelterDetail.petsAdoption?.length / perPage)
-
-    const leftLimit = currentPage * perPage - perPage
-    const rightLimit = leftLimit + perPage
-
-    const data = shelterDetail.petsAdoption?.slice(leftLimit, rightLimit)
-    // -----------FIN PAGINADO----------------
     const shelterProducts = prod.filter((el) => el.shelter._id === id)
 
     return (
@@ -90,48 +79,34 @@ const Shelter = () => {
                         color="text.primary"
                         marginBottom={10}
                     >
-                        Nuestros animales en Adopcion
+                        Nuestros animales en Adopción
                     </Typography>
-                    <Grid container marginBottom={5} spacing={4}>
-                        {data.map((pet) => (
-                            <Grid item key={pet._id} xs={12} sm={6} md={3}>
-                                <InfoCard
-                                    item={pet}
-                                    type={'pet'}
-                                    sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                    }}
-                                ></InfoCard>
-                            </Grid>
-                        ))}
-                    </Grid>
-                    <Grid container justifyContent={'center'}>
-                        <Pagination
-                            count={count}
-                            page={currentPage}
-                            setPage={setCurrentPage}
-                            color="primary"
-                        ></Pagination>
-                    </Grid>
-                    <Grid align={'center'}>
-                        <Typography
-                            marginTop={5}
-                            variant="h3"
-                            align="center"
-                            color="text.primary"
-                            gutterBottom
-                        >
-                            Nuestros Productos
-                        </Typography>
 
+                    <PaginateArray
+                        arrayType={'pet'}
+                        arrayData={shelterDetail.petsAdoption}
+                        itemsPerPage={3}
+                    />
+                    <Grid align={'center'}>
                         {shelterProducts.length > 0 && (
-                            <Products
-                                array={shelterProducts}
-                                arrayType="products"
-                                petPerPage={Number('10')}
-                            />
+                            <>
+                                <Typography
+                                    marginTop={5}
+                                    variant="h3"
+                                    align="center"
+                                    color="text.primary"
+                                    gutterBottom
+                                >
+                                    Nuestros Productos
+                                </Typography>
+                                <PaginateArray
+                                    arrayType="products"
+                                    arrayData={shelterProducts}
+                                    itemsPerPage={6}
+                                    md={4}
+                                    cardSize={'lg'}
+                                />
+                            </>
                         )}
                     </Grid>
                 </Container>

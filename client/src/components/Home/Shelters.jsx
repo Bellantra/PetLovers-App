@@ -1,22 +1,14 @@
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Grid, Link, Paper } from '@mui/material'
 import Typography from '@mui/material/node/Typography'
 import { Box } from '@mui/system'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { getAllShelters } from '../../redux/features/shelter/shelterSlice'
+import { useSelector } from 'react-redux'
 
 const Shelters = () => {
-    const dispatch = useDispatch()
     const { shelters, status } = useSelector((state) => state.shelter)
 
     const navigate = useNavigate()
-
-    useEffect(() => {
-        if (status !== 'success') dispatch(getAllShelters())
-    }, [])
 
     return (
         <Box paddingBottom={'8rem'}>
