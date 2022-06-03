@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -13,6 +13,8 @@ import {
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import Loading from '../components/Loading/Loading'
+import Modal from '../components/Modal/Modal'
+import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -20,6 +22,14 @@ const Shelter = () => {
     const { shelterDetail, statusDetail } = useSelector(
         (state) => state.shelter
     )
+
+    const [modalState, setModalState] = useState(false)
+
+    const buttonOne = (id) => {
+        if (id) dispatch(getPetById(id))
+        else dispatch(cleanPetDetail())
+        setModalState(!modalState)
+    }
 
     const prod = useSelector((state) => state.product.products)
 
@@ -87,6 +97,7 @@ const Shelter = () => {
                         arrayType={'pet'}
                         arrayData={shelterDetail.petsAdoption}
                         itemsPerPage={3}
+                        buttonOne={buttonOne}
                     />
                     <Grid align={'center'}>
                         {shelterProducts.length > 0 && (
@@ -110,6 +121,14 @@ const Shelter = () => {
                             </>
                         )}
                     </Grid>
+                    <Modal
+                        estado={modalState}
+                        setEstado={buttonOne}
+                        mostrarHeader={true}
+                        mostrarOverlay={true}
+                        posicionModal={'center'}
+                        padding={'20px'}
+                    />
                 </Container>
             ) : (
                 <Loading />

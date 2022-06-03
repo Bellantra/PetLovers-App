@@ -3,6 +3,7 @@ const Pet = require('../../schemas/Pet')
 const getAdoptablePets = async (req, res) => {
     try {
         const { nickname, city, color, race, subrace } = req.query
+        console.log(req.query)
         const Pets = await Pet.find({
             status: 'Active',
         })
