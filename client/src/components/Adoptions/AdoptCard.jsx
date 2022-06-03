@@ -8,19 +8,17 @@ import Typography from '@mui/material/Typography'
 import styled from 'styled-components'
 import Modal from '../Modal/Modal'
 import UnderConstruction from '../UnderConstruction/UnderConstruction'
+import { ButtonGroup, Button } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
 export default function AdoptCard({ pet }) {
     // eslint-disable-next-line react/prop-types
-    const { image, nickname, age } = pet
+    const { image, nickname, age, city, genre, race, description } = pet
     const [estadoModal1, setEstadoModal1] = useState(false)
 
     return (
         <div>
-            <Card
-                sx={{ maxWidth: 250 }}
-                onClick={() => setEstadoModal1(!estadoModal1)}
-            >
+            <Card sx={{ maxWidth: 250 }}>
                 <CardMedia
                     component="img"
                     alt="Imagen de un animal"
@@ -34,13 +32,26 @@ export default function AdoptCard({ pet }) {
                     <Typography variant="body2" color="text.secondary">
                         age: {age} years
                     </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                     city: {city}
+                    </Typography>
+
+                    <ButtonGroup
+                        variant="text"
+                        aria-label="outlined button group"
+                    >
+                        <Button onClick={() => setEstadoModal1(!estadoModal1)}>
+                            +Info
+                        </Button>
+                        <Button>Adopt Me!</Button>
+                    </ButtonGroup>
                 </CardContent>
             </Card>
 
             <Modal
                 estado={estadoModal1}
                 setEstado={setEstadoModal1}
-                titulo=""
+                titulo="Adopt me!"
                 mostrarHeader={true}
                 mostrarOverlay={true}
                 /* lo puedo sacar, queda center por defecto */
@@ -52,15 +63,22 @@ export default function AdoptCard({ pet }) {
                     <CardMedia
                         component="img"
                         alt="Imagen de un animal"
-                        height="140"
+                        height="300"
                         image={image[0]}
                     />
-
                     <Typography gutterBottom variant="h5" component="div">
                         {nickname}
                     </Typography>
-
-                    <UnderConstruction></UnderConstruction>
+                    <Typography variant="body2" color="text.secondary">
+                        Hi! I&apos;m {age} years old and I&apos;m a {genre}{' '}
+                        {race} from {city}.
+                    </Typography>
+                    <Typography gutterBottom variant="h6" component="div">
+                        You also should know...
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {description}
+                    </Typography>
                 </Contenido>
             </Modal>
         </div>

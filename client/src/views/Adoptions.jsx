@@ -8,6 +8,8 @@ import Container from '@mui/material/Container'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 import Loading from '../components/Loading/Loading'
+import Filtros from '../components/PetFilter/PetFilter'
+
 const theme = createTheme()
 
 export default function Adoptions() {
@@ -53,6 +55,7 @@ export default function Adoptions() {
                         </Typography>
                     </Container>
                 </Box>
+                <Filtros/>
                 {status === 'success' ? (
                     <PaginateArray
                         arrayType={'pet'}
