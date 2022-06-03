@@ -53,11 +53,12 @@ const Shelter = () => {
                         variant="h3"
                         align="center"
                         color="text.primary"
+                        marginTop={5}
                         gutterBottom
                     >
                         Refugio {shelterDetail.name}{' '}
                     </Typography>
-                    <Divider variant="middle"></Divider>
+                    {/* <Divider variant="middle"></Divider> */}
 
                     <Typography
                         variant="h6"
