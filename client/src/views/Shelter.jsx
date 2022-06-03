@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { Typography, Container, Divider, Grid } from '@mui/material'
+import { Typography, Container, Grid } from '@mui/material'
 
-import Carousel from 'react-material-ui-carousel'
+import Carousel from '../components/Carousel/Carousel'
 import {
     getShelterById,
     cleanDetail,
@@ -46,9 +46,9 @@ const Shelter = () => {
     const shelterProducts = prod.filter((el) => el.shelter._id === id)
 
     return (
-        <div>
+        <>
             {statusDetail === 'success' ? (
-                <Container>
+                <Container padding={0} margin={0}>
                     <Typography
                         variant="h3"
                         align="center"
@@ -71,17 +71,13 @@ const Shelter = () => {
                         {shelterDetail.description}
                     </Typography>
 
-                    <Container maxWidth="md" align={'center'}>
-                        <Carousel height="500px">
-                            {shelterDetail.img.map((pic, index) => (
-                                <img
-                                    key={index}
-                                    src={pic}
-                                    alt="refugio pic"
-                                    width="700px"
-                                />
-                            ))}
-                        </Carousel>
+                    <Container>
+                        <Grid>
+                            <Carousel
+                                width="100vw"
+                                images={shelterDetail.img}
+                            ></Carousel>
+                        </Grid>
                     </Container>
 
                     <Typography
@@ -134,7 +130,7 @@ const Shelter = () => {
             ) : (
                 <Loading />
             )}
-        </div>
+        </>
     )
 }
 
