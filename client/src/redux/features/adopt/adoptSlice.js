@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getAdoptablePets, extraGetAdoptablePets } from '../../asyncActions/pet/getAdoptablePets'
+import {
+    getAdoptablePets,
+    extraGetAdoptablePets,
+} from '../../asyncActions/pet/getAdoptablePets'
 import { getPetById, extraGetPetById } from '../../asyncActions/pet/getPetById'
 
 const initialState = {
@@ -14,7 +17,7 @@ const adoptSlice = createSlice({
     name: 'adopt', // name of the state
     initialState,
     reducers: {
-        cleanDetail: (state) => {
+        cleanPetDetail: (state) => {
             state.petDetail = {}
             state.statusDetail = 'loading'
         },
@@ -23,5 +26,5 @@ const adoptSlice = createSlice({
 })
 
 export { getAdoptablePets, getPetById }
-export const { cleanDetail } = adoptSlice.actions
+export const { cleanPetDetail } = adoptSlice.actions
 export default adoptSlice.reducer

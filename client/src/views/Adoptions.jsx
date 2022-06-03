@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -6,16 +6,27 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
-import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 import Loading from '../components/Loading/Loading'
 import Filtros from '../components/PetFilter/PetFilter'
+import Modal from '../components/Modal/Modal'
+import {
+    getPetById,
+    getAdoptablePets,
+    cleanPetDetail,
+} from '../redux/features/adopt/adoptSlice'
 
 const theme = createTheme()
 
 export default function Adoptions() {
     const { adoptPets, status } = useSelector((state) => state.adopt)
     const dispatch = useDispatch()
+    const [modalState, setModalState] = useState(false)
 
+    const buttonOne = (id) => {
+        if (id) dispatch(getPetById(id))
+        else dispatch(cleanPetDetail())
+        setModalState(!modalState)
+    }
     useEffect(() => {
         if (adoptPets.length < 1) dispatch(getAdoptablePets())
     }, [])
@@ -55,17 +66,26 @@ export default function Adoptions() {
                         </Typography>
                     </Container>
                 </Box>
-                <Filtros/>
+                <Filtros />
                 {status === 'success' ? (
                     <PaginateArray
                         arrayType={'pet'}
                         arrayData={adoptPets}
                         itemsPerPage={6}
+                        buttonOne={buttonOne}
                     />
                 ) : (
                     <Loading />
                 )}
             </main>
+            <Modal
+                estado={modalState}
+                setEstado={buttonOne}
+                mostrarHeader={true}
+                mostrarOverlay={true}
+                posicionModal={'center'}
+                padding={'20px'}
+            />
         </ThemeProvider>
     )
 }

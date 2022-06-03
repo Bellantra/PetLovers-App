@@ -1,30 +1,27 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { useSelector } from 'react-redux'
 
 const Modal = ({
-    children,
     estado,
     setEstado,
-    titulo = 'Pet Lovers',
     mostrarHeader,
     mostrarOverlay,
     posicionModal,
     padding,
 }) => {
+    const { petDetail, statusDetail } = useSelector((state) => state.adopt)
     return (
         <>
-            {estado && (
+            {estado && statusDetail === 'success' && (
                 <Overlay
                     mostrarOverlay={mostrarOverlay}
                     posicionModal={posicionModal}
                 >
                     <ContenedorModal padding={padding}>
-                        {mostrarHeader && (
-                            <EncabezadoModal>
-                                <h3>{titulo}</h3>
-                            </EncabezadoModal>
-                        )}
-                        <BotonCerrar onClick={() => setEstado(false)}>
+                        <BotonCerrar onClick={() => setEstado()}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
@@ -37,7 +34,25 @@ const Modal = ({
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </BotonCerrar>
-                        {children}
+                        <CardMedia
+                            component="img"
+                            alt={`It's a ${petDetail.race}`}
+                            height="300"
+                            image={petDetail.image[0]}
+                        />
+                        <Typography gutterBottom variant="h5" component="div">
+                            {mostrarHeader ? (
+                                <EncabezadoModal>
+                                    {petDetail.nickname}
+                                </EncabezadoModal>
+                            ) : null}
+                        </Typography>
+                        <Typography gutterBottom variant="h6" component="div">
+                            You also should know...
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {petDetail.description}
+                        </Typography>
                     </ContenedorModal>
                 </Overlay>
             )}

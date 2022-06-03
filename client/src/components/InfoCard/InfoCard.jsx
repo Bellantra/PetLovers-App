@@ -27,77 +27,89 @@ export default function InfoCard({
     // IMPLEMENT LOGIN
     const login = false
     const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la bas de datos
-
     const addFavorite = () => {
         setFavorite(!favorite)
         console.log(favorite)
     }
 
-    const IMG_ALT = type === 'pet' ? item.subrace : item.name
-    const IMG = type === 'pet' ? item.image[0] : item.img
-    const TITLE = type === 'pet' ? item.nickname : item.name
-    const TITLE_ICON = item.genre ? (
-        item.genre === 'Male' ? (
-            <MaleIcon />
-        ) : (
-            <FemaleIcon />
-        )
-    ) : null
-    const FIRSTS_ICON = type === 'pet' ? <AccessTimeIcon /> : <PaidIcon />
-    const FIRSTS_DESC = type === 'pet' ? `${item.age} years` : `${item.price} $`
-    const SECOND_ICON =
-        type === 'pet' ? <LocationCityIcon /> : <InventoryIcon />
-    const SECOND_DESC =
-        type === 'pet' ? item.city : `${item.stock} items in stock`
-    const FIRSTS_BUTTON = type === 'pet' ? 'About Me' : 'More Info'
-    const SECOND_BUTTON = type === 'pet' ? 'Adopt Me' : 'Buy'
+    // Constantes para la card
+    const data = {
+        title: type === 'pet' ? item.nickname : item.name,
+        titleIcon: item.genre ? (
+            item.genre === 'Male' ? (
+                <MaleIcon />
+            ) : (
+                <FemaleIcon />
+            )
+        ) : null,
+        alt: type === 'pet' ? item.subrace : item.name,
+        img: type === 'pet' ? item.image[0] : item.img,
+        firstsIcon: type === 'pet' ? <AccessTimeIcon /> : <PaidIcon />,
+        firstsDesc: type === 'pet' ? `${item.age} years` : `${item.price} $`,
+        secondIcon: type === 'pet' ? <LocationCityIcon /> : <InventoryIcon />,
+        secondDesc: type === 'pet' ? item.city : `${item.stock} items in stock`,
+        firstsButton: type === 'pet' ? 'About Me' : 'More Info',
+        secondButton: type === 'pet' ? 'Adopt Me' : 'Buy',
+    }
+    // Fin Constantes para la card
+
     return (
-        <Card>
-            <CardMedia
-                component="img"
-                alt={IMG_ALT}
-                height={type === 'pet' ? '250' : '300'}
-                image={IMG}
-                sx={{ objectFit: 'cover' }}
-            />
-            <CardContent>
-                <Typography
-                    display={'flex'}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    variant="h5"
-                    component="div"
-                >
-                    {TITLE}
-                    {TITLE_ICON}
-                </Typography>
-                <Typography display={'flex'}>
-                    {FIRSTS_ICON}
-                    {FIRSTS_DESC}
-                </Typography>
-                <Typography display={'flex'} paragraph={true}>
-                    {SECOND_ICON}
-                    {SECOND_DESC}
-                </Typography>
-            </CardContent>
-            <CardActions sx={{ justifyContent: 'center' }}>
-                <IconButton
-                    sx={[
-                        favorite ? { color: 'red' } : { color: 'gray' },
-                        login ? null : { display: 'none' },
-                    ]}
-                    onClick={addFavorite}
-                >
-                    <FavoriteIcon />
-                </IconButton>
-                <Button size="small" variant="contained" onClick={buttonOne}>
-                    {FIRSTS_BUTTON}
-                </Button>
-                <Button size="small" variant="contained" onClick={buttonTwo}>
-                    {SECOND_BUTTON}
-                </Button>
-            </CardActions>
-        </Card>
+        <>
+            <Card>
+                <CardMedia
+                    component="img"
+                    alt={data.alt}
+                    height={type === 'pet' ? '250' : '300'}
+                    image={data.img}
+                    sx={{ objectFit: 'cover' }}
+                />
+                <CardContent>
+                    <Typography
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
+                        variant="h5"
+                        component="div"
+                    >
+                        {data.title}
+                        {data.titleIcon}
+                    </Typography>
+                    <Typography display={'flex'}>
+                        {data.firstsIcon}
+                        {data.firstsDesc}
+                    </Typography>
+                    <Typography display={'flex'} paragraph={true}>
+                        {data.secondIcon}
+                        {data.secondDesc}
+                    </Typography>
+                </CardContent>
+                <CardActions sx={{ justifyContent: 'center' }}>
+                    <IconButton
+                        sx={[
+                            favorite ? { color: 'red' } : { color: 'gray' },
+                            login ? null : { display: 'none' },
+                        ]}
+                        onClick={addFavorite}
+                    >
+                        <FavoriteIcon />
+                    </IconButton>
+                    <Button
+                        size="small"
+                        variant="contained"
+                        onClick={() => buttonOne(item._id)}
+                    >
+                        {data.firstsButton}
+                    </Button>
+                    <Button
+                        size="small"
+                        variant="contained"
+                        onClick={buttonTwo}
+                    >
+                        {data.secondButton}
+                    </Button>
+                </CardActions>
+            </Card>
+        </>
     )
 }
 InfoCard.propTypes = {

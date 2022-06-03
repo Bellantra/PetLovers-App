@@ -16,6 +16,7 @@ export default function PaginateArray({
     sm = 6,
     md = 4,
     cardSize = 'md',
+    buttonOne,
 }) {
     // ----------   PAGINADO------------
     const perPage = itemsPerPage
@@ -44,6 +45,7 @@ export default function PaginateArray({
                                     }}
                                     item={item}
                                     type={arrayType}
+                                    buttonOne={buttonOne}
                                 />
                             </Grid>
                         ))}
@@ -72,4 +74,5 @@ PaginateArray.propTypes = {
     sm: PropTypes.number,
     md: PropTypes.number,
     cardSize: PropTypes.string,
+    buttonOne: PropTypes.func,
 }
