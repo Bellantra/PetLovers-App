@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import AdoptCard from '../components/Adoptions/AdoptCard'
+import InfoCard from '../components/InfoCard/InfoCard'
 import { getAdoptablePets } from '../redux/asyncActions/pet/getAdoptablePets'
 const theme = createTheme()
 
@@ -59,7 +59,7 @@ export default function Adoptions() {
                         <Grid container spacing={4}>
                             {adoptPets.map((pet) => (
                                 <Grid item key={pet._id} xs={12} sm={6} md={4}>
-                                    <AdoptCard
+                                    <InfoCard
                                         sx={{
                                             height: '100%',
                                             display: 'flex',

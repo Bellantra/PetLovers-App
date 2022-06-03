@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Pagination, Box } from '@mui/material'
 
-import { ProductCard } from './ProductCard'
+import InfoCard from '../InfoCard/InfoCard'
 
 // Este componente realiza el paginado y renderizado de un array de Objetos
 // Recibe 3 parametros por Props
@@ -40,9 +40,13 @@ export const Products = ({ array, arrayType, petPerPage }) => {
             >
                 {data.length &&
                     data.map(
-                        (el, index) =>
+                        (product, index) =>
                             arrayType === 'products' && (
-                                <ProductCard key={index} product={el} />
+                                <InfoCard
+                                    key={index}
+                                    item={product}
+                                    type={'product'}
+                                />
                             )
                     )}
             </div>

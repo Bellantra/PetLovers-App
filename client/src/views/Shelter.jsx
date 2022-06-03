@@ -11,7 +11,7 @@ import {
 } from '../redux/features/shelter/shelterSlice'
 import { Products } from '../components/Products/Products'
 import products from '../utils/products.json'
-import AdoptCard from '../components/Adoptions/AdoptCard'
+import InfoCard from '../components/InfoCard/InfoCard'
 
 // const img = [
 //     'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small__webp/public/temas/albergue_animales_jpg.webp',
@@ -81,60 +81,20 @@ const Shelter = () => {
                     >
                         Nuestros animales en Adopcion
                     </Typography>
-                    <Grid
-                        container
-                        marginBottom={25}
-                        spacing={4}
-                        justifyContent={'center'}
-                    >
-                        {/* <Carousel> */}
-                        {shelterDetail.petsAdoption.map((pet, index) => (
-                            <Grid item key={index} xs={12} sm={6} md={4}>
-                                <AdoptCard
-                                    pet={pet}
+                    <Grid container marginBottom={25} spacing={4}>
+                        {shelterDetail.petsAdoption.map((pet) => (
+                            <Grid item key={pet._id} xs={12} sm={6} md={3}>
+                                <InfoCard
+                                    item={pet}
+                                    type={'pet'}
                                     sx={{
                                         height: '100%',
                                         display: 'flex',
                                         flexDirection: 'column',
                                     }}
-                                ></AdoptCard>
-                                {/* <Card
-                                        sx={{
-                                            maxWidth: 345,
-                                            height: 450,
-                                        }}
-                                    >
-                                        <CardActionArea>
-                                            <CardMedia
-                                                component={'img'}
-                                                height="140"
-                                                image={image[0]}
-                                                alt={nickname}
-                                            />
-                                            <CardContent>
-                                                <Typography
-                                                    gutterBottom
-                                                    variant="h5"
-                                                    component="div"
-                                                >
-                                                    {nickname}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                >
-                                                    Lizards are a widespread
-                                                    group of squamate reptiles,
-                                                    with over 6,000 species,
-                                                    ranging across all
-                                                    continents except Antarctica
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card> */}
+                                ></InfoCard>
                             </Grid>
                         ))}
-                        {/* </Carousel> */}
                     </Grid>
                     <Grid align={'center'}>
                         <Typography
