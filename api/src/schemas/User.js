@@ -14,10 +14,10 @@ const userSchema = new Schema({
         type: String,
         default: null,
     },
-    // isAdmin: {
-    //     type: Boolean,
-    //     default: false,
-    // },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
     shelter: {
         type: Schema.Types.ObjectId,
         ref: 'Shelter',
