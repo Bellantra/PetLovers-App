@@ -8,32 +8,22 @@ const userSchema = new Schema({
     },
     fullName: {
         type: String,
+        default: null,
     },
-
-    email: {
+    img: {
         type: String,
-        unique: true,
-        required: true,
+        default: null,
     },
-    picture: {
-        type: String,
-        default:
-            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false,
-    },
+    // isAdmin: {
+    //     type: Boolean,
+    //     default: false,
+    // },
     shelter: {
         type: Schema.Types.ObjectId,
         ref: 'Shelter',
         default: null,
     },
-    emailVerified: {
+    email_verified: {
         type: Boolean,
         default: false,
     },
@@ -46,10 +36,6 @@ const userSchema = new Schema({
         enum: ['Active', 'Deleted'],
         default: 'Active',
     },
-    // updatedAt:{
-    //     type:Date, //ver mas adelante como manejar el date si se usa
-
-    // }
 })
 
 module.exports = mongoose.model('User', userSchema)
