@@ -6,6 +6,7 @@ import Shelter from './views/Shelter'
 import { Routes, Route } from 'react-router-dom'
 import Footer from '../src/components/Footer/Footer'
 import Profile from './views/Profile'
+import {ProductForm} from './components/Products/ProductForm.jsx'
 
 const App = () => {
     return (
@@ -21,6 +22,8 @@ const App = () => {
                 />
                 <Route path="/shelter/:id" element={<Shelter />} />
                 <Route path="/profile" element={<Profile />}></Route>
+                <Route path="/products" element={<ProductForm />}></Route>
+                
             </Routes>
             <Footer />
         </>
