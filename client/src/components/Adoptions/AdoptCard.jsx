@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography'
 
 import styled from 'styled-components'
 import Modal from '../Modal/Modal'
-import UnderConstruction from '../UnderConstruction/UnderConstruction'
+
 import { ButtonGroup, Button } from '@mui/material'
 
 // eslint-disable-next-line react/prop-types
@@ -33,7 +33,7 @@ export default function AdoptCard({ pet }) {
                         age: {age} years
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                     city: {city}
+                        city: {city}
                     </Typography>
 
                     <ButtonGroup

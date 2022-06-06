@@ -2,27 +2,17 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const userSchema = new Schema({
-    userName: {
+    nickname: {
         type: String,
         unique: true,
-        required: true,
     },
     fullName: {
         type: String,
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: true,
+        default: null,
     },
     img: {
         type: String,
-        default:
-            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
-    },
-    password: {
-        type: String,
-        required: true,
+        default: null,
     },
     isAdmin: {
         type: Boolean,
@@ -31,6 +21,14 @@ const userSchema = new Schema({
     shelter: {
         type: Schema.Types.ObjectId,
         ref: 'Shelter',
+        default: null,
+    },
+    email_verified: {
+        type: Boolean,
+        default: false,
+    },
+    sub: {
+        type: String,
         default: null,
     },
     status: {
