@@ -5,19 +5,20 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
+
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import { Avatar, Divider, ListItemIcon } from '@mui/material'
+import { Divider } from '@mui/material'
 import AdbIcon from '@mui/icons-material/Adb'
-import LogoutIcon from '@mui/icons-material/Logout'
+
 import logo from '../../assets/logo.png'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
+import UserMenu from '../NavBar/UserMenu'
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -25,9 +26,9 @@ const NavBar = () => {
         useAuth0()
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = useState(null)
-    const [anchorElUser, setAnchorElUser] = useState(null)
+    // const [anchorElUser, setAnchorElUser] = useState(null)
     const openMenu = Boolean(anchorEl)
-    const openMenuUser = Boolean(anchorElUser)
+    // const openMenuUser = Boolean(anchorElUser)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
@@ -46,14 +47,6 @@ const NavBar = () => {
         const sh = shelters.filter((el) => el.name === event.target.innerText)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
-    }
-
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget)
-    }
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null)
     }
 
     return (
@@ -156,36 +149,10 @@ const NavBar = () => {
                         }}
                     >
                         {isAuthenticated && !isLoading ? (
-                            <Box
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                }}
-                            >
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    sx={{ marginLeft: 'auto' }}
-                                    src={user?.picture}
-                                    to="/profile"
-                                    component={LinkRouter}
-                                />
-
-                                <MenuIcon
-                                    onClick={handleOpenUserMenu}
-                                    color="primary"
-                                    fontSize="large"
-                                    sx={{ marginLeft: '10px' }}
-                                    // aria-controls={
-                                    //     openMenuUser
-                                    //         ? 'account-menu'
-                                    //         : undefined
-                                    // }
-                                    aria-haspopup="true"
-                                    aria-expanded={
-                                        openMenuUser ? 'true' : undefined
-                                    }
-                                />
-                            </Box>
+                            <UserMenu
+                                img={user?.picture}
+                                logout={logout}
+                            ></UserMenu>
                         ) : (
                             <Button
                                 variant="contained"
@@ -203,58 +170,6 @@ const NavBar = () => {
                             </Button>
                         )}
                     </Box>
-                    <Menu
-                        anchorEl={anchorElUser}
-                        id="account-menu"
-                        open={openMenuUser}
-                        onClose={handleCloseUserMenu}
-                        onClick={handleCloseUserMenu}
-                        PaperProps={{
-                            elevation: 0,
-                            sx: {
-                                overflow: 'visible',
-                                filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                                mt: 1.5,
-                                '& .MuiAvatar-root': {
-                                    width: 32,
-                                    height: 32,
-                                    ml: -0.5,
-                                    mr: 1,
-                                },
-                                '&:before': {
-                                    content: '""',
-                                    display: 'block',
-                                    position: 'absolute',
-                                    top: 0,
-                                    right: 14,
-                                    width: 10,
-                                    height: 10,
-                                    bgcolor: 'background.paper',
-                                    transform: 'translateY(-50%) rotate(45deg)',
-                                    zIndex: 0,
-                                },
-                            },
-                        }}
-                        transformOrigin={{
-                            horizontal: 'right',
-                            vertical: 'top',
-                        }}
-                        anchorOrigin={{
-                            horizontal: 'right',
-                            vertical: 'bottom',
-                        }}
-                    >
-                        <MenuItem to="/profile" component={LinkRouter}>
-                            <Avatar src={user?.picture} /> {user?.name}
-                        </MenuItem>
-                        <Divider />
-                        <MenuItem onClick={logout}>
-                            <ListItemIcon>
-                                <LogoutIcon fontSize="small" />
-                            </ListItemIcon>
-                            Log out
-                        </MenuItem>
-                    </Menu>
                 </Toolbar>
             </Container>
             <Divider></Divider>
