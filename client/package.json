@@ -16,6 +16,7 @@
         "@mui/material": "^5.8.1",
         "@reduxjs/toolkit": "^1.8.2",
         "axios": "^0.27.2",
+        "formik": "^2.2.9",
         "react": "^18.0.0",
         "react-carousel-minimal": "^1.4.1",
         "react-dom": "^18.0.0",
@@ -24,7 +25,8 @@
         "react-router-dom": "^6.3.0",
         "redux": "^4.2.0",
         "styled-components": "^5.3.5",
-        "swiper": "^8.1.6"
+        "swiper": "^8.1.6",
+        "yup": "^0.32.11"
     },
     "devDependencies": {
         "@originjs/vite-plugin-commonjs": "^1.0.3",
