@@ -10,7 +10,7 @@ import {
     Tooltip,
     Typography,
 } from '@mui/material'
-import { Logout, Settings, PersonAdd } from '@mui/icons-material/'
+import { Logout } from '@mui/icons-material/'
 import { Box } from '@mui/system'
 import { useState } from 'react'
 import PersonIcon from '@mui/icons-material/Person'
@@ -96,6 +96,8 @@ const UserMenu = (props) => {
                     </ListItemIcon>
                     Profile
                 </MenuItem>
+
+                <Divider></Divider>
 
                 <MenuItem onClick={logout}>
                     <ListItemIcon>
