@@ -19,6 +19,7 @@ import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
+import axios from 'axios'
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -49,16 +50,9 @@ const NavBar = () => {
         navigate(`/shelter/${sh[0]._id}`)
     }
 
-    const handleLogin = () => {
-        fetch('http://localhost:4001/login', {
-            // mode: 'no-cors', // no-cors, cors, same-origin
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '',
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => console.log(data))
+    const handleLogin = async () => {
+        const data = await axios.get('http://localhost:4001/login')
+        console.log(data)
     }
 
     return (
