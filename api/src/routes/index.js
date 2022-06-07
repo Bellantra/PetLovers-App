@@ -16,4 +16,12 @@ router.use('/products', productRoutes)
 const petRoutes = require('./petRoutes')
 router.use('/pet', petRoutes)
 
+// -------------Auth0---------------------------------
+
+// const indexRouter = require('../routes/')
+const authRouter = require('../routes/authRoutes')
+
+// router.use('/', indexRouter)
+router.use('/', authRouter)
+
 module.exports = router

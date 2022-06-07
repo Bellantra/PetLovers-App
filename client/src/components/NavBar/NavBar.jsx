@@ -49,6 +49,18 @@ const NavBar = () => {
         navigate(`/shelter/${sh[0]._id}`)
     }
 
+    const handleLogin = () => {
+        fetch('http://localhost:4001/login', {
+            // mode: 'no-cors', // no-cors, cors, same-origin
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
+    }
+
     return (
         <AppBar
             position="static"
@@ -164,7 +176,7 @@ const NavBar = () => {
                                         '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
                                     borderRadius: '4px !important',
                                 }}
-                                onClick={loginWithRedirect}
+                                onClick={handleLogin}
                             >
                                 Login
                             </Button>
