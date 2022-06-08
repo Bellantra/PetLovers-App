@@ -1,67 +1,80 @@
-const passport = require('passport')
-const OpenIDConnectStrategy = require('passport-openidconnect')
-const { AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET } = process.env
-
-passport.use(
-    new OpenIDConnectStrategy(
-        {
-            issuer: 'https://' + AUTH0_DOMAIN + '/',
-            authorizationURL: 'https://' + AUTH0_DOMAIN + '/authorize',
-            tokenURL: 'https://' + AUTH0_DOMAIN + '/oauth/token',
-            userInfoURL: 'https://' + AUTH0_DOMAIN + '/userinfo',
-            clientID: AUTH0_CLIENT_ID,
-            clientSecret: AUTH0_CLIENT_SECRET,
-            callbackURL: '/oauth2/redirect',
-            scope: ['profile'],
-        },
-        function verify(issuer, profile, cb) {
-            return cb(null, profile)
-        }
-    )
-)
-
-passport.serializeUser(function (user, cb) {
-    process.nextTick(function () {
-        cb(null, {
-            id: user.id,
-            username: user.username,
-            name: user.displayName,
-        })
-    })
-})
-
-passport.deserializeUser(function (user, cb) {
-    process.nextTick(function () {
-        return cb(null, user)
-    })
-})
-
 const express = require('express')
-const qs = require('querystring')
 const router = express.Router()
 
-router.get('/login', passport.authenticate('openidconnect'))
+const LocalStrategy = require('passport-local').Strategy
+const User = require('../schemas/User')
 
-router.get(
-    '/oauth2/redirect',
-    passport.authenticate('openidconnect', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-    })
-)
+const passport = require('passport')
+const jwt = require('jsonwebtoken')
+
+router.use(express.json())
+
+router.get('/login', function (req, res, next) {
+    res.render('login')
+})
+
+router.post('/login/password', (req, res, next) => {
+    passport.authenticate('local', async (err, user) => {
+        if (err) throw err
+        if (!user) {
+            res.status(400).send('User or password incorrect!!')
+        } else {
+            const token = await jwt.sign(
+                {
+                    id: user._id,
+                    email: user.email,
+                    isAdmin: user.isAdmin,
+                },
+                'keyboard cat',
+                { expiresIn: '24hr' }
+            )
+            return res.status(200).json({
+                isAdmin: user.isAdmin,
+                token,
+            })
+        }
+    })(req, res, next)
+})
 
 router.post('/logout', function (req, res, next) {
     req.logout(function (err) {
         if (err) {
             return next(err)
         }
-        const params = {
-            client_id: AUTH0_CLIENT_ID,
-            returnTo: 'http://localhost:3000/',
+        res.redirect('/')
+    })
+})
+
+// --------------Passport content-----------
+passport.use(
+    new LocalStrategy(
+        {
+            usernameField: 'email',
+            passwordField: 'password',
+            session: false,
+        },
+        async (email, password, done) => {
+            const user = await User.findOne({ email, status: 'Active' })
+
+            if (!user) return done(null, false)
+
+            if (password !== user.password) {
+                return done(null, false)
+            }
+            return done(null, user)
         }
-        res.redirect(
-            'https://' + AUTH0_DOMAIN + '/v2/logout?' + qs.stringify(params)
-        )
+    )
+)
+
+passport.serializeUser(function (user, cb) {
+    process.nextTick(function () {
+        cb(null, { id: user.id, email: user.email })
+    })
+})
+
+passport.deserializeUser(function (user, cb) {
+    process.nextTick(function () {
+        return cb(null, user)
     })
 })
 
