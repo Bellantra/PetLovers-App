@@ -1,6 +1,7 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import swal from 'sweetalert'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import {
     Button,
@@ -16,6 +17,7 @@ import {
 } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
+import { useEffect } from 'react'
 
 const initialValues = {
     email: '',
@@ -35,6 +37,19 @@ const validate = Yup.object({
 
 const Login = () => {
     const dispatch = useDispatch()
+    const { isLogged } = useSelector((state) => state.login)
+
+    console.log(isLogged)
+
+    useEffect(() => {
+        if (isLogged) {
+            swal(
+                'Se ha registrado satisfactoriamente!',
+                'Presione para continuar',
+                'success'
+            )
+        }
+    }, [isLogged])
 
     // const token = JSON.parse(window.localStorage.getItem('user'))
     // console.log(token, 'mitoken')
@@ -42,7 +57,7 @@ const Login = () => {
     const formik = useFormik({
         initialValues: { initialValues },
         validationSchema: validate,
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             dispatch(postAuthLoginPassword(values))
         },
     })

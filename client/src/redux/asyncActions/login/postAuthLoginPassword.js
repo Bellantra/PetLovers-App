@@ -31,5 +31,6 @@ export const extraPostAuthLoginPassword = {
     },
     [postAuthLoginPassword.rejected]: (state) => {
         state.status = 'failed'
+        state.isLogged = false
     },
 }
