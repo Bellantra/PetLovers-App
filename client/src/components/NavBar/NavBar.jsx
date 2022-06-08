@@ -21,6 +21,8 @@ import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
 
 const NavBar = () => {
+    const { userInfo } = useSelector((state) => state.user)
+
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
@@ -28,7 +30,6 @@ const NavBar = () => {
     const openMenu = Boolean(anchorEl)
 
     const { isLogged } = useSelector((state) => state.login)
-    console.log(isLogged)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
@@ -148,13 +149,12 @@ const NavBar = () => {
                             gap: '10px',
                         }}
                     >
-                        {isLogged ? (
-                            <div></div>
+                        {isLogged && userInfo !== 'undefined' ? (
+                            <UserMenu
+                                img={userInfo?.img}
+                                logout={() => console.log('logout')}
+                            ></UserMenu>
                         ) : (
-                            // <UserMenu
-                            //     img={user?.picture}
-                            //     logout={logout}
-                            // ></UserMenu>
                             <Button
                                 variant="contained"
                                 style={{

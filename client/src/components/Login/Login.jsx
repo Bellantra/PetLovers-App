@@ -18,6 +18,7 @@ import {
 import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
+import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
 
 const initialValues = {
     email: '',
@@ -39,8 +40,6 @@ const Login = () => {
     const dispatch = useDispatch()
     const { isLogged } = useSelector((state) => state.login)
 
-    console.log(isLogged)
-
     useEffect(() => {
         if (isLogged) {
             swal(
@@ -48,11 +47,9 @@ const Login = () => {
                 'Presione para continuar',
                 'success'
             )
+            dispatch(getUserInfo())
         }
     }, [isLogged])
-
-    // const token = JSON.parse(window.localStorage.getItem('user'))
-    // console.log(token, 'mitoken')
 
     const formik = useFormik({
         initialValues: { initialValues },

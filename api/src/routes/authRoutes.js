@@ -32,7 +32,7 @@ router.post('/login/password', (req, res, next) => {
 })
 
 router.get(
-    '/user',
+    '/userInfo',
     passport.authenticate('bearer', { session: false }),
     async function (req, res) {
         try {
