@@ -25,9 +25,10 @@ const NavBar = () => {
 
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = useState(null)
-    // const [anchorElUser, setAnchorElUser] = useState(null)
     const openMenu = Boolean(anchorEl)
-    // const openMenuUser = Boolean(anchorElUser)
+
+    const { isLogged } = useSelector((state) => state.login)
+    console.log(isLogged)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
@@ -147,12 +148,13 @@ const NavBar = () => {
                             gap: '10px',
                         }}
                     >
-                        {/* {isAuthenticated && !isLoading ? (
-                            <UserMenu
-                                img={user?.picture}
-                                logout={logout}
-                            ></UserMenu>
+                        {isLogged ? (
+                            <div></div>
                         ) : (
+                            // <UserMenu
+                            //     img={user?.picture}
+                            //     logout={logout}
+                            // ></UserMenu>
                             <Button
                                 variant="contained"
                                 style={{
@@ -163,11 +165,11 @@ const NavBar = () => {
                                         '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
                                     borderRadius: '4px !important',
                                 }}
-                                onClick={handleLogin}
+                                // onClick={}
                             >
                                 Login
                             </Button>
-                        )} */}
+                        )}
                     </Box>
                 </Toolbar>
             </Container>

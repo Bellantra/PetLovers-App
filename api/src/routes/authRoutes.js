@@ -4,11 +4,11 @@ const router = express.Router()
 const passport = require('passport')
 
 const jwt = require('jsonwebtoken')
+const User = require('../schemas/User')
 
 router.use(express.json())
 
 router.post('/login/password', (req, res, next) => {
-    console.log('entro paso 1')
     passport.authenticate('local', async (err, user) => {
         if (err) throw err
         if (!user) {
@@ -30,6 +30,24 @@ router.post('/login/password', (req, res, next) => {
         }
     })(req, res, next)
 })
+
+router.get(
+    '/user',
+    passport.authenticate('bearer', { session: false }),
+    async function (req, res) {
+        try {
+            const user = await User.findOne({
+                _id: req.user.id,
+                status: 'Active',
+            })
+            const { nickname, fullName, email, img, isAdmin } = user
+
+            res.status(200).json({ nickname, fullName, email, img, isAdmin })
+        } catch (error) {
+            res.status(400).json(error.message)
+        }
+    }
+)
 
 router.post('/logout', function (req, res, next) {
     req.logout(function (err) {
