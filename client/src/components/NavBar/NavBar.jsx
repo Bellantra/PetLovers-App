@@ -14,7 +14,7 @@ import AdbIcon from '@mui/icons-material/Adb'
 
 import logo from '../../assets/logo.png'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+
 import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
@@ -22,8 +22,7 @@ import UserMenu from '../NavBar/UserMenu'
 
 const NavBar = () => {
     const dispatch = useDispatch()
-    const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
-        useAuth0()
+
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = useState(null)
     // const [anchorElUser, setAnchorElUser] = useState(null)
@@ -148,7 +147,7 @@ const NavBar = () => {
                             gap: '10px',
                         }}
                     >
-                        {isAuthenticated && !isLoading ? (
+                        {/* {isAuthenticated && !isLoading ? (
                             <UserMenu
                                 img={user?.picture}
                                 logout={logout}
@@ -164,11 +163,11 @@ const NavBar = () => {
                                         '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
                                     borderRadius: '4px !important',
                                 }}
-                                onClick={loginWithRedirect}
+                                onClick={handleLogin}
                             >
                                 Login
                             </Button>
-                        )}
+                        )} */}
                     </Box>
                 </Toolbar>
             </Container>
