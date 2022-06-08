@@ -8,6 +8,8 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
+// eslint-disable-next-line no-unused-vars
+const passportSetup = require('./utils/passport/passportSetup')
 const { DB_URL } = process.env
 
 // ----------------Server configuration -------------------
