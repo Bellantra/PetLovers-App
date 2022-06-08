@@ -14,17 +14,15 @@ import AdbIcon from '@mui/icons-material/Adb'
 
 import logo from '../../assets/logo.png'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+
 import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
-import axios from 'axios'
 
 const NavBar = () => {
     const dispatch = useDispatch()
-    const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
-        useAuth0()
+
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = useState(null)
     // const [anchorElUser, setAnchorElUser] = useState(null)
@@ -48,11 +46,6 @@ const NavBar = () => {
         const sh = shelters.filter((el) => el.name === event.target.innerText)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
-    }
-
-    const handleLogin = async () => {
-        const data = await axios.get('http://localhost:4001/login')
-        console.log(data)
     }
 
     return (
@@ -154,7 +147,7 @@ const NavBar = () => {
                             gap: '10px',
                         }}
                     >
-                        {isAuthenticated && !isLoading ? (
+                        {/* {isAuthenticated && !isLoading ? (
                             <UserMenu
                                 img={user?.picture}
                                 logout={logout}
@@ -174,7 +167,7 @@ const NavBar = () => {
                             >
                                 Login
                             </Button>
-                        )}
+                        )} */}
                     </Box>
                 </Toolbar>
             </Container>
