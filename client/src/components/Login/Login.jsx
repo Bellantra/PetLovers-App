@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
@@ -14,6 +15,7 @@ import {
     Typography,
 } from '@mui/material'
 import { Box, Container } from '@mui/system'
+import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 
 const initialValues = {
     email: '',
@@ -32,13 +34,16 @@ const validate = Yup.object({
 })
 
 const Login = () => {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
+
+    // const token = JSON.parse(window.localStorage.getItem('user'))
+    // console.log(token, 'mitoken')
 
     const formik = useFormik({
         initialValues: { initialValues },
         validationSchema: validate,
         onSubmit: (values) => {
-            console.log(values)
+            dispatch(postAuthLoginPassword(values))
         },
     })
 
