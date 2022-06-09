@@ -36,19 +36,16 @@ const Shelters = () => {
                                 <Box
                                     component="img"
                                     src={shelter.logo}
-                                    objectFit={'cover'}
                                     alt="green iguana"
                                     height={'200px'}
                                     width={'200px'}
                                     padding={'1rem'}
                                 ></Box>
-
                                 <Typography
                                     gutterBottom
-                                    variant="h6"
+                                    variant="h5"
+                                    component="div"
                                     padding={'1rem'}
-                                    maxHeight={'200px'}
-                                    maxWidth={'200px'}
                                 >
                                     {shelter.name}
                                 </Typography>
