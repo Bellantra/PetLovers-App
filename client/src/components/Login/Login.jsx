@@ -19,7 +19,7 @@ import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login'
 
 const initialValues = {
@@ -170,7 +170,9 @@ const Login = () => {
                     justifyContent={'center'}
                 >
                     <Typography>¿You dont have an account? </Typography>
-                    <Button>Register here</Button>
+                    <Button onClick={() => navigate('/register')}>
+                        Register here
+                    </Button>
                 </Box>
                 <Box
                     display={'flex'}
