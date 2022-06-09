@@ -20,7 +20,6 @@ import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
 import { useNavigate } from 'react-router-dom'
-import { GoogleLogin } from 'react-google-login';
 
 const initialValues = {
     email: '',
@@ -38,13 +37,7 @@ const validate = Yup.object({
         ),
 })
 
-const handleGoogleLogin = async (googleData) => {
-    console.log(googleData);
-}
-const domain = import.meta.env.VITE_AUTH0_DOMAIN;
-
 const Login = () => {
-    
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isLogged } = useSelector((state) => state.login)
@@ -167,29 +160,19 @@ const Login = () => {
                 </Box>
                 <Divider variant="middle" />
 
-                <GoogleLogin
-               clientId={domain}
-               buttonText="Login"
-                onSuccess={handleGoogleLogin}
-                onFailure={handleGoogleLogin}
-                cookiePolicy={'single_host_origin'}
-                render={(renderProps) => (
-                    <Button
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
+                <Button
                     sx={{
                         marginTop: 5,
                         marginBottom: 5,
                         width: '17rem',
                         height: '3rem',
-                        bgcolor:'#E65100',
-                        cursor:'pointer'
                     }}
-                    
+                    type="submit"
                     variant="contained"
                     color="warning"
-                >LOGIN GOOGLE </Button> )}
-               />
+                >
+                    Login with Google
+                </Button>
             </Paper>
         </Container>
     )
