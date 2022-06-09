@@ -19,6 +19,7 @@ import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
+import { postLogout } from '../../redux/asyncActions/login/postLogout'
 
 const NavBar = () => {
     const { userInfo } = useSelector((state) => state.user)
@@ -48,6 +49,10 @@ const NavBar = () => {
         const sh = shelters.filter((el) => el.name === event.target.innerText)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
+    }
+
+    const handleLogout = () => {
+        dispatch(postLogout())
     }
 
     return (
@@ -152,7 +157,7 @@ const NavBar = () => {
                         {isLogged && userInfo !== 'undefined' ? (
                             <UserMenu
                                 img={userInfo?.img}
-                                logout={() => console.log('logout')}
+                                logout={handleLogout}
                                 isAdmin={isAdmin}
                             ></UserMenu>
                         ) : (
