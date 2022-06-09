@@ -19,13 +19,15 @@ import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 const initialValues = {
     email: '',
     password: '',
     showPassword: false,
 }
+const domain = import.meta.env.VITE_APP_GOOGLE_CLIENT_ID;
 
 const validate = Yup.object({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -61,6 +63,12 @@ const Login = () => {
             dispatch(postAuthLoginPassword(values))
         },
     })
+
+    const handleGoogleLogin = async (googleData) => {
+        console.log(googleData);
+       
+      };
+
 
     return (
         <Container sx={{ marginY: 10 }} maxWidth="sm">
@@ -160,19 +168,31 @@ const Login = () => {
                 </Box>
                 <Divider variant="middle" />
 
-                <Button
+                <GoogleLogin
+                clientId={domain}
+                VITE_APP_GOOGLE_CLIENT_ID
+                buttonText="Login"
+                onSuccess={handleGoogleLogin}
+                onFailure={handleGoogleLogin}
+                cookiePolicy={'single_host_origin'}
+                render={(renderProps) => (
+                    <Button
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
                     sx={{
                         marginTop: 5,
                         marginBottom: 5,
                         width: '17rem',
                         height: '3rem',
+                        bgcolor:'#E65100',
+                        cursor:'pointer'
                     }}
-                    type="submit"
+                    
                     variant="contained"
                     color="warning"
-                >
-                    Login with Google
-                </Button>
+                >LOGIN GOOGLE </Button> )}
+               />
+
             </Paper>
         </Container>
     )
