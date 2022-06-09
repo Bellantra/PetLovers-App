@@ -3,6 +3,10 @@ import {
     extraPostAuthLoginPassword,
     postAuthLoginPassword,
 } from '../../asyncActions/login/postAuthLoginPassword'
+import {
+    postLogout,
+    extraPostLogout,
+} from '../../asyncActions/login/postLogout'
 
 const initialState = {
     isLogged: false,
@@ -17,9 +21,10 @@ const loginSlice = createSlice({
     reducers: {},
     extraReducers: {
         ...extraPostAuthLoginPassword,
+        ...extraPostLogout,
     },
 })
 
-export { postAuthLoginPassword }
+export { postAuthLoginPassword, postLogout }
 
 export default loginSlice.reducer
