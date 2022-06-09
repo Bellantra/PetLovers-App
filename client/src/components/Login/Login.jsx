@@ -19,7 +19,7 @@ import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login'
 
 const initialValues = {
@@ -69,7 +69,7 @@ const Login = () => {
     }
 
     return (
-        <Container sx={{ marginY: 10 }} maxWidth="sm">
+        <Container sx={{ marginY: 5 }} maxWidth="sm">
             <Paper elevation={3} align={'center'}>
                 <Box
                     component={'form'}
@@ -81,7 +81,7 @@ const Login = () => {
                     }}
                 >
                     <Typography
-                        sx={{ marginTop: 5 }}
+                        sx={{ marginTop: 3 }}
                         align="center"
                         variant="h4"
                         gutterBottom
@@ -156,13 +156,32 @@ const Login = () => {
                             marginTop: 5,
                             width: '17rem',
                             height: '3rem',
-                            marginBottom: 5,
+                            marginBottom: 2,
                         }}
                         type="submit"
                         variant="contained"
                     >
                         Sign In
                     </Button>
+                </Box>
+                <Box
+                    display={'flex'}
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                >
+                    <Typography>¿You dont have an account? </Typography>
+                    <Button onClick={() => navigate('/register')}>
+                        Register here
+                    </Button>
+                </Box>
+                <Box
+                    display={'flex'}
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    marginBottom={3}
+                >
+                    <Typography>¿You forgot your password? </Typography>
+                    <Button>Reset Password here</Button>
                 </Box>
                 <Divider variant="middle" />
 

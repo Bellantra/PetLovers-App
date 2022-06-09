@@ -15,7 +15,7 @@ const UserDetail = ({ userInfo }) => {
             <Paper
                 elevation={6}
                 sx={{
-                    background: 'linear-gradient(to right, #1a2980, #26d0ce)',
+                    background: 'linear-gradient(to right, #bdc3c7, #2c3e50)',
                 }}
             >
                 <Box
@@ -33,7 +33,7 @@ const UserDetail = ({ userInfo }) => {
                         >
                             <ModeEditOutlineRoundedIcon
                                 fontSize="large"
-                                color="secondary"
+                                color="info"
                             />
                         </IconButton>
                     </Box>

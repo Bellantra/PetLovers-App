@@ -10,6 +10,7 @@ import { ProductForm } from './components/Products/ProductForm.jsx'
 import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
 import AdminShelter from './views/AdminShelter'
+import Register from './views/Register'
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/admin" element={<AdminShelter />}></Route>
+                <Route path="/register" element={<Register />}></Route>
             </Routes>
             <Footer />
         </>

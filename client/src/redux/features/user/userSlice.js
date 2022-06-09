@@ -4,6 +4,8 @@ import {
     getUserInfo,
 } from '../../asyncActions/user/getUserInfo'
 
+import { postUser, extraPostUser } from '../../asyncActions/user/postUser'
+
 const initialState = {
     userInfo: undefined,
     status: 'loading',
@@ -16,9 +18,10 @@ const userSlice = createSlice({
     reducers: {},
     extraReducers: {
         ...extraGetUserInfo,
+        ...extraPostUser,
     },
 })
 
-export { getUserInfo }
+export { getUserInfo, postUser }
 
 export default userSlice.reducer
