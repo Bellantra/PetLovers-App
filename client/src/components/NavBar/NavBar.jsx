@@ -34,7 +34,9 @@ const NavBar = () => {
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
-        if (status !== 'success') dispatch(getAllShelters())
+        if (status !== 'success') {
+            dispatch(getAllShelters())
+        }
     }, [])
 
     const handleClick = (event) => {
@@ -53,6 +55,7 @@ const NavBar = () => {
 
     const handleLogout = () => {
         dispatch(postLogout())
+        navigate('/home')
     }
 
     return (

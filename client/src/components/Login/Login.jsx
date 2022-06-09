@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import swal from 'sweetalert'
+// import swal from 'sweetalert'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import {
     Button,
@@ -19,6 +19,7 @@ import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
+import { useNavigate } from 'react-router-dom'
 
 const initialValues = {
     email: '',
@@ -38,15 +39,17 @@ const validate = Yup.object({
 
 const Login = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { isLogged } = useSelector((state) => state.login)
 
     useEffect(() => {
         if (isLogged) {
-            swal(
-                'Se ha registrado satisfactoriamente!',
-                'Presione para continuar',
-                'success'
-            )
+            // swal(
+            //     'Se ha registrado satisfactoriamente!',
+            //     'Presione para continuar',
+            //     'success'
+            // )
+            navigate(-1)
             dispatch(getUserInfo())
         }
     }, [isLogged])
