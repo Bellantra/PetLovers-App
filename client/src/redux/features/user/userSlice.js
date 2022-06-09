@@ -11,7 +11,7 @@ const initialState = {
 }
 
 const userSlice = createSlice({
-    name: 'login', // name of the state
+    name: 'user', // name of the state
     initialState,
     reducers: {},
     extraReducers: {
