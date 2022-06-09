@@ -29,7 +29,7 @@ const NavBar = () => {
     const [anchorEl, setAnchorEl] = useState(null)
     const openMenu = Boolean(anchorEl)
 
-    const { isLogged } = useSelector((state) => state.login)
+    const { isLogged, isAdmin } = useSelector((state) => state.login)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
@@ -153,6 +153,7 @@ const NavBar = () => {
                             <UserMenu
                                 img={userInfo?.img}
                                 logout={() => console.log('logout')}
+                                isAdmin={isAdmin}
                             ></UserMenu>
                         ) : (
                             <Button
