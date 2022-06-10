@@ -11,7 +11,6 @@ import Login from './components/Login/Login'
 import SignUp from './components/SignUp/SignUp'
 import AdminShelter from './views/AdminShelter'
 import Register from './views/Register'
-// import UserEditForm from './components/Profile/UserEditForm'
 
 const App = () => {
     return (
@@ -32,7 +31,6 @@ const App = () => {
                 <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/admin" element={<AdminShelter />}></Route>
                 <Route path="/register" element={<Register />}></Route>
-                {/* <Route path="/edit" element={<UserEditForm />}></Route> */}
             </Routes>
             <Footer />
         </>
