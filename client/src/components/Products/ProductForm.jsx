@@ -1,193 +1,206 @@
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { TextField, Button, Grid, Avatar, Switch } from '@mui/material'
+import {
+    TextField,
+    Button,
+    Grid,
+    CircularProgress,
+    IconButton,
+    Paper,
+} from '@mui/material'
+import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone'
+import handleUploadPictures from '../../utils/handleUploadPictures'
+import { useState } from 'react'
+import { Box } from '@mui/system'
+import Typography from '@mui/material/node/Typography'
+
+const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
 const validationSchema = yup.object({
-    name: yup.string('Enter the product Name').required('Name is required'),
-    password: yup
-        .string('Enter your password')
-        .min(8, 'Password should be of minimum 8 characters length')
-        .required('Password is required'),
+    name: yup.string().required('Name is required'),
 })
 
 export const ProductForm = () => {
+    const [loading, setLoading] = useState(false)
+    const [image, setImage] = useState([])
+
+    const handleDeleteImg = (elem) => {
+        setImage((prevState) => prevState.filter((img) => img !== elem))
+    }
+
+    const onSubmit = (values) => {
+        values.img = image
+        console.log(values)
+    }
+
     const formik = useFormik({
         initialValues: {
-            name: 'Name',
-            img: 'foobar',
-            description: 'This Product .....',
+            name: '',
+            img: [],
+            description: '',
             stock: '',
             price: '',
-            shelter: '',
-            status: false,
         },
-        validationSchema,
-        onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2))
-        },
+
+        onSubmit,
     })
 
     return (
-        <div>
-            <form onSubmit={formik.handleSubmit}>
-                <Grid container style={{ marginTop: '30px' }}>
-                    <Grid item xs={4}></Grid>
+        // <form onSubmit={formik.handleSubmit}>
+        <Grid container style={{ marginTop: '30px' }}>
+            <Grid
+                item
+                component={'form'}
+                onSubmit={formik.handleSubmit}
+                xs={4}
+                margin="auto"
+                style={{
+                    border: 'solid 1px lightgrey',
+                    borderRadius: '8px',
+                    padding: '20px',
+                    marginBottom: '30px',
+                    textAlign: 'center',
+                }}
+            >
+                <Typography variant="h5" marginBottom={2}>
+                    Create a Product
+                </Typography>
+                <Box style={{ marginBottom: '1rem' }}>
+                    {image.length ? (
+                        <Paper
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                flexWrap: 'wrap',
+                                gap: 1,
+                                p: 3,
+                            }}
+                            variant="outlined"
+                        >
+                            {image?.map((elem, idx) => (
+                                <div key={idx}>
+                                    <IconButton
+                                        style={{
+                                            position: 'absolute',
+                                            margin: 1,
+                                            borderRadius: 10,
+                                        }}
+                                        onClick={() => handleDeleteImg(elem)}
+                                    >
+                                        <HighlightOffTwoToneIcon color="primary" />
+                                    </IconButton>
+                                    <img
+                                        src={elem}
+                                        alt="Not found"
+                                        style={{
+                                            width: '7rem',
+                                            height: '7rem',
+                                            borderRadius: 4,
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </Paper>
+                    ) : null}
+                    {loading && <CircularProgress />}
+                    <TextField
+                        fullWidth
+                        type="file"
+                        id="img"
+                        name="img"
+                        helperText="Upload products images"
+                        onChange={(e) =>
+                            handleUploadPictures(
+                                e,
+                                setLoading,
+                                setImage,
+                                preset
+                            )
+                        }
+                    />
+                </Box>
 
-                    <Grid
-                        item
-                        xs={4}
-                        style={{
-                            border: 'solid 1px lightgrey',
-                            borderRadius: '8px',
-                            padding: '20px',
-                            marginBottom: '30px',
-                        }}
-                    >
-                        <Grid container>
-                            <Grid item xs={4}></Grid>
-                            <Grid item xs={2}>
-                                <Avatar
-                                    src={formik.values.img}
-                                    sx={{
-                                        height: 100,
-                                        mb: 2,
-                                        width: 100,
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
+                <TextField
+                    fullWidth
+                    id="name"
+                    name="name"
+                    label="Product Name"
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                    style={{ marginBottom: '20px' }}
+                />
+                <Grid container>
+                    <Grid item xs={5}>
                         <TextField
                             fullWidth
-                            id="img"
-                            name="img"
-                            label="Img Path"
-                            value={formik.values.img}
+                            id="price"
+                            name="price"
+                            label="Price"
+                            type="number"
+                            value={formik.values.price}
                             onChange={formik.handleChange}
                             error={
-                                formik.touched.img && Boolean(formik.errors.img)
-                            }
-                            helperText={formik.touched.img && formik.errors.img}
-                            style={{ marginBottom: '20px' }}
-                        />
-                        <TextField
-                            fullWidth
-                            id="name"
-                            name="name"
-                            label="Name"
-                            value={formik.values.name}
-                            onChange={formik.handleChange}
-                            error={
-                                formik.touched.name &&
-                                Boolean(formik.errors.name)
+                                formik.touched.price &&
+                                Boolean(formik.errors.price)
                             }
                             helperText={
-                                formik.touched.name && formik.errors.name
+                                formik.touched.price && formik.errors.price
                             }
                             style={{ marginBottom: '20px' }}
                         />
-                        <Grid container>
-                            <Grid item xs={5}>
-                                <TextField
-                                    fullWidth
-                                    id="price"
-                                    name="price"
-                                    label="Price"
-                                    value={formik.values.price}
-                                    onChange={formik.handleChange}
-                                    error={
-                                        formik.touched.price &&
-                                        Boolean(formik.errors.price)
-                                    }
-                                    helperText={
-                                        formik.touched.price &&
-                                        formik.errors.price
-                                    }
-                                    style={{ marginBottom: '20px' }}
-                                />
-                            </Grid>
-                            <Grid item xs={2}></Grid>
-                            <Grid item xs={5}>
-                                <TextField
-                                    fullWidth
-                                    id="stock"
-                                    name="stock"
-                                    label="Stock"
-                                    value={formik.values.stock}
-                                    onChange={formik.handleChange}
-                                    error={
-                                        formik.touched.stock &&
-                                        Boolean(formik.errors.stock)
-                                    }
-                                    helperText={
-                                        formik.touched.stock &&
-                                        formik.errors.stock
-                                    }
-                                    style={{ marginBottom: '20px' }}
-                                />
-                            </Grid>
-                        </Grid>
-                        <Grid container>
-                            <Grid item xs={5}>
-                                <TextField
-                                    fullWidth
-                                    id="shelter"
-                                    name="shelter"
-                                    label="Shelter"
-                                    value={formik.values.shelter}
-                                    onChange={formik.handleChange}
-                                    error={
-                                        formik.touched.shelter &&
-                                        Boolean(formik.errors.shelter)
-                                    }
-                                    helperText={
-                                        formik.touched.shelter &&
-                                        formik.errors.shelter
-                                    }
-                                    style={{ marginBottom: '20px' }}
-                                />
-                            </Grid>
-                            <Grid item xs={2}></Grid>
-                            <Grid item xs={5}>
-                                <Switch
-                                    id="status"
-                                    name="status"
-                                    checked={formik.values.status}
-                                    onChange={formik.handleChange}
-                                    inputProps={{ 'aria-label': 'controlled' }}
-                                    size="medium"
-                                />
-                                Status
-                            </Grid>
-                            <TextField
-                                fullWidth
-                                id="img"
-                                name="img"
-                                label="Description"
-                                multiline
-                                value={formik.values.description}
-                                onChange={formik.handleChange}
-                                error={
-                                    formik.touched.description &&
-                                    Boolean(formik.errors.description)
-                                }
-                                helperText={
-                                    formik.touched.description &&
-                                    formik.errors.description
-                                }
-                                style={{ marginBottom: '20px' }}
-                            />
-                        </Grid>
-                        <Button
-                            color="primary"
-                            variant="contained"
+                    </Grid>
+                    <Grid item xs={2}></Grid>
+                    <Grid item xs={5}>
+                        <TextField
                             fullWidth
-                            type="submit"
-                        >
-                            Submit
-                        </Button>
+                            id="stock"
+                            name="stock"
+                            label="Stock"
+                            type="number"
+                            value={formik.values.stock}
+                            onChange={formik.handleChange}
+                            error={
+                                formik.touched.stock &&
+                                Boolean(formik.errors.stock)
+                            }
+                            helperText={
+                                formik.touched.stock && formik.errors.stock
+                            }
+                            style={{ marginBottom: '20px' }}
+                        />
                     </Grid>
                 </Grid>
-            </form>
-        </div>
+
+                <TextField
+                    fullWidth
+                    id="description"
+                    name="description"
+                    label="Description"
+                    multiline
+                    value={formik.values.description}
+                    onChange={formik.handleChange}
+                    error={
+                        formik.touched.description &&
+                        Boolean(formik.errors.description)
+                    }
+                    helperText={
+                        formik.touched.description && formik.errors.description
+                    }
+                    style={{ marginBottom: '20px' }}
+                />
+
+                <Button
+                    fullWidth
+                    color="primary"
+                    variant="contained"
+                    type="submit"
+                >
+                    Submit
+                </Button>
+            </Grid>
+        </Grid>
+        // </form>
     )
 }
