@@ -15,7 +15,7 @@ import {
 import Typography from '@mui/material/node/Typography'
 import { Box, Container } from '@mui/system'
 import { useFormik } from 'formik'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Swal from 'sweetalert2'
@@ -23,7 +23,7 @@ import axios from 'axios'
 import * as Yup from 'yup'
 import { postUser } from '../redux/asyncActions/user/postUser'
 // import { postAuthLoginPassword } from '../redux/asyncActions/login/postAuthLoginPassword'
-// import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const initialValues = {
     nickname: '',
