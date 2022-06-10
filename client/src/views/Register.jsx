@@ -16,14 +16,15 @@ import Typography from '@mui/material/node/Typography'
 import { Box, Container } from '@mui/system'
 import { useFormik } from 'formik'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import Swal from 'sweetalert2'
-import axios from 'axios'
+// import Swal from 'sweetalert2'
+// import axios from 'axios'
 import * as Yup from 'yup'
 import { postUser } from '../redux/asyncActions/user/postUser'
 // import { postAuthLoginPassword } from '../redux/asyncActions/login/postAuthLoginPassword'
 import { useNavigate } from 'react-router-dom'
+import handleUploadPictures from '../utils/handleUploadPictures'
 
 const initialValues = {
     nickname: '',
@@ -48,52 +49,13 @@ const validate = Yup.object({
 })
 const Register = () => {
     const dispatch = useDispatch()
-    const { userInfo } = useSelector((state) => state.user)
+    // const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
-    const [image, setImage] = useState(
-        'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png'
-    )
+    const [image, setImage] = useState([
+        'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+    ])
 
     const navigate = useNavigate()
-
-    console.log(userInfo, 'logeoooo')
-
-    // useEffect(() => {
-    //     console.log('entropp aca??')
-    //     if (userInfo !== undefined) {
-    //         console.log('22222')
-    //         dispatch(
-    //             postAuthLoginPassword({
-    //                 email: userInfo.email,
-    //                 password: userInfo.password,
-    //             })
-    //         )
-    //     }
-    // }, [])
-
-    const handleUpload = async (e) => {
-        try {
-            const files = e.target.files
-            const data = new FormData()
-            data.append('file', files[0])
-            data.append('upload_preset', 'nup4yuwn')
-            setLoading(true)
-            const response = await axios.post(
-                'https://api.cloudinary.com/v1_1/petlovers1/upload',
-                data
-            )
-            const file = response.data
-            setImage(file.secure_url)
-            setLoading(false)
-        } catch (error) {
-            console.log(error)
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Upload failed. Please, try again',
-            })
-        }
-    }
 
     const onSubmit = (values) => {
         const { showPassword, showConfirmPassword, ...input } = values
@@ -174,7 +136,7 @@ const Register = () => {
                             <CircularProgress />
                         ) : (
                             <Avatar
-                                src={image}
+                                src={image[1]}
                                 sx={{ width: 100, height: 100 }}
                             ></Avatar>
                         )}
@@ -185,7 +147,14 @@ const Register = () => {
                             name="img"
                             placeholder="Upload an image"
                             helperText="Please upload an user picture"
-                            onChange={(e) => handleUpload(e)}
+                            onChange={(e) =>
+                                handleUploadPictures(
+                                    e,
+                                    setLoading,
+                                    setImage,
+                                    'usersPictures'
+                                )
+                            }
                         ></TextField>
 
                         <TextField
