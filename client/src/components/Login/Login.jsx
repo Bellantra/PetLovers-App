@@ -19,7 +19,7 @@ import { Box, Container } from '@mui/system'
 import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login'
 
 const initialValues = {

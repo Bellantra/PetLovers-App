@@ -4,6 +4,11 @@ import {
     getUserInfo,
 } from '../../asyncActions/user/getUserInfo'
 
+import {
+    extraPutEditUser,
+    putEditUser,
+} from '../../asyncActions/user/putEditUser'
+
 import { postUser, extraPostUser } from '../../asyncActions/user/postUser'
 
 const initialState = {
@@ -19,9 +24,10 @@ const userSlice = createSlice({
     extraReducers: {
         ...extraGetUserInfo,
         ...extraPostUser,
+        ...extraPutEditUser,
     },
 })
 
-export { getUserInfo, postUser }
+export { getUserInfo, postUser, putEditUser }
 
 export default userSlice.reducer

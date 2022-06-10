@@ -15,12 +15,15 @@ import {
 import Typography from '@mui/material/node/Typography'
 import { Box, Container } from '@mui/system'
 import { useFormik } from 'formik'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import * as Yup from 'yup'
 import { postUser } from '../redux/asyncActions/user/postUser'
+// import { postAuthLoginPassword } from '../redux/asyncActions/login/postAuthLoginPassword'
+// import { Navigate, useNavigate } from 'react-router-dom'
 
 const initialValues = {
     nickname: '',
@@ -45,12 +48,28 @@ const validate = Yup.object({
 })
 const Register = () => {
     const dispatch = useDispatch()
+    const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState(
         'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png'
     )
 
-    console.log(image)
+    const navigate = useNavigate()
+
+    console.log(userInfo, 'logeoooo')
+
+    // useEffect(() => {
+    //     console.log('entropp aca??')
+    //     if (userInfo !== undefined) {
+    //         console.log('22222')
+    //         dispatch(
+    //             postAuthLoginPassword({
+    //                 email: userInfo.email,
+    //                 password: userInfo.password,
+    //             })
+    //         )
+    //     }
+    // }, [])
 
     const handleUpload = async (e) => {
         try {
@@ -89,6 +108,7 @@ const Register = () => {
                 img: image,
             })
         )
+        navigate(-1)
     }
     const formik = useFormik({
         initialValues,
@@ -138,16 +158,16 @@ const Register = () => {
                             id="fullName"
                             label="Fullname"
                             type="text"
-                            value={formik.values.fullname}
+                            value={formik.values.fullName}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             error={Boolean(
-                                formik.touched.fullname &&
-                                    formik.errors.fullname
+                                formik.touched.fullName &&
+                                    formik.errors.fullName
                             )}
                             helperText={
-                                formik.touched.fullname &&
-                                formik.errors.fullname
+                                formik.touched.fullName &&
+                                formik.errors.fullName
                             }
                         ></TextField>
                         {loading ? (

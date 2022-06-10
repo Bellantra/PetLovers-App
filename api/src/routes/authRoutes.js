@@ -40,9 +40,16 @@ router.get(
                 _id: req.user.id,
                 status: 'Active',
             })
-            const { nickname, fullName, email, img, isAdmin } = user
+            const { _id, nickname, fullName, email, img, isAdmin } = user
 
-            res.status(200).json({ nickname, fullName, email, img, isAdmin })
+            res.status(200).json({
+                id: _id,
+                nickname,
+                fullName,
+                email,
+                img,
+                isAdmin,
+            })
         } catch (error) {
             res.status(400).json(error.message)
         }
