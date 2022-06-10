@@ -25,6 +25,7 @@ import { postUser } from '../redux/asyncActions/user/postUser'
 // import { postAuthLoginPassword } from '../redux/asyncActions/login/postAuthLoginPassword'
 import { useNavigate } from 'react-router-dom'
 import handleUploadPictures from '../utils/handleUploadPictures'
+const { VITE_APP_PRESET_USER } = import.meta.env
 
 const initialValues = {
     nickname: '',
@@ -57,6 +58,8 @@ const Register = () => {
 
     const navigate = useNavigate()
 
+    const preset = VITE_APP_PRESET_USER
+
     const onSubmit = (values) => {
         const { showPassword, showConfirmPassword, ...input } = values
 
@@ -67,7 +70,7 @@ const Register = () => {
                 fullName: input.fullName,
                 password: input.password,
                 email: input.email,
-                img: image,
+                img: image[image.length - 1],
             })
         )
         navigate(-1)
@@ -136,7 +139,7 @@ const Register = () => {
                             <CircularProgress />
                         ) : (
                             <Avatar
-                                src={image[1]}
+                                src={image[image.length - 1]}
                                 sx={{ width: 100, height: 100 }}
                             ></Avatar>
                         )}
@@ -152,7 +155,7 @@ const Register = () => {
                                     e,
                                     setLoading,
                                     setImage,
-                                    'usersPictures'
+                                    preset
                                 )
                             }
                         ></TextField>
