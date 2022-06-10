@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
         const newUser = new User(userData)
 
         await newUser.save()
-        res.status(200).json({
+        res.status(200).send({
             msg: 'User created',
             newUser,
         })

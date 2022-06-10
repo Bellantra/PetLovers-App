@@ -11,9 +11,9 @@ module.exports = async (req, res, next) => {
         })
 
         if (userUpdated) {
-            res.json(userUpdated)
+            res.send(userUpdated)
         } else {
-            res.json({
+            res.send({
                 msg: "The user that you're trying to edit doesn't exist",
             })
         }

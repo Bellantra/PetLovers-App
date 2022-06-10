@@ -28,12 +28,6 @@ const UserEditForm = ({ handleClose }) => {
     const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([userInfo?.img])
-    // console.log(userInfo)
-
-    // console.log(image)
-    // if (image.length > 0) {
-    //     image = image.pop()
-    // }
 
     const preset = VITE_APP_PRESET_USER
 
@@ -50,8 +44,8 @@ const UserEditForm = ({ handleClose }) => {
             fullName: values.fullName,
             img: image[image.length - 1],
         }
-        console.log(newData, 'lo q mando a cambiar del form')
-        dispatch(putEditUser({ id: userInfo.id, newData }))
+
+        dispatch(putEditUser({ id: userInfo._id, newData }))
         handleClose()
     }
     const formik = useFormik({
