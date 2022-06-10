@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+
 export const API_ROUTE = 'http://localhost:4001'
 
 export const postUser = createAsyncThunk('users/createUser', async (user) => {
@@ -16,9 +17,7 @@ export const extraPostUser = {
     },
     [postUser.fulfilled]: (state, action) => {
         state.status = 'success'
-        console.log(action.payload.data)
-        const { newUser } = action.payload.data
-        state.userInfo = newUser
+        state.userInfo = action.payload.data.newUser
     },
     [postUser.rejected]: (state, action) => {
         state.status = 'failed'
