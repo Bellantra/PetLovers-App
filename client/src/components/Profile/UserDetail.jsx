@@ -9,7 +9,7 @@ import {
 } from '@mui/material'
 import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded'
 
-const UserDetail = ({ userInfo }) => {
+const UserDetail = ({ userInfo, handleOpen }) => {
     return (
         <Container maxWidth="sm">
             <Paper
@@ -29,7 +29,7 @@ const UserDetail = ({ userInfo }) => {
                         <IconButton
                             color="primary"
                             aria-label="edit"
-                            // onClick={handleOpenProfile}
+                            onClick={() => handleOpen()}
                         >
                             <ModeEditOutlineRoundedIcon
                                 fontSize="large"

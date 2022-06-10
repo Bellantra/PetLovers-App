@@ -7,7 +7,7 @@ const updateUser = require('../controllers/users/updateUser')
 
 router.get('/', getAllUsers)
 router.get('/:id', getUserById)
-router.put('/update/:id', updateUser) //Con este tambien se "borra" cambiando status
+router.put('/update/:id', updateUser) // Con este tambien se "borra" cambiando status
 router.post('/createUser', createUser)
 
 module.exports = router

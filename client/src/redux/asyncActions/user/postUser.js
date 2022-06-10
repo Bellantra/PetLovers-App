@@ -16,8 +16,9 @@ export const extraPostUser = {
     },
     [postUser.fulfilled]: (state, action) => {
         state.status = 'success'
-        console.log(action.payload.data, 'cree user!!')
-        // state.userInfo = action.payload.data
+        console.log(action.payload.data)
+        const { newUser } = action.payload.data
+        state.userInfo = newUser
     },
     [postUser.rejected]: (state, action) => {
         state.status = 'failed'
