@@ -1,6 +1,6 @@
 const User = require('../../schemas/User')
 
-//Faltan las comprobaciones como que sea unico algo!!!(userName,email)
+// Faltan las comprobaciones como que sea unico algo!!!(userName,email)
 
 module.exports = async (req, res, next) => {
     try {

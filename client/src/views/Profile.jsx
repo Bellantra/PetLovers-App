@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Box } from '@mui/material'
 import UserDetail from '../components/Profile/UserDetail'
 import Loading from '../components/Loading/Loading'
