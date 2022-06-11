@@ -10,11 +10,13 @@ import { Box, Container } from '@mui/system'
 import { useFormik } from 'formik'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Swal from 'sweetalert2'
-import axios from 'axios'
+
 import * as Yup from 'yup'
 
 import { putEditUser } from '../../redux/asyncActions/user/putEditUser'
+import handleUploadPictures from '../../utils/handleUploadPictures'
+
+const { VITE_APP_PRESET_USER } = import.meta.env
 
 const validate = Yup.object({
     nickname: Yup.string(),
@@ -25,8 +27,9 @@ const UserEditForm = ({ handleClose }) => {
     const dispatch = useDispatch()
     const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
-    const [image, setImage] = useState(userInfo?.img)
-    // console.log(userInfo)
+    const [image, setImage] = useState([userInfo?.img])
+
+    const preset = VITE_APP_PRESET_USER
 
     const initialValues = {
         nickname: userInfo?.nickname,
@@ -34,39 +37,15 @@ const UserEditForm = ({ handleClose }) => {
         img: userInfo?.img,
     }
 
-    const handleUpload = async (e) => {
-        try {
-            const files = e.target.files
-            const data = new FormData()
-            data.append('file', files[0])
-            data.append('upload_preset', 'nup4yuwn')
-            setLoading(true)
-            const response = await axios.post(
-                'https://api.cloudinary.com/v1_1/petlovers1/upload',
-                data
-            )
-            const file = response.data
-            setImage(file.secure_url)
-            setLoading(false)
-        } catch (error) {
-            console.log(error)
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Upload failed. Please, try again',
-            })
-        }
-    }
-
     const onSubmit = (values) => {
         const newData = {
             ...values,
             nickname: values.nickname,
             fullName: values.fullName,
-            img: image,
+            img: image[image.length - 1],
         }
-        console.log(newData, 'lo q mando a cambiar del form')
-        dispatch(putEditUser({ id: userInfo.id, newData }))
+
+        dispatch(putEditUser({ id: userInfo._id, newData }))
         handleClose()
     }
     const formik = useFormik({
@@ -160,7 +139,7 @@ const UserEditForm = ({ handleClose }) => {
                             <CircularProgress />
                         ) : (
                             <Avatar
-                                src={image}
+                                src={image[image.length - 1]}
                                 sx={{ width: 100, height: 100 }}
                             ></Avatar>
                         )}
@@ -171,7 +150,14 @@ const UserEditForm = ({ handleClose }) => {
                             name="img"
                             placeholder="Upload an image"
                             helperText="Please upload a new picture"
-                            onChange={(e) => handleUpload(e)}
+                            onChange={(e) =>
+                                handleUploadPictures(
+                                    e,
+                                    setLoading,
+                                    setImage,
+                                    preset
+                                )
+                            }
                         ></TextField>
 
                         <Button
