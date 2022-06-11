@@ -29,7 +29,9 @@ const rows = productsShelter?.map((prod,index) => ({
 }));
 
 const handleDelete =(e,params)=>{
-  console.log(params);
+  const { id } = params.row;
+  const prodToDelete = productsShelter[id-1];
+  console.log(prodToDelete);
 };
 const handleEdit =(e,params)=>{
   console.log(params);
@@ -119,7 +121,7 @@ useEffect(() => {
   return (
     <>
     
-        <Grid item xs={0.5}>
+        <Grid item xs={0.2}>
     </Grid>
     <Grid item xs={8}>
       <DataGrid

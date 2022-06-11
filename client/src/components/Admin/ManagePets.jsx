@@ -123,7 +123,7 @@ const rows = petsAdoption?.map((pet,index) => ({
 
   return (
     <>
-    <Grid item xs={0.5}>
+    <Grid item xs={0.2}>
     </Grid>
     <Grid item xs={9}>
       <DataGrid

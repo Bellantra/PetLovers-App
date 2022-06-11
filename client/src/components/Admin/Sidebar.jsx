@@ -31,7 +31,7 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
 
   return (
     <>
-      <Grid item xs={0.5}></Grid>
+      <Grid item xs={0.2}></Grid>
       <Grid item xs={2} style={{ marginBottom: '20px' }}>
         <Grid
           p={2}
