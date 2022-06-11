@@ -11,18 +11,40 @@ import {
 import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone'
 import handleUploadPictures from '../../utils/handleUploadPictures'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { Box } from '@mui/system'
 import Typography from '@mui/material/node/Typography'
+
+import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
 
 const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
 const validationSchema = yup.object({
-    name: yup.string().required('Name is required'),
+    name: yup.string().required('Product name is required'),
+    stock: yup
+        .number()
+        .typeError('you must specify a number')
+        .min(1, 'Min value 1.')
+        .required('Stock is required'),
+    price: yup
+        .number()
+        .typeError('you must specify a number')
+        .min(1, 'Min value 1.')
+        .required('Price is required'),
+
+    description: yup
+        .string()
+        .min(15, 'Min 50 characters')
+        .max(200, 'Max 900 characters')
+        .required('Description is required'),
 })
 
 export const ProductForm = () => {
+    const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([])
+    const dispatch = useDispatch()
 
     const handleDeleteImg = (elem) => {
         setImage((prevState) => prevState.filter((img) => img !== elem))
@@ -30,23 +52,24 @@ export const ProductForm = () => {
 
     const onSubmit = (values) => {
         values.img = image
-        console.log(values)
+        values.shelter = userInfo.shelter
+        dispatch(postCreateProducts(values))
+        setImage([])
+        formik.resetForm()
     }
 
     const formik = useFormik({
         initialValues: {
             name: '',
-            img: [],
             description: '',
             stock: '',
             price: '',
         },
-
+        validationSchema,
         onSubmit,
     })
 
     return (
-        // <form onSubmit={formik.handleSubmit}>
         <Grid container style={{ marginTop: '30px' }}>
             <Grid
                 item
@@ -104,6 +127,7 @@ export const ProductForm = () => {
                     ) : null}
                     {loading && <CircularProgress />}
                     <TextField
+                        required
                         fullWidth
                         type="file"
                         id="img"
@@ -159,6 +183,8 @@ export const ProductForm = () => {
                             name="stock"
                             label="Stock"
                             type="number"
+                            min="1"
+                            step="1"
                             value={formik.values.stock}
                             onChange={formik.handleChange}
                             error={
@@ -201,6 +227,5 @@ export const ProductForm = () => {
                 </Button>
             </Grid>
         </Grid>
-        // </form>
     )
 }

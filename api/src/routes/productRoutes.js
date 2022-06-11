@@ -9,6 +9,6 @@ const updateProduct = require('../controllers/products/updateProduct')
 router.get('/', getAllProducts)
 router.get('/:id', getProductById)
 router.post('/create', createProduct)
-router.put('/update/:id', updateProduct) //Con esta ruta tambien se cambia el status a usuario no activo
+router.put('/update/:id', updateProduct) // Con esta ruta tambien se cambia el status a usuario no activo
 
 module.exports = router
