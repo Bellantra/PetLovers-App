@@ -46,8 +46,6 @@ export const ProductForm = () => {
     const [image, setImage] = useState([])
     const dispatch = useDispatch()
 
-    console.log(userInfo)
-
     const handleDeleteImg = (elem) => {
         setImage((prevState) => prevState.filter((img) => img !== elem))
     }
@@ -56,8 +54,8 @@ export const ProductForm = () => {
         values.img = image
         values.shelter = userInfo.shelter
         dispatch(postCreateProducts(values))
-        formik.resetForm()
         setImage([])
+        formik.resetForm()
     }
 
     const formik = useFormik({
