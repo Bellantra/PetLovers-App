@@ -19,7 +19,6 @@ export const extraPostCreateProducts = {
     },
     [postCreateProducts.fulfilled]: (state, action) => {
         state.status = 'success'
-        state.products = action.payload.data
     },
     [postCreateProducts.rejected]: (state) => {
         state.status = 'failed'
