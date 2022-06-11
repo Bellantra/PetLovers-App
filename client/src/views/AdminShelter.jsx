@@ -1,12 +1,10 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import { Grid } from '@mui/material';
 import { Sidebar } from '../../src/components/Admin/Sidebar.jsx';
-// import { PersonalInformation } from '../components/Account/PersonalInformation';
-import Tabla from '../../src/components/Admin/Tabla.jsx';
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts.js';
-// import { Booking } from '../components/Account/Booking';
-// import { Security } from '../components/Account/Security';
+import ManagePets from '../components/Admin/ManagePets.jsx';
+import ManageProducts from '../components/Admin/ManageProducts.jsx';
 
 export default function AdminShelter() {
     const dispatch = useDispatch();
@@ -18,16 +16,10 @@ export default function AdminShelter() {
     
   });
 
-  const prod = useSelector((state) => state.product.products);
-  const user = useSelector((state) => state.user);
-  console.log(prod);
-
-  const thProd= ['img', 'name', 'price', 'stock', 'estatus']
-useEffect(()=>{
-    dispatch(getAllProducts());
-    
-
-},[]);
+  useEffect(()=>{
+    dispatch(getAllProducts);
+  },[])
+  
 
   return (
     <>
@@ -37,9 +29,9 @@ useEffect(()=>{
           renderControl={renderControl}
         />
         
-        {renderControl.shelterPets && <Tabla  />}
-        {renderControl.shelterProducts && <Tabla />}
-        {renderControl.shelterReviews && <Tabla />}
+        {renderControl.shelterPets && <ManagePets />}
+        {renderControl.shelterProducts && <ManageProducts />}
+        {renderControl.shelterReviews && <ManagePets />}
       </Grid>
     </>
   );
