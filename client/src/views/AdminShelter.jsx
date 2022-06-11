@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import { Grid } from '@mui/material';
 import { Sidebar } from '../../src/components/Admin/Sidebar.jsx';
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts.js';
