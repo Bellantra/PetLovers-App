@@ -43,7 +43,7 @@ export default function InfoCard({
             )
         ) : null,
         alt: type === 'pet' ? item.subrace : item.name,
-        img: type === 'pet' ? item.image[0] : item.img,
+        img: type === 'pet' ? item.image[0] : item.img[0],
         firstsIcon: type === 'pet' ? <AccessTimeIcon /> : <PaidIcon />,
         firstsDesc: type === 'pet' ? `${item.age} years` : `${item.price} $`,
         secondIcon: type === 'pet' ? <LocationCityIcon /> : <InventoryIcon />,
