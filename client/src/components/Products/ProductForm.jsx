@@ -61,7 +61,6 @@ export const ProductForm = () => {
     const formik = useFormik({
         initialValues: {
             name: '',
-            img: [],
             description: '',
             stock: '',
             price: '',
