@@ -40,15 +40,17 @@ router.get(
                 _id: req.user.id,
                 status: 'Active',
             })
-            const { _id, nickname, fullName, email, img, isAdmin } = user
+            const { _id, nickname, fullName, email, img, isAdmin, shelter } =
+                user
 
-            res.status(200).json({
+            res.status(200).send({
                 id: _id,
                 nickname,
                 fullName,
                 email,
                 img,
                 isAdmin,
+                shelter,
             })
         } catch (error) {
             res.status(400).json(error.message)

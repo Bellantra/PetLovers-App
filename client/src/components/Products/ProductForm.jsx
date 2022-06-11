@@ -11,8 +11,12 @@ import {
 import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone'
 import handleUploadPictures from '../../utils/handleUploadPictures'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { Box } from '@mui/system'
 import Typography from '@mui/material/node/Typography'
+
+import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
 
 const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
@@ -21,8 +25,12 @@ const validationSchema = yup.object({
 })
 
 export const ProductForm = () => {
+    const { userInfo } = useSelector((state) => state.user)
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([])
+    const dispatch = useDispatch()
+
+    console.log(userInfo)
 
     const handleDeleteImg = (elem) => {
         setImage((prevState) => prevState.filter((img) => img !== elem))
@@ -31,6 +39,8 @@ export const ProductForm = () => {
     const onSubmit = (values) => {
         values.img = image
         console.log(values)
+        values.shelter = userInfo.shelter
+        dispatch(postCreateProducts(values))
     }
 
     const formik = useFormik({
