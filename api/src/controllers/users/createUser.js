@@ -1,6 +1,6 @@
 const User = require('../../schemas/User')
 
-//Faltan las comprobaciones como que sea unico algo!!!(userName,email)
+// Faltan las comprobaciones como que sea unico algo!!!(userName,email)
 
 module.exports = async (req, res, next) => {
     try {
@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
         const newUser = new User(userData)
 
         await newUser.save()
-        res.status(200).json({
+        res.status(200).send({
             msg: 'User created',
             newUser,
         })

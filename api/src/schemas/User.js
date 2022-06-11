@@ -10,9 +10,19 @@ const userSchema = new Schema({
         type: String,
         default: null,
     },
+    password: {
+        type: String,
+        default: 'Password123!',
+    },
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+    },
     img: {
         type: String,
-        default: null,
+        default:
+            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
     },
     isAdmin: {
         type: Boolean,
@@ -24,16 +34,13 @@ const userSchema = new Schema({
         default: null,
     },
     email_verified: {
+        // A futuro usar herramienta que mande validacion de mail
         type: Boolean,
         default: false,
     },
-    sub: {
-        type: String,
-        default: null,
-    },
     status: {
         type: String,
-        enum: ['Active', 'Deleted'],
+        enum: ['Active', 'Banned', 'Deleted'],
         default: 'Active',
     },
 })

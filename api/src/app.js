@@ -6,6 +6,10 @@ const morgan = require('morgan')
 const routes = require('./routes')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const session = require('express-session')
+const passport = require('passport')
+// eslint-disable-next-line no-unused-vars
+const passportSetup = require('./utils/passport/passportSetup')
 const { DB_URL } = process.env
 
 // ----------------Server configuration -------------------
@@ -22,6 +26,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(morgan('dev'))
+
+app.use(
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false,
+    })
+)
+app.use(passport.authenticate('session'))
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*') // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true')

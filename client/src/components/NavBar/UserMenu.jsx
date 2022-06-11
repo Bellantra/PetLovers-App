@@ -10,13 +10,14 @@ import {
     Tooltip,
     Typography,
 } from '@mui/material'
-import { Logout, Settings, PersonAdd } from '@mui/icons-material/'
+import { Logout } from '@mui/icons-material/'
 import { Box } from '@mui/system'
 import { useState } from 'react'
 import PersonIcon from '@mui/icons-material/Person'
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 
 const UserMenu = (props) => {
-    const { img, logout } = props
+    const { img, logout, isAdmin } = props
 
     const [anchorEl, setAnchorEl] = useState(null)
 
@@ -50,7 +51,7 @@ const UserMenu = (props) => {
                     >
                         <Avatar
                             src={img}
-                            sx={{ width: 32, height: 32 }}
+                            sx={{ width: 50, height: 50 }}
                         ></Avatar>
                     </IconButton>
                 </Tooltip>
@@ -92,14 +93,24 @@ const UserMenu = (props) => {
             >
                 <MenuItem component={Link} to={'/profile'}>
                     <ListItemIcon>
-                        <PersonIcon fontSize="small" />
+                        <PersonIcon fontSize="medium" />
                     </ListItemIcon>
                     Profile
                 </MenuItem>
+                {isAdmin && (
+                    <MenuItem component={Link} to={'/admin'}>
+                        <ListItemIcon>
+                            <AdminPanelSettingsIcon fontSize="medium" />
+                        </ListItemIcon>
+                        Shelter Panel
+                    </MenuItem>
+                )}
+
+                <Divider></Divider>
 
                 <MenuItem onClick={logout}>
                     <ListItemIcon>
-                        <Logout fontSize="small" />
+                        <Logout fontSize="medium" />
                     </ListItemIcon>
                     Logout
                 </MenuItem>

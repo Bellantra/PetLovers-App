@@ -14,25 +14,29 @@ import AdbIcon from '@mui/icons-material/Adb'
 
 import logo from '../../assets/logo.png'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+
 import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
+import { postLogout } from '../../redux/asyncActions/login/postLogout'
 
 const NavBar = () => {
+    const { userInfo } = useSelector((state) => state.user)
+
     const dispatch = useDispatch()
-    const { isAuthenticated, user, loginWithRedirect, logout, isLoading } =
-        useAuth0()
+
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = useState(null)
-    // const [anchorElUser, setAnchorElUser] = useState(null)
     const openMenu = Boolean(anchorEl)
-    // const openMenuUser = Boolean(anchorElUser)
+
+    const { isLogged, isAdmin } = useSelector((state) => state.login)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
-        if (status !== 'success') dispatch(getAllShelters())
+        if (status !== 'success') {
+            dispatch(getAllShelters())
+        }
     }, [])
 
     const handleClick = (event) => {
@@ -47,6 +51,11 @@ const NavBar = () => {
         const sh = shelters.filter((el) => el.name === event.target.innerText)
         handleClose()
         navigate(`/shelter/${sh[0]._id}`)
+    }
+
+    const handleLogout = () => {
+        dispatch(postLogout())
+        navigate('/home')
     }
 
     return (
@@ -148,10 +157,11 @@ const NavBar = () => {
                             gap: '10px',
                         }}
                     >
-                        {isAuthenticated && !isLoading ? (
+                        {isLogged && userInfo !== 'undefined' ? (
                             <UserMenu
-                                img={user?.picture}
-                                logout={logout}
+                                img={userInfo?.img}
+                                logout={handleLogout}
+                                isAdmin={isAdmin}
                             ></UserMenu>
                         ) : (
                             <Button
@@ -164,7 +174,7 @@ const NavBar = () => {
                                         '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
                                     borderRadius: '4px !important',
                                 }}
-                                onClick={loginWithRedirect}
+                                onClick={() => navigate('/login')}
                             >
                                 Login
                             </Button>

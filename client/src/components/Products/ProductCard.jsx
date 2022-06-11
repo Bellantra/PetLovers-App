@@ -22,13 +22,13 @@ export const ProductCard = ({ product }) => {
             <CardMedia
                 component="img"
                 height="170"
-                image={img}
+                image={img[0]}
                 alt="nombre"
                 sx={{ marginBottom: '0px', padding: '0px' }}
             />
             <CardContent sx={{ marginTop: '0px', padding: '0px' }}>
                 <Typography
-                    style={{margin:'0px', padding:'0px'}}
+                    style={{ margin: '0px', padding: '0px' }}
                     align="center"
                     color="textPrimary"
                     gutterBottom
@@ -37,12 +37,13 @@ export const ProductCard = ({ product }) => {
                 >
                     {name}
                 </Typography>
-                <Typography 
-                style={{margin:'0px', padding:'0px'}}
-                align="center"
-                color="textPrimary"
-                 variant="body2"
-                 component="div">
+                <Typography
+                    style={{ margin: '0px', padding: '0px' }}
+                    align="center"
+                    color="textPrimary"
+                    variant="body2"
+                    component="div"
+                >
                     Price: {price}
                 </Typography>
             </CardContent>
@@ -53,7 +54,7 @@ export const ProductCard = ({ product }) => {
                     justifyContent: 'center',
                     marginBottom: '0px',
                     alignItems: 'center',
-                    padding:'0px'
+                    padding: '0px',
                 }}
             >
                 <Button size="medium" variant="contained">

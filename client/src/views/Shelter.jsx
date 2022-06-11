@@ -45,6 +45,8 @@ const Shelter = () => {
 
     const shelterProducts = prod.filter((el) => el.shelter._id === id)
 
+    // console.log(shelterProducts)
+
     return (
         <>
             {statusDetail === 'success' ? (

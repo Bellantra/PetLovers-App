@@ -6,7 +6,11 @@ import Shelter from './views/Shelter'
 import { Routes, Route } from 'react-router-dom'
 import Footer from '../src/components/Footer/Footer'
 import Profile from './views/Profile'
-import {ProductForm} from './components/Products/ProductForm.jsx'
+import { ProductForm } from './components/Products/ProductForm.jsx'
+import Login from './components/Login/Login'
+import SignUp from './components/SignUp/SignUp'
+import AdminShelter from './views/AdminShelter'
+import Register from './views/Register'
 
 const App = () => {
     return (
@@ -23,7 +27,10 @@ const App = () => {
                 <Route path="/shelter/:id" element={<Shelter />} />
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/products" element={<ProductForm />}></Route>
-                
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/sign-up" element={<SignUp />}></Route>
+                <Route path="/admin" element={<AdminShelter />}></Route>
+                <Route path="/register" element={<Register />}></Route>
             </Routes>
             <Footer />
         </>
