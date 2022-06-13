@@ -5,10 +5,14 @@ import {
 } from '../../asyncActions/product/getAllProducts'
 
 import {
-
     postCreateProducts,
     extraPostCreateProducts,
 } from '../../asyncActions/product/postCreateProduct'
+
+import {
+    getProductById,
+    extraGetProductById,
+} from '../../asyncActions/product/getProductById'
 
 
 const initialState = {
@@ -17,6 +21,7 @@ const initialState = {
     status: 'loading',
     statusDetail: 'loading',
     error: '',
+    openModal: false
 }
 
 const productSlice = createSlice({
@@ -29,15 +34,19 @@ const productSlice = createSlice({
         },
         createProduct: (state, action) => {
             state.products.push(action.payload)
+        },
+        closeModal: (state) => {
+            state.openModal = false
         }
     },
     extraReducers: {
         ...extraGetAllProducts,
         ...extraPostCreateProducts,
+        ...extraGetProductById
     },
 })
 
-export { getAllProducts, postCreateProducts }
+export { getAllProducts, postCreateProducts, getProductById }
 
-export const { cleanDetail } = productSlice.actions
+export const { cleanDetail,closeModal } = productSlice.actions
 export default productSlice.reducer

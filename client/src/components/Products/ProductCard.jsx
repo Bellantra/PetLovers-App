@@ -6,10 +6,6 @@ import CardActions from '@mui/material/CardActions'
 import Typography from '@mui/material/Typography'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import FemaleIcon from '@mui/icons-material/Female'
-import MaleIcon from '@mui/icons-material/Male'
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import LocationCityIcon from '@mui/icons-material/LocationCity'
 import PaidIcon from '@mui/icons-material/Paid'
 import InventoryIcon from '@mui/icons-material/Inventory'
 
@@ -17,12 +13,21 @@ import IconButton from '@mui/material/IconButton'
 import Button from '@mui/material/Button'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { getProductById } from '../../redux/features/product/productSlice'
 
 export default function ProductCard({
     item,
-    buttonOne = null,
     buttonTwo = null,
 }) {
+
+    const dispatch = useDispatch()
+
+    const handleDetail = () => {
+        console.log(item._id)
+        dispatch(getProductById(item._id))
+    }
+
     // IMPLEMENT LOGIN
     const login = false
     const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la base de datos
@@ -87,7 +92,7 @@ export default function ProductCard({
                     <Button
                         size="small"
                         variant="contained"
-                        onClick={() => buttonOne(item._id)}
+                        onClick={handleDetail}
                     >
                         {data.firstsButton}
                     </Button>
