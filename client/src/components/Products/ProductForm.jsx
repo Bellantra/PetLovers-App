@@ -12,7 +12,10 @@ import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone'
 import handleUploadPictures from '../../utils/handleUploadPictures'
 import { useState } from 'react'
 import { Box } from '@mui/system'
-import Typography from '@mui/material/node/Typography'
+import Typography from '@mui/material/node/Typography';
+import { useDispatch } from 'react-redux'
+import { createProduct } from '../../redux/asyncActions/product/createProduct'
+import Swal from 'sweetalert2'
 
 const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
@@ -21,6 +24,7 @@ const validationSchema = yup.object({
 })
 
 export const ProductForm = () => {
+    const dispatch = useDispatch();
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([])
 
@@ -31,6 +35,10 @@ export const ProductForm = () => {
     const onSubmit = (values) => {
         values.img = image
         console.log(values)
+        // dispatch(createProduct(values));
+        Swal.fire('Any fool can use a computer')
+
+
     }
 
     const formik = useFormik({
@@ -47,12 +55,17 @@ export const ProductForm = () => {
 
     return (
         // <form onSubmit={formik.handleSubmit}>
-        <Grid container style={{ marginTop: '30px' }}>
+   <>
+   <Grid item xs={0.2}>
+    </Grid>
+    <Grid item xs={6}>
+        <Grid container>
             <Grid
                 item
                 component={'form'}
                 onSubmit={formik.handleSubmit}
-                xs={4}
+                xs={12} md={6} lg={6}
+
                 margin="auto"
                 style={{
                     border: 'solid 1px lightgrey',
@@ -201,6 +214,8 @@ export const ProductForm = () => {
                 </Button>
             </Grid>
         </Grid>
+        </Grid>
+        </>
         // </form>
     )
 }
