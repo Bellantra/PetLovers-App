@@ -35,18 +35,19 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
             sx={{"&:hover": {
               backgroundColor: 'lightblue',
             },}}
+            onClick={() => {
+              setRenderControl({
+                  shelterPets: true,
+                  shelterProducts: false,
+                  shelterNewPet: false,
+                  shelterNewProduct: false
+                  
+              });
+            }}
           >
             <PetsIcon color='primary' />
             <Typography
-              onClick={() => {
-                setRenderControl({
-                    shelterPets: true,
-                    shelterProducts: false,
-                    shelterNewPet: false,
-                    shelterNewProduct: false
-                    
-                });
-              }}
+              
               style={{ fontWeight: 'lighter',borderRadius: '8px', }}
              
             >
@@ -67,18 +68,18 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
             sx={{"&:hover": {
               backgroundColor: 'lightblue',
             },}}
+            onClick={() =>
+              setRenderControl({
+                  shelterPets: false,
+                  shelterProducts: true,
+                  shelterNewPet: false,
+                  shelterNewProduct: false
+              })
+            }
           >
             <InventoryOutlinedIcon color='primary' />
             <Typography
-              onClick={() =>
-                setRenderControl({
-                    shelterPets: false,
-                    shelterProducts: true,
-                    shelterNewPet: false,
-                    shelterNewProduct: false
-                })
-              }
-              
+                       
             >
               Products
             </Typography>
@@ -96,18 +97,18 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
             sx={{"&:hover": {
               backgroundColor: 'lightblue',
             },}}
+            onClick={() =>
+              setRenderControl({
+                  shelterPets: false,
+                  shelterProducts: false,
+                  shelterNewPet: false,
+                  shelterNewProduct: true
+              })
+            }
           >
             <BookmarkAddIcon color='primary' />
             <Typography
-              onClick={() =>
-                setRenderControl({
-                    shelterPets: false,
-                    shelterProducts: false,
-                    shelterNewPet: false,
-                    shelterNewProduct: true
-                })
-              }
-             
+                    
             >
               New Product
             </Typography>
@@ -126,9 +127,6 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
             sx={{"&:hover": {
               backgroundColor: 'lightblue',
             },}}
-          >
-            <DeleteIcon color='primary' />
-            <Typography 
             onClick={() =>
               setRenderControl({
                   shelterPets: false,
@@ -137,6 +135,10 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
                   shelterNewProduct: false
               })
             }
+          >
+            <DeleteIcon color='primary' />
+            <Typography 
+           
             
           >
               New Adoption
