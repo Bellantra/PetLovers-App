@@ -4,6 +4,10 @@ import {
     extraGetAdoptablePets,
 } from '../../asyncActions/pet/getAdoptablePets'
 import { getPetById, extraGetPetById } from '../../asyncActions/pet/getPetById'
+import {
+    createPetAdoption,
+    extraCreatePetAdoption,
+} from '../../asyncActions/pet/createPetAdoption'
 
 const initialState = {
     adoptPets: [],
@@ -22,9 +26,13 @@ const adoptSlice = createSlice({
             state.statusDetail = 'loading'
         },
     },
-    extraReducers: { ...extraGetAdoptablePets, ...extraGetPetById },
+    extraReducers: {
+        ...extraGetAdoptablePets,
+        ...extraGetPetById,
+        ...extraCreatePetAdoption,
+    },
 })
 
-export { getAdoptablePets, getPetById }
+export { getAdoptablePets, getPetById, createPetAdoption }
 export const { cleanPetDetail } = adoptSlice.actions
 export default adoptSlice.reducer

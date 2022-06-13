@@ -20,6 +20,7 @@ import { Box } from '@mui/system'
 import Typography from '@mui/material/node/Typography'
 
 import Swal from 'sweetalert2'
+import { createPetAdoption } from '../../redux/asyncActions/pet/createPetAdoption'
 
 const preset = import.meta.env.VITE_APP_PRESET_ADOPT_PETS
 
@@ -82,8 +83,8 @@ const PetCreationForm = () => {
         values.vaccinated = checked
         values.shelter = userInfo.shelter
         console.log(values)
-        // dispatch(postCreateProducts(values))
-        // setImage([])
+        dispatch(createPetAdoption(values))
+        setImage([])
         // formik.resetForm()
     }
 
@@ -95,7 +96,7 @@ const PetCreationForm = () => {
             description: '',
             color: '',
         },
-        validationSchema,
+        // validationSchema,
 
         onSubmit,
     })
