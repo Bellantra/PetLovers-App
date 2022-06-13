@@ -5,9 +5,11 @@ import {
 } from '../../asyncActions/product/getAllProducts'
 
 import {
+
     postCreateProducts,
     extraPostCreateProducts,
 } from '../../asyncActions/product/postCreateProduct'
+
 
 const initialState = {
     products: [],
@@ -25,6 +27,9 @@ const productSlice = createSlice({
             state.productDetail = {}
             state.statusDetail = 'loading'
         },
+        createProduct: (state, action) => {
+            state.products.push(action.payload)
+        }
     },
     extraReducers: {
         ...extraGetAllProducts,
@@ -33,5 +38,6 @@ const productSlice = createSlice({
 })
 
 export { getAllProducts, postCreateProducts }
+
 export const { cleanDetail } = productSlice.actions
 export default productSlice.reducer

@@ -5,14 +5,15 @@ import { Sidebar } from '../../src/components/Admin/Sidebar.jsx';
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts.js';
 import ManagePets from '../components/Admin/ManagePets.jsx';
 import ManageProducts from '../components/Admin/ManageProducts.jsx';
+import {ProductForm} from '../components/Products/ProductForm.jsx';
 
 export default function AdminShelter() {
     const dispatch = useDispatch();
   const [renderControl, setRenderControl] = useState({
     shelterPets: false,
     shelterProducts: false,
-    shelterReviews: false,
-    shelterAccount: false
+    shelterNewPet: false,
+    shelterNewProduct: false
     
   });
 
@@ -31,7 +32,7 @@ export default function AdminShelter() {
         
         {renderControl.shelterPets && <ManagePets />}
         {renderControl.shelterProducts && <ManageProducts />}
-        {renderControl.shelterReviews && <ManagePets />}
+        {renderControl.shelterNewProduct && <ProductForm />}
       </Grid>
     </>
   );
