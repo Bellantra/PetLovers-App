@@ -14,6 +14,7 @@ import { getAllProducts } from '../../redux/asyncActions/product/getAllProducts.
 export default function ManageProducts() {
 const shelterId = useSelector(state=>state.user.userInfo.shelter);
 const products= useSelector(state=>state.product.products);
+console.log(products);
 const productsShelter = products.filter(prod=>prod.shelter._id===shelterId);
 const dispatch = useDispatch();
 console.log(productsShelter)
@@ -32,6 +33,7 @@ const handleDelete =(e,params)=>{
   const { id } = params.row;
   const prodToDelete = productsShelter[id-1];
   console.log(prodToDelete);
+  dispatch()
 };
 const handleEdit =(e,params)=>{
   console.log(params);

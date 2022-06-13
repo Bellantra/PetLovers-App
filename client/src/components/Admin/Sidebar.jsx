@@ -1,34 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import { Grid, Box, Typography } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import Swal from 'sweetalert2';
+import PetsIcon from '@mui/icons-material/Pets';
+import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 
 export const Sidebar = ({ setRenderControl, renderControl }) => {
-  const user = useSelector((state) => state.user.User);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const user = useSelector((state) => state.user.User);
   
-  const handleDeleteAccount = () => {
-    Swal.fire({
-      title: 'Esta seguro de Eliminar su cuenta?',
-      text: 'Usted no podra revertir esta Accion!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // dispatch(putUser(user.id, { isBanned: true }));
-        // logout();
-      }
-    });
-  };
-
+  
   return (
     <>
       <Grid item xs={0.2}></Grid>
@@ -50,22 +30,27 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
               flexDirection: 'row',
               alignItems: 'center',
               gap: '5px',
+              borderRadius: '8px',
             }}
+            sx={{"&:hover": {
+              backgroundColor: 'lightblue',
+            },}}
           >
-            <PersonIcon color='primary' />
+            <PetsIcon color='primary' />
             <Typography
               onClick={() => {
                 setRenderControl({
                     shelterPets: true,
                     shelterProducts: false,
-                    shelterReviews: false,
-                    shelterAccount: false
+                    shelterNewPet: false,
+                    shelterNewProduct: false
                     
                 });
               }}
-              style={{ fontWeight: 'lighter' }}
+              style={{ fontWeight: 'lighter',borderRadius: '8px', }}
+             
             >
-              Mis Mascotas
+              Pets
             </Typography>
           </Box>
 
@@ -77,20 +62,25 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
               flexDirection: 'row',
               alignItems: 'center',
               gap: '5px',
+              borderRadius: '8px',
             }}
+            sx={{"&:hover": {
+              backgroundColor: 'lightblue',
+            },}}
           >
-            <BookmarkAddIcon color='primary' />
+            <InventoryOutlinedIcon color='primary' />
             <Typography
               onClick={() =>
                 setRenderControl({
                     shelterPets: false,
                     shelterProducts: true,
-                    shelterReviews: false,
-                    shelterAccount: false
+                    shelterNewPet: false,
+                    shelterNewProduct: false
                 })
               }
+              
             >
-              Mis Productos
+              Products
             </Typography>
           </Box>
           <Box
@@ -101,7 +91,11 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
               flexDirection: 'row',
               alignItems: 'center',
               gap: '5px',
+              borderRadius: '8px',
             }}
+            sx={{"&:hover": {
+              backgroundColor: 'lightblue',
+            },}}
           >
             <BookmarkAddIcon color='primary' />
             <Typography
@@ -109,12 +103,13 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
                 setRenderControl({
                     shelterPets: false,
                     shelterProducts: false,
-                    shelterReviews: true,
-                    shelterAccount: false
+                    shelterNewPet: false,
+                    shelterNewProduct: true
                 })
               }
+             
             >
-              Mis Avisos
+              New Product
             </Typography>
           </Box>
 
@@ -126,27 +121,29 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
               flexDirection: 'row',
               alignItems: 'center',
               gap: '5px',
+              borderRadius: '8px',
             }}
+            sx={{"&:hover": {
+              backgroundColor: 'lightblue',
+            },}}
           >
             <DeleteIcon color='primary' />
-            <Typography onClick={handleDeleteAccount}>
-              Mi cuenta
+            <Typography 
+            onClick={() =>
+              setRenderControl({
+                  shelterPets: false,
+                  shelterProducts: false,
+                  shelterNewPet: true,
+                  shelterNewProduct: false
+              })
+            }
+            
+          >
+              New Adoption
             </Typography>
           </Box>
 
-          <Box
-            p={2}
-            style={{
-              cursor: 'pointer',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: '5px',
-            }}
-          >
-            <ExitToAppIcon color='primary' />
-            <Typography onClick={() => navigate('/')}>Salir</Typography>
-          </Box>
+         
         </Grid>
       </Grid>
     </>

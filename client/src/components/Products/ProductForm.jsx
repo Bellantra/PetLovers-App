@@ -14,7 +14,10 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Box } from '@mui/system'
-import Typography from '@mui/material/node/Typography'
+import Typography from '@mui/material/node/Typography';
+import { useDispatch } from 'react-redux'
+import { createProduct } from '../../redux/asyncActions/product/createProduct'
+import Swal from 'sweetalert2'
 
 import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
 
@@ -41,7 +44,9 @@ const validationSchema = yup.object({
 })
 
 export const ProductForm = () => {
+
     const { userInfo } = useSelector((state) => state.user)
+
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([])
     const dispatch = useDispatch()
@@ -70,12 +75,20 @@ export const ProductForm = () => {
     })
 
     return (
-        <Grid container style={{ marginTop: '30px' }}>
+
+        // <form onSubmit={formik.handleSubmit}>
+   <>
+   <Grid item xs={0.2}>
+    </Grid>
+    <Grid item xs={6}>
+        <Grid container>
+
             <Grid
                 item
                 component={'form'}
                 onSubmit={formik.handleSubmit}
-                xs={4}
+                xs={12} md={6} lg={6}
+
                 margin="auto"
                 style={{
                     border: 'solid 1px lightgrey',
@@ -227,5 +240,10 @@ export const ProductForm = () => {
                 </Button>
             </Grid>
         </Grid>
+
+        </Grid>
+        </>
+        // </form>
+
     )
 }
