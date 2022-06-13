@@ -8,29 +8,28 @@ const petSchema = new Schema({
     },
     age: {
         type: Number,
-        required: true,
+        default: 'Unknown',
     },
     city: {
         type: String,
         required: true,
     },
-    adopt_by: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-    },
+    // adopt_by: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    // },
     race: {
         type: String,
-        enum: ['Dog', 'Cat', 'Undefined'],
-        default: 'Undefined',
+        enum: ['Dog', 'Cat'],
         required: true,
     },
-    subrace: [
-        {
-            type: Schema.Types.ObjectId,
-            required: true,
-            ref: 'Subrace',
-        },
-    ],
+    // subrace: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         required: true,
+    //         ref: 'Subrace',
+    //     },
+    // ],
     image: [
         {
             type: String,
@@ -56,13 +55,11 @@ const petSchema = new Schema({
         default: 'Undefined',
     },
     color: {
-        type: [String],
-        required: true,
+        type: String,
         default: 'Undefined',
     },
     vaccinated: {
         type: Boolean,
-        required: true,
         default: false,
     },
     status: {
