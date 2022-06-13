@@ -18,8 +18,6 @@ import Typography from '@mui/material/node/Typography'
 
 // import Swal from 'sweetalert2'
 
-import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
-
 const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
 const validationSchema = yup.object({
@@ -42,12 +40,11 @@ const validationSchema = yup.object({
         .required('Description is required'),
 })
 
-export const ProductForm = () => {
+export const ProductForm = ({ name, description, stock, price, images }) => {
     const { userInfo } = useSelector((state) => state.user)
 
     const [loading, setLoading] = useState(false)
-    const [image, setImage] = useState([])
-    const dispatch = useDispatch()
+    const [image, setImage] = useState(images)
 
     const handleDeleteImg = (elem) => {
         setImage((prevState) => prevState.filter((img) => img !== elem))
@@ -56,17 +53,16 @@ export const ProductForm = () => {
     const onSubmit = (values) => {
         values.img = image
         values.shelter = userInfo.shelter
-        dispatch(postCreateProducts(values))
         setImage([])
         formik.resetForm()
     }
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            description: '',
-            stock: '',
-            price: '',
+            name,
+            description,
+            stock,
+            price,
         },
         validationSchema,
         onSubmit,
