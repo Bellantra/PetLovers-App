@@ -20,7 +20,6 @@ import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
 import { postLogout } from '../../redux/asyncActions/login/postLogout'
-import { cleanUser } from '../../redux/features/user/userSlice'
 
 const NavBar = () => {
     const { userInfo } = useSelector((state) => state.user)
@@ -31,7 +30,7 @@ const NavBar = () => {
     const [anchorEl, setAnchorEl] = useState(null)
     const openMenu = Boolean(anchorEl)
 
-    const { isLogged, isAdmin, status: loginStatus } = useSelector((state) => state.login)
+    const { isLogged, isAdmin } = useSelector((state) => state.login)
 
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
@@ -54,18 +53,8 @@ const NavBar = () => {
         navigate(`/shelter/${sh[0]._id}`)
     }
 
-    const logoutAndThenClean = () => async (dispatch) => {
-        try{
-            await dispatch(postLogout())
-            if(loginStatus === 'success') return await dispatch(cleanUser())
-            throw new Error('hubo un error al desloguearse')
-        } catch (err) {
-            console.log(err)
-        }
-      }
-
     const handleLogout = () => {
-        dispatch(logoutAndThenClean())
+        dispatch(postLogout())
         navigate('/home')
     }
 
