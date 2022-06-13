@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Box } from '@mui/system'
 import Typography from '@mui/material/node/Typography';
-import { createProduct } from '../../redux/asyncActions/product/createProduct'
 import Swal from 'sweetalert2'
 
 import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
