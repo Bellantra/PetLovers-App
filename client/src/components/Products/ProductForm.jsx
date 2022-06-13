@@ -94,7 +94,7 @@ export const ProductForm = () => {
                         }}
                     >
                         <Typography variant="h5" marginBottom={2}>
-                            Create a Product
+                            Edit a Product
                         </Typography>
                         <Box style={{ marginBottom: '1rem' }}>
                             {image.length ? (
