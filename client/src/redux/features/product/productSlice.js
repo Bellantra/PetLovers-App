@@ -5,9 +5,10 @@ import {
 } from '../../asyncActions/product/getAllProducts'
 
 import {
-    extraCreateProduct,
-    createProduct,
-} from '../../asyncActions/product/createProduct'
+
+    postCreateProducts,
+    extraPostCreateProducts,
+} from '../../asyncActions/product/postCreateProduct'
 
 
 const initialState = {
@@ -31,11 +32,12 @@ const productSlice = createSlice({
         }
     },
     extraReducers: {
-        ...extraGetAllProducts, ...extraCreateProduct,
-        
+        ...extraGetAllProducts,
+        ...extraPostCreateProducts,
     },
 })
 
-export { getAllProducts, createProduct }
+export { getAllProducts, postCreateProducts }
+
 export const { cleanDetail } = productSlice.actions
 export default productSlice.reducer

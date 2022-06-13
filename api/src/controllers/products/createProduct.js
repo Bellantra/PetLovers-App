@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
         const newProduct = new Product(productData)
 
         await newProduct.save()
-        res.status(200).json({
+        res.status(200).send({
             msg: 'Product created',
             newProduct,
         })
