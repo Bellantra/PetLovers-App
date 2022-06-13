@@ -2,26 +2,26 @@ import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 export const API_ROUTE = 'http://localhost:4001'
 
-export const createProduct = createAsyncThunk(
+export const putProduct = createAsyncThunk(
     'products',
-    async (product) => {
+    async (id, infoProduct) => {
         try {
-            return await axios.post(`${API_ROUTE}/products/create`, product);
+            return await axios.put(`${API_ROUTE}/products/update/${id}`, infoProduct);
         } catch (err) {
             console.log(err)
         }
     }
 )
 
-export const extraCreateProduct = {
-    [createProduct.pending]: (state) => {
+export const extraPutProduct = {
+    [putProduct.pending]: (state) => {
         state.status = 'loading'
     },
-    [createProduct.fulfilled]: (state, action) => {
+    [putProduct.fulfilled]: (state, action) => {
         state.status = 'success'
         state.products = action.payload.data
     },
-    [createProduct.rejected]: (state) => {
+    [putProduct.rejected]: (state) => {
         state.status = 'failed'
     },
 }

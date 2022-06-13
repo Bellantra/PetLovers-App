@@ -8,6 +8,7 @@ import {
     postCreateProducts,
     extraPostCreateProducts,
 } from '../../asyncActions/product/postCreateProduct'
+import { putProduct, extraPutProduct } from '../../asyncActions/product/putProduct'
 
 import {
     getProductById,
@@ -37,16 +38,21 @@ const productSlice = createSlice({
         },
         closeModal: (state) => {
             state.openModal = false
+        },
+        updateProduct: (state, action) => {
+            const index = state.products.findIndex(product => product.id === action.payload.id)
+            state.products[index] = action.payload
         }
     },
     extraReducers: {
         ...extraGetAllProducts,
         ...extraPostCreateProducts,
-        ...extraGetProductById
+        ...extraGetProductById,
+        ...extraPutProduct
     },
 })
 
-export { getAllProducts, postCreateProducts, getProductById }
+export { getAllProducts, postCreateProducts, putProduct, getProductById }
 
 export const { cleanDetail,closeModal } = productSlice.actions
 export default productSlice.reducer
