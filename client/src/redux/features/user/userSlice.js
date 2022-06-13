@@ -20,11 +20,7 @@ const initialState = {
 const userSlice = createSlice({
     name: 'user', // name of the state
     initialState,
-    reducers: {
-        cleanUser : (state) =>{
-            state.userInfo = undefined
-        }
-    },
+    reducers: {},
     extraReducers: {
         ...extraGetUserInfo,
         ...extraPostUser,
@@ -33,5 +29,5 @@ const userSlice = createSlice({
 })
 
 export { getUserInfo, postUser, putEditUser }
-export const { cleanUser } = userSlice.actions
+
 export default userSlice.reducer
