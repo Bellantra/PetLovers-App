@@ -16,7 +16,7 @@ import {
     Typography,
 } from '@mui/material'
 import { Box, Container } from '@mui/system'
-import { postAuthLoginPassword } from '../../redux/features/login/loginSlice'
+import { postAuthLoginPassword } from '../../redux/asyncActions/user/postAuthLoginPassword'
 import { useEffect } from 'react'
 import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
 import { useNavigate } from 'react-router-dom'
@@ -42,7 +42,7 @@ const validate = Yup.object({
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { isLogged } = useSelector((state) => state.login)
+    const { isLogged } = useSelector((state) => state.user)
 
     useEffect(() => {
         if (isLogged) {

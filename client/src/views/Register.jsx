@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import * as Yup from 'yup'
 import { postUser } from '../redux/asyncActions/user/postUser'
-import { postAuthLoginPassword } from '../redux/asyncActions/login/postAuthLoginPassword'
+import { postAuthLoginPassword } from '../redux/asyncActions/user/postAuthLoginPassword'
 import { useNavigate } from 'react-router-dom'
 import handleUploadPictures from '../utils/handleUploadPictures'
 

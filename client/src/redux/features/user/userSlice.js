@@ -11,8 +11,16 @@ import {
 
 import { postUser, extraPostUser } from '../../asyncActions/user/postUser'
 
+import {
+    extraPostAuthLoginPassword,
+    postAuthLoginPassword,
+} from '../../asyncActions/user/postAuthLoginPassword'
+import { postLogout, extraPostLogout } from '../../asyncActions/user/postLogout'
+
 const initialState = {
     userInfo: undefined,
+    isLogged: false,
+    isAdmin: false,
     status: 'loading',
     error: '',
 }
@@ -25,9 +33,11 @@ const userSlice = createSlice({
         ...extraGetUserInfo,
         ...extraPostUser,
         ...extraPutEditUser,
+        ...extraPostAuthLoginPassword,
+        ...extraPostLogout,
     },
 })
 
-export { getUserInfo, postUser, putEditUser }
+export { getUserInfo, postUser, putEditUser, postAuthLoginPassword, postLogout }
 
 export default userSlice.reducer
