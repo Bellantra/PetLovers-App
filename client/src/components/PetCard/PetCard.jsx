@@ -1,32 +1,28 @@
+import PropTypes from 'prop-types'
+import { useState } from 'react'
+
 import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
-
 import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import Button from '@mui/material/Button'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FemaleIcon from '@mui/icons-material/Female'
 import MaleIcon from '@mui/icons-material/Male'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import LocationCityIcon from '@mui/icons-material/LocationCity'
-import PaidIcon from '@mui/icons-material/Paid'
-import InventoryIcon from '@mui/icons-material/Inventory'
 
-import IconButton from '@mui/material/IconButton'
-import Button from '@mui/material/Button'
-import PropTypes from 'prop-types'
-import { useState } from 'react'
-
-export default function InfoCard({
+export default function PetCard({
     item,
-    type,
     buttonOne = null,
     buttonTwo = null,
 }) {
     // IMPLEMENT LOGIN
     const login = false
-    const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la bas de datos
+    const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la base de datos
     const addFavorite = () => {
         setFavorite(!favorite)
         console.log(favorite)
@@ -34,7 +30,7 @@ export default function InfoCard({
 
     // Constantes para la card
     const data = {
-        title: type === 'pet' ? item.nickname : item.name,
+        title: item.nickname,
         titleIcon: item.genre ? (
             item.genre === 'Male' ? (
                 <MaleIcon />
@@ -42,14 +38,14 @@ export default function InfoCard({
                 <FemaleIcon />
             )
         ) : null,
-        alt: type === 'pet' ? item.subrace : item.name,
-        img: type === 'pet' ? item.image[0] : item.img[0],
-        firstsIcon: type === 'pet' ? <AccessTimeIcon /> : <PaidIcon />,
-        firstsDesc: type === 'pet' ? `${item.age} years` : `${item.price} $`,
-        secondIcon: type === 'pet' ? <LocationCityIcon /> : <InventoryIcon />,
-        secondDesc: type === 'pet' ? item.city : `${item.stock} items in stock`,
-        firstsButton: type === 'pet' ? 'About Me' : 'More Info',
-        secondButton: type === 'pet' ? 'Adopt Me' : 'Buy',
+        alt: item.subrace,
+        img: item.image[0],
+        firstsIcon:<AccessTimeIcon />,
+        firstsDesc: `${item.age} years`,
+        secondIcon: <LocationCityIcon />,
+        secondDesc: item.city,
+        firstsButton: 'About Me' ,
+        secondButton: 'Adopt Me',
     }
     // Fin Constantes para la card
 
@@ -59,7 +55,7 @@ export default function InfoCard({
                 <CardMedia
                     component="img"
                     alt={data.alt}
-                    height={type === 'pet' ? '250' : '300'}
+                    height={'250'}
                     image={data.img}
                     sx={{ objectFit: 'cover' }}
                 />
@@ -112,7 +108,8 @@ export default function InfoCard({
         </>
     )
 }
-InfoCard.propTypes = {
+
+PetCard.propTypes = {
     item: PropTypes.object,
     type: PropTypes.string,
     buttonOne: PropTypes.func,
