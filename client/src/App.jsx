@@ -11,8 +11,19 @@ import SignUp from './components/SignUp/SignUp'
 import AdminShelter from './views/AdminShelter'
 import Register from './views/Register'
 import PetCreationForm from './components/PetAdoption/PetCreationForm'
+import { useEffect } from 'react'
+import isUserLogged from './utils/isUserLogged'
+import { useDispatch } from 'react-redux'
+import { getUserInfo } from './redux/asyncActions/user/getUserInfo'
 
 const App = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (isUserLogged()) {
+            dispatch(getUserInfo())
+        }
+    }, [])
     return (
         <>
             <NavBar />

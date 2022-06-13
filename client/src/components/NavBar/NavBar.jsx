@@ -19,10 +19,12 @@ import '../../App.css'
 import { getAllShelters } from '../../redux/asyncActions/shelter/getAllShelters'
 import Loading from '../Loading/Loading'
 import UserMenu from '../NavBar/UserMenu'
-import { postLogout } from '../../redux/asyncActions/login/postLogout'
+import { postLogout } from '../../redux/asyncActions/user/postLogout'
+
+import { getUserInfo } from '../../redux/asyncActions/user/getUserInfo'
 
 const NavBar = () => {
-    const { userInfo } = useSelector((state) => state.user)
+    const { userInfo, isLogged, isAdmin } = useSelector((state) => state.user)
 
     const dispatch = useDispatch()
 
@@ -30,10 +32,11 @@ const NavBar = () => {
     const [anchorEl, setAnchorEl] = useState(null)
     const openMenu = Boolean(anchorEl)
 
-    const { isLogged, isAdmin } = useSelector((state) => state.login)
-
     const { shelters, status } = useSelector((state) => state.shelter)
     useEffect(() => {
+        if (isLogged) {
+            dispatch(getUserInfo())
+        }
         if (status !== 'success') {
             dispatch(getAllShelters())
         }

@@ -28,6 +28,10 @@ export const extraPostAuthLoginPassword = {
             'user',
             JSON.stringify(action.payload.data.token)
         )
+        window.localStorage.setItem(
+            'isAdmin',
+            JSON.stringify(action.payload.data.isAdmin)
+        )
     },
     [postAuthLoginPassword.rejected]: (state) => {
         state.status = 'failed'
