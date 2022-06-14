@@ -29,15 +29,15 @@ export default function AdminShelter() {
 
     return (
         <>
-            <Grid container my={4} gap={2}>
-                <Grid item xs={3}>
+            <Grid container my={4} gap={1} justifyContent={'space-around'}>
+                <Grid item md={3} xs={12}>
                     <Sidebar
                         setRenderControl={setRenderControl}
                         renderControl={renderControl}
                     />
                 </Grid>
 
-                <Grid item xs={8}>
+                <Grid item md={8} xs={12}>
                     {renderControl.shelterPets && (
                         <ManagePets
                             setRenderControl={setRenderControl}

@@ -1,4 +1,4 @@
-import { Grid, Box, Typography } from '@mui/material'
+import { Grid, Box, Typography, Hidden } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -10,133 +10,154 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
 
     return (
         <>
-            <Grid style={{ marginBottom: '20px' }}>
+            <Grid
+                container
+                style={{
+                    border: 'solid 1px lightgrey',
+                    borderRadius: '8px',
+                }}
+                padding={1}
+                justifyContent={'space-around'}
+            >
                 <Grid
-                    p={2}
+                    item
+                    md={12}
+                    padding={1}
                     style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        border: 'solid 1px lightgrey',
+                        cursor: 'pointer',
+                        alignItems: 'center',
                         borderRadius: '8px',
                     }}
+                    sx={{
+                        '&:hover': {
+                            backgroundColor: 'lightblue',
+                        },
+                    }}
+                    onClick={() => {
+                        setRenderControl({
+                            shelterPets: true,
+                            shelterProducts: false,
+                            shelterNewPet: false,
+                            shelterNewProduct: false,
+                        })
+                    }}
                 >
-                    <Box
-                        p={2}
-                        style={{
-                            cursor: 'pointer',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            gap: '5px',
-                            borderRadius: '8px',
-                        }}
-                        sx={{
-                            '&:hover': {
-                                backgroundColor: 'lightblue',
-                            },
-                        }}
-                        onClick={() => {
-                            setRenderControl({
-                                shelterPets: true,
-                                shelterProducts: false,
-                                shelterNewPet: false,
-                                shelterNewProduct: false,
-                            })
-                        }}
-                    >
-                        <PetsIcon color="primary" />
-                        <Typography
-                            style={{
-                                fontWeight: 'lighter',
-                                borderRadius: '8px',
-                            }}
-                        >
-                            Pets
-                        </Typography>
-                    </Box>
+                    <Grid container gap={1}>
+                        <Grid item>
+                            <PetsIcon color="primary" />
+                        </Grid>
+                        <Grid item>
+                            <Typography
+                                style={{
+                                    fontWeight: 'lighter',
+                                    borderRadius: '8px',
+                                }}
+                            >
+                                Pets
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                    <Box
-                        p={2}
-                        style={{
-                            cursor: 'pointer',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            gap: '5px',
-                            borderRadius: '8px',
-                        }}
-                        sx={{
-                            '&:hover': {
-                                backgroundColor: 'lightblue',
-                            },
-                        }}
-                        onClick={() =>
-                            setRenderControl({
-                                shelterPets: false,
-                                shelterProducts: true,
-                                shelterNewPet: false,
-                                shelterNewProduct: false,
-                            })
-                        }
-                    >
-                        <InventoryOutlinedIcon color="primary" />
-                        <Typography>Products</Typography>
-                    </Box>
-                    <Box
-                        p={2}
-                        style={{
-                            cursor: 'pointer',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            gap: '5px',
-                            borderRadius: '8px',
-                        }}
-                        sx={{
-                            '&:hover': {
-                                backgroundColor: 'lightblue',
-                            },
-                        }}
-                        onClick={() =>
-                            setRenderControl({
-                                shelterPets: false,
-                                shelterProducts: false,
-                                shelterNewPet: false,
-                                shelterNewProduct: true,
-                            })
-                        }
-                    >
-                        <BookmarkAddIcon color="primary" />
-                        <Typography>New Product</Typography>
-                    </Box>
+                <Grid
+                    item
+                    md={12}
+                    padding={1}
+                    style={{
+                        cursor: 'pointer',
+                        alignItems: 'center',
+                        borderRadius: '8px',
+                    }}
+                    sx={{
+                        '&:hover': {
+                            backgroundColor: 'lightblue',
+                        },
+                    }}
+                    onClick={() =>
+                        setRenderControl({
+                            shelterPets: false,
+                            shelterProducts: true,
+                            shelterNewPet: false,
+                            shelterNewProduct: false,
+                        })
+                    }
+                >
+                    <Grid container gap={1}>
+                        <Grid item>
+                            <InventoryOutlinedIcon color="primary" />
+                        </Grid>
+                        <Grid item>
+                            <Typography>Products</Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                    <Box
-                        p={2}
-                        style={{
-                            cursor: 'pointer',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            gap: '5px',
-                            borderRadius: '8px',
-                        }}
-                        sx={{
-                            '&:hover': {
-                                backgroundColor: 'lightblue',
-                            },
-                        }}
-                        onClick={() =>
-                            setRenderControl({
-                                shelterPets: false,
-                                shelterProducts: false,
-                                shelterNewPet: true,
-                                shelterNewProduct: false,
-                            })
-                        }
-                    >
-                        <DeleteIcon color="primary" />
-                        <Typography>New Adoption</Typography>
-                    </Box>
+                <Grid
+                    item
+                    md={12}
+                    padding={1}
+                    style={{
+                        cursor: 'pointer',
+                        alignItems: 'center',
+                        borderRadius: '8px',
+                    }}
+                    sx={{
+                        '&:hover': {
+                            backgroundColor: 'lightblue',
+                        },
+                    }}
+                    onClick={() =>
+                        setRenderControl({
+                            shelterPets: false,
+                            shelterProducts: false,
+                            shelterNewPet: false,
+                            shelterNewProduct: true,
+                        })
+                    }
+                >
+                    <Grid container gap={1}>
+                        <Grid item>
+                            <BookmarkAddIcon color="primary" />
+                        </Grid>
+                        <Grid item>
+                            <Typography>New Product</Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    item
+                    md={12}
+                    padding={1}
+                    style={{
+                        cursor: 'pointer',
+
+                        alignItems: 'center',
+
+                        borderRadius: '8px',
+                    }}
+                    sx={{
+                        '&:hover': {
+                            backgroundColor: 'lightblue',
+                        },
+                    }}
+                    onClick={() =>
+                        setRenderControl({
+                            shelterPets: false,
+                            shelterProducts: false,
+                            shelterNewPet: true,
+                            shelterNewProduct: false,
+                        })
+                    }
+                >
+                    <Grid container gap={1}>
+                        <Grid item>
+                            <DeleteIcon color="primary" />
+                        </Grid>
+                        <Grid item>
+                            <Typography>New Adoption</Typography>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </>
