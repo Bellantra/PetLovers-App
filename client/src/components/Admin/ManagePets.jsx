@@ -1,10 +1,11 @@
+
 import  {DataGrid } from '@mui/x-data-grid';
 import {Grid, Button} from '@mui/material';
 import {useSelector} from 'react-redux';
 
 
 
-export default function ManagePets() {
+export default function ManagePets({renderControl, setRenderControl}) {
 const shelterId = useSelector(state=>state.user.userInfo.shelter);
 const shelters = useSelector(state=>state.shelter.shelters);
 const shelter= shelters.find(shelter=>shelter._id===shelterId);
@@ -26,9 +27,18 @@ const rows = petsAdoption?.map((pet,index) => ({
 
   const handleDelete =(e,params)=>{
     console.log(params);
+    console.log(e);
+    
+  
+
   };
   const handleEdit =(e,params)=>{
     console.log(params);
+    console.log(e);
+    console.log(petsAdoption[params.id-1])
+    // setRenderControl({...renderControl, shelterEditPetInfo:petsAdoption[params.id-1], shelterPets:false, shelterEditPet:true})
+
+
   };
 
   const columns = [
