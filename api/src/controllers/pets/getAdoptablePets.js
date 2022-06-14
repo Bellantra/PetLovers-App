@@ -17,7 +17,7 @@ const getAdoptablePets = async (req, res) => {
             .and(race ? { race } : {})
             .and(subrace ? { subrace } : {})
             .populate([
-                { path: 'subrace', select: '-_id' },
+                // { path: 'subrace', select: '-_id' },
                 { path: 'shelter', select: 'name logo' },
             ])
         Pets ? res.json(Pets) : res.json('Not pets found')
