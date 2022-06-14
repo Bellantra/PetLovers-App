@@ -34,9 +34,9 @@ const rows = petsAdoption?.map((pet,index) => ({
   };
   const handleEdit =(e,params)=>{
     console.log(params);
-    console.log(e);
-    console.log(petsAdoption[params.id-1])
-    // setRenderControl({...renderControl, shelterEditPetInfo:petsAdoption[params.id-1], shelterPets:false, shelterEditPet:true})
+    console.log(petsAdoption[params.id-1]);
+    
+    setRenderControl({...renderControl, shelterEditPetInfo:petsAdoption[params.id-1], shelterPets:false, shelterEditPet:true})
 
 
   };

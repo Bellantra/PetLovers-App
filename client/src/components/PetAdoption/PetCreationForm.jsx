@@ -103,6 +103,8 @@ const PetCreationForm = () => {
 
     return (
         <>
+        <Grid item xs={0.2}></Grid>
+        <Grid item xs={8}>
             <Grid container>
                 <Grid
                     item
@@ -117,7 +119,7 @@ const PetCreationForm = () => {
                         borderRadius: '8px',
                         padding: '20px',
                         marginBottom: '30px',
-                        marginTop: '30px',
+                        
                     }}
                 >
                     <Box textAlign={'center'} marginTop={2} marginBottom={5}>
@@ -351,6 +353,8 @@ const PetCreationForm = () => {
                     </Button>
                 </Grid>
             </Grid>
+            </Grid>
+            
         </>
     )
 }
