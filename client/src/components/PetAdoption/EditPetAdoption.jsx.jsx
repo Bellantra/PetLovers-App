@@ -112,7 +112,8 @@ const EditPetAdoption = ({
     })
 
     return (
-        <>
+        <><Grid item xs={0.2}></Grid>
+        <Grid item xs={6}>
             <Grid container>
                 <Grid
                     item
@@ -127,7 +128,7 @@ const EditPetAdoption = ({
                         borderRadius: '8px',
                         padding: '20px',
                         marginBottom: '30px',
-                        marginTop: '30px',
+        
                     }}
                 >
                     <Box textAlign={'center'} marginTop={2} marginBottom={5}>
@@ -258,7 +259,7 @@ const EditPetAdoption = ({
                     </Grid>
 
                     <Box style={{ marginBottom: '1rem' }}>
-                        {image.length ? (
+                        {image?.length ? (
                             <Paper
                                 sx={{
                                     display: 'flex',
@@ -358,6 +359,7 @@ const EditPetAdoption = ({
                         Submit
                     </Button>
                 </Grid>
+            </Grid>
             </Grid>
         </>
     )

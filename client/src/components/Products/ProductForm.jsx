@@ -78,7 +78,7 @@ export const ProductForm = () => {
     return (
         <>
             <Grid item xs={0.2}></Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
                 <Grid container>
                     <Grid
                         item
