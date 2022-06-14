@@ -113,7 +113,6 @@ const Shelter = () => {
                                     arrayData={shelterProducts}
                                     itemsPerPage={6}
                                     md={4}
-                                    cardSize={'lg'}
                                 />
                             </>
                         )}
