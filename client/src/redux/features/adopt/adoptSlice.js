@@ -9,6 +9,11 @@ import {
     extraCreatePetAdoption,
 } from '../../asyncActions/pet/createPetAdoption'
 
+import {
+    extraEditPetAdoption,
+    editPetAdoption,
+} from '../../asyncActions/pet/editPetAdopcion'
+
 const initialState = {
     adoptPets: [],
     petDetail: {},
@@ -34,9 +39,10 @@ const adoptSlice = createSlice({
         ...extraGetAdoptablePets,
         ...extraGetPetById,
         ...extraCreatePetAdoption,
+        ...extraEditPetAdoption,
     },
 })
 
-export { getAdoptablePets, getPetById, createPetAdoption }
+export { getAdoptablePets, getPetById, createPetAdoption, editPetAdoption }
 export const { cleanPetDetail, cleanStatusCreate } = adoptSlice.actions
 export default adoptSlice.reducer
