@@ -1,5 +1,5 @@
-import { Grid, Box, Typography, Hidden } from '@mui/material'
-import PersonIcon from '@mui/icons-material/Person'
+import { Grid, Typography } from '@mui/material'
+
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd'
 import DeleteIcon from '@mui/icons-material/Delete'
 import PetsIcon from '@mui/icons-material/Pets'
