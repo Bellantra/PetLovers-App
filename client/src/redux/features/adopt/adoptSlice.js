@@ -13,6 +13,7 @@ const initialState = {
     adoptPets: [],
     petDetail: {},
     status: 'loading',
+    statusCreate: 'loading',
     statusDetail: 'loading',
     error: '',
 }
@@ -25,6 +26,9 @@ const adoptSlice = createSlice({
             state.petDetail = {}
             state.statusDetail = 'loading'
         },
+        cleanStatusCreate: (state) => {
+            state.statusCreate = 'loading'
+        },
     },
     extraReducers: {
         ...extraGetAdoptablePets,
@@ -34,5 +38,5 @@ const adoptSlice = createSlice({
 })
 
 export { getAdoptablePets, getPetById, createPetAdoption }
-export const { cleanPetDetail } = adoptSlice.actions
+export const { cleanPetDetail, cleanStatusCreate } = adoptSlice.actions
 export default adoptSlice.reducer

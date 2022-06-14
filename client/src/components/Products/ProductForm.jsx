@@ -10,18 +10,19 @@ import {
 } from '@mui/material'
 import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone'
 import handleUploadPictures from '../../utils/handleUploadPictures'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Box } from '@mui/system'
+import swal from 'sweetalert'
 
+import { Box } from '@mui/system'
 
 import Typography from '@mui/material/node/Typography'
 
 // import Swal from 'sweetalert2'
 
-
 import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
+import { cleanCreateStatus } from '../../redux/features/product/productSlice'
 
 const preset = import.meta.env.VITE_APP_PRESET_PRODUCTS
 
@@ -47,6 +48,7 @@ const validationSchema = yup.object({
 
 export const ProductForm = () => {
     const { userInfo } = useSelector((state) => state.user)
+    const { statusCreate } = useSelector((state) => state.product)
 
     const [loading, setLoading] = useState(false)
     const [image, setImage] = useState([])
@@ -56,12 +58,23 @@ export const ProductForm = () => {
         setImage((prevState) => prevState.filter((img) => img !== elem))
     }
 
+    useEffect(() => {
+        if (statusCreate === 'success') {
+            swal({
+                title: 'You Product has been Created!',
+                icon: 'success',
+                button: 'Ok!',
+            })
+        }
+        dispatch(cleanCreateStatus())
+    }, [statusCreate])
+
     const onSubmit = (values) => {
         values.img = image
         values.shelter = userInfo.shelter
         dispatch(postCreateProducts(values))
-        setImage([])
         formik.resetForm()
+        setImage([])
     }
 
     const formik = useFormik({
@@ -97,7 +110,7 @@ export const ProductForm = () => {
                         }}
                     >
                         <Typography variant="h5" marginBottom={2}>
-                            Edit a Product
+                            Create a Product
                         </Typography>
                         <Box style={{ marginBottom: '1rem' }}>
                             {image.length ? (

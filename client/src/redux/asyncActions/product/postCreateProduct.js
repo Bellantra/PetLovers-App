@@ -15,12 +15,12 @@ export const postCreateProducts = createAsyncThunk(
 
 export const extraPostCreateProducts = {
     [postCreateProducts.pending]: (state) => {
-        state.status = 'loading'
+        state.statusCreate = 'loading'
     },
     [postCreateProducts.fulfilled]: (state, action) => {
-        state.status = 'success'
+        state.statusCreate = 'success'
     },
     [postCreateProducts.rejected]: (state) => {
-        state.status = 'failed'
+        state.statusCreate = 'failed'
     },
 }

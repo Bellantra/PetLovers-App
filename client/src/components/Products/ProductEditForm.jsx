@@ -40,7 +40,13 @@ const validationSchema = yup.object({
         .required('Description is required'),
 })
 
-export const ProductEditForm = ({ name, description, stock, price, images }) => {
+export const ProductEditForm = ({
+    name,
+    description,
+    stock,
+    price,
+    images,
+}) => {
     const { userInfo } = useSelector((state) => state.user)
 
     const [loading, setLoading] = useState(false)
@@ -90,7 +96,7 @@ export const ProductEditForm = ({ name, description, stock, price, images }) => 
                         }}
                     >
                         <Typography variant="h5" marginBottom={2}>
-                            Create a Product
+                            Edit Product
                         </Typography>
                         <Box style={{ marginBottom: '1rem' }}>
                             {image.length ? (
