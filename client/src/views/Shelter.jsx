@@ -15,6 +15,7 @@ import PaginateArray from '../components/PaginateArray/PaginateArray'
 import Loading from '../components/Loading/Loading'
 import Modal from '../components/Modal/Modal'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
+import ProductModal from '../components/Products/ProductModal'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -40,12 +41,9 @@ const Shelter = () => {
 
     useEffect(() => {
         dispatch(getAllProducts())
-        return () => dispatch(cleanDetail())
     }, [dispatch])
 
     const shelterProducts = prod.filter((el) => el.shelter._id === id)
-
-    // console.log(shelterProducts)
 
     return (
         <>
@@ -128,6 +126,11 @@ const Shelter = () => {
                         posicionModal={'center'}
                         padding={'20px'}
                     />
+                                        <Container>
+                        <Grid>
+                        <ProductModal/>
+                        </Grid>
+                    </Container>
                 </Container>
             ) : (
                 <Loading />
