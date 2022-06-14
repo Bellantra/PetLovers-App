@@ -7,10 +7,8 @@ import { Routes, Route } from 'react-router-dom'
 import Footer from '../src/components/Footer/Footer'
 import Profile from './views/Profile'
 import Login from './components/Login/Login'
-import SignUp from './components/SignUp/SignUp'
 import AdminShelter from './views/AdminShelter'
 import Register from './views/Register'
-import PetCreationForm from './components/PetAdoption/PetCreationForm'
 import { useEffect } from 'react'
 import isUserLogged from './utils/isUserLogged'
 import { useDispatch } from 'react-redux'
@@ -38,10 +36,8 @@ const App = () => {
                 <Route path="/shelter/:id" element={<Shelter />} />
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/login" element={<Login />}></Route>
-                <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/admin" element={<AdminShelter />}></Route>
                 <Route path="/register" element={<Register />}></Route>
-                <Route path="/postpet" element={<PetCreationForm />}></Route>
             </Routes>
             <Footer />
         </>

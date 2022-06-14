@@ -15,12 +15,12 @@ export const createPetAdoption = createAsyncThunk(
 
 export const extraCreatePetAdoption = {
     [createPetAdoption.pending]: (state) => {
-        state.status = 'loading'
+        state.statusCreate = 'loading'
     },
     [createPetAdoption.fulfilled]: (state, action) => {
-        state.status = 'success'
+        state.statusCreate = 'success'
     },
     [createPetAdoption.rejected]: (state) => {
-        state.status = 'failed'
+        state.statusCreate = 'failed'
     },
 }
