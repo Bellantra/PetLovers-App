@@ -2,7 +2,7 @@ const Pet = require('../../schemas/Pet')
 
 const getAdoptablePets = async (req, res) => {
     try {
-        const { nickname, city, color, race, subrace } = req.query
+        const { nickname, city, color, race } = req.query
         console.log(req.query)
         const Pets = await Pet.find({
             status: 'Active',
@@ -15,7 +15,7 @@ const getAdoptablePets = async (req, res) => {
             .and(city ? { city: { $regex: `^${city}`, $options: 'i' } } : {})
             .and(color ? { color: { $regex: `^${color}`, $options: 'i' } } : {})
             .and(race ? { race } : {})
-            .and(subrace ? { subrace } : {})
+            // .and(subrace ? { subrace } : {})
             .populate([
                 // { path: 'subrace', select: '-_id' },
                 { path: 'shelter', select: 'name logo' },
