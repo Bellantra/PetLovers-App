@@ -29,42 +29,46 @@ export default function AdminShelter() {
 
     return (
         <>
-            <Grid container my={4}>
-                <Sidebar
-                    setRenderControl={setRenderControl}
-                    renderControl={renderControl}
-                />
-
-                {renderControl.shelterPets && (
-                    <ManagePets
+            <Grid container my={4} gap={2}>
+                <Grid item xs={3}>
+                    <Sidebar
                         setRenderControl={setRenderControl}
                         renderControl={renderControl}
                     />
-                )}
+                </Grid>
 
-                {renderControl.shelterProducts && (
-                    <ManageProducts
-                        setRenderControl={setRenderControl}
-                        renderControl={renderControl}
-                    />
-                )}
+                <Grid item xs={8}>
+                    {renderControl.shelterPets && (
+                        <ManagePets
+                            setRenderControl={setRenderControl}
+                            renderControl={renderControl}
+                        />
+                    )}
 
-                {renderControl.shelterNewProduct && <ProductForm />}
-                {renderControl.shelterNewPet && <PetCreationForm />}
+                    {renderControl.shelterProducts && (
+                        <ManageProducts
+                            setRenderControl={setRenderControl}
+                            renderControl={renderControl}
+                        />
+                    )}
 
-                {renderControl.shelterEditPet && (
-                    <EditPetAdoption
-                        setRenderControl={setRenderControl}
-                        renderControl={renderControl}
-                    />
-                )}
+                    {renderControl.shelterNewProduct && <ProductForm />}
+                    {renderControl.shelterNewPet && <PetCreationForm />}
 
-                {renderControl.shelterEditProduct && (
-                    <ProductEditForm
-                        setRenderControl={setRenderControl}
-                        renderControl={renderControl}
-                    />
-                )}
+                    {renderControl.shelterEditPet && (
+                        <EditPetAdoption
+                            setRenderControl={setRenderControl}
+                            renderControl={renderControl}
+                        />
+                    )}
+
+                    {renderControl.shelterEditProduct && (
+                        <ProductEditForm
+                            setRenderControl={setRenderControl}
+                            renderControl={renderControl}
+                        />
+                    )}
+                </Grid>
             </Grid>
         </>
     )
