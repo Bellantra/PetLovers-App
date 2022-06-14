@@ -40,7 +40,7 @@ const validationSchema = yup.object({
         .required('Description is required'),
 })
 
-export const ProductForm = ({ name, description, stock, price, images }) => {
+export const ProductEditForm = ({ name, description, stock, price, images }) => {
     const { userInfo } = useSelector((state) => state.user)
 
     const [loading, setLoading] = useState(false)
