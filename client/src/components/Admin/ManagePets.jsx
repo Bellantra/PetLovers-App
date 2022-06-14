@@ -1,5 +1,5 @@
 import { DataGrid } from '@mui/x-data-grid'
-import { Grid, Button } from '@mui/material'
+import { Button } from '@mui/material'
 import { useSelector } from 'react-redux'
 
 export default function ManagePets({ renderControl, setRenderControl }) {
@@ -19,7 +19,7 @@ export default function ManagePets({ renderControl, setRenderControl }) {
         genre: pet.genre,
         vaccinated: pet.vaccinated,
         status: pet.status,
-        action: '',
+        color: pet.color,
     }))
 
     const handleDelete = (e, params) => {
@@ -52,6 +52,7 @@ export default function ManagePets({ renderControl, setRenderControl }) {
             // width: 150,
             editable: true,
         },
+
         {
             field: 'race',
             headerName: 'Race',
@@ -114,7 +115,7 @@ export default function ManagePets({ renderControl, setRenderControl }) {
                         variant="contained"
                         color="success"
                         onClick={(e) => handleEdit(e, params)}
-                        // size="small"
+                        size="small"
                         // style={{ width: '15px' }}
                     >
                         Edit

@@ -17,6 +17,7 @@ export const Sidebar = ({ setRenderControl, renderControl }) => {
                     borderRadius: '8px',
                 }}
                 padding={1}
+                margin={2}
                 justifyContent={'space-around'}
             >
                 <Grid

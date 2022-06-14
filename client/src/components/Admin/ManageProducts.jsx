@@ -20,7 +20,6 @@ export default function ManageProducts() {
         price: prod.price,
         stock: prod.stock,
         status: prod.status,
-        action: '',
     }))
 
     const handleDelete = (e, params) => {
@@ -59,12 +58,7 @@ export default function ManageProducts() {
             // width: 110,
             editable: true,
         },
-        {
-            field: 'action',
-            headerName: 'Action',
-            // width: 110,
-            editable: true,
-        },
+
         {
             field: 'deleteAction',
             headerName: 'Delete',

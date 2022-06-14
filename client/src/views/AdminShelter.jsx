@@ -37,7 +37,7 @@ export default function AdminShelter() {
                     />
                 </Grid>
 
-                <Grid item md={8} xs={12}>
+                <Grid item md={8} xs={12} margin={2}>
                     {renderControl.shelterPets && (
                         <ManagePets
                             setRenderControl={setRenderControl}
