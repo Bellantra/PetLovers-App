@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Pagination from '../Pagination/Pagination'
 import PropTypes from 'prop-types'
-import PetCard from '../PetCard/PetCard'
+import PetCard from '../Pet/PetCard'
 import ProductCard from '../Products/ProductCard'
 
 const theme = createTheme()
