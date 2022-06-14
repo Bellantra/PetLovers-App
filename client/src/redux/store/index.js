@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit'
 import adoptSlice from '../features/adopt/adoptSlice'
 import shelterSlice from '../features/shelter/shelterSlice'
 import productSlice from '../features/product/productSlice'
-import loginSlice from '../features/login/loginSlice'
 import userSlice from '../features/user/userSlice'
 
 const store = configureStore({
@@ -10,7 +9,6 @@ const store = configureStore({
         adopt: adoptSlice,
         shelter: shelterSlice,
         product: productSlice,
-        login: loginSlice,
         user: userSlice,
     },
     middleware: (getDefaultMiddleware) =>

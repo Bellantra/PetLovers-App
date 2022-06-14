@@ -20,6 +20,8 @@ export const extraGetUserInfo = {
     [getUserInfo.fulfilled]: (state, action) => {
         state.status = 'success'
         state.userInfo = action.payload.data
+        state.isAdmin = action.payload.data.isAdmin
+        state.isLogged = true
     },
     [getUserInfo.rejected]: (state, action) => {
         state.status = 'failed'

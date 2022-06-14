@@ -15,10 +15,11 @@ export const extraPostLogout = {
         state.status = 'loading'
     },
     [postLogout.fulfilled]: (state, action) => {
-        console.log('todo biennn')
         state.status = 'success'
         state.isLogged = false
         window.localStorage.removeItem('user')
+        window.localStorage.removeItem('isAdmin')
+        state.userInfo = undefined
     },
     [postLogout.rejected]: (state) => {
         state.status = 'failed'
