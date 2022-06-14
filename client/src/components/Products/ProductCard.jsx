@@ -56,7 +56,7 @@ export default function ProductCard({
                 <CardMedia
                     component="img"
                     alt={data.alt}
-                    height={'300'}
+                    height={'250'}
                     image={data.img}
                     sx={{ objectFit: 'cover' }}
                 />
