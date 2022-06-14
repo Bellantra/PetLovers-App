@@ -57,6 +57,8 @@ const Register = () => {
 
     const navigate = useNavigate()
 
+    console.log(userInfo)
+
     const preset = VITE_APP_PRESET_USER
 
     useEffect(() => {
@@ -67,6 +69,8 @@ const Register = () => {
                     password: userInfo.password,
                 })
             )
+
+            navigate('/profile')
         }
     }, [dispatch, userInfo])
 
@@ -83,7 +87,6 @@ const Register = () => {
                 img: image[image.length - 1],
             })
         )
-        navigate('/profile')
     }
     const formik = useFormik({
         initialValues,
