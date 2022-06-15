@@ -13,14 +13,15 @@ import IconButton from '@mui/material/IconButton'
 import Button from '@mui/material/Button'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getProductById } from '../../redux/features/product/productSlice'
 
 export default function ProductCard({
     item,
-    buttonTwo = null,
 }) {
-
+    const { shelterDetail } = useSelector(
+        (state) => state.shelter
+    )
     const dispatch = useDispatch()
 
     const handleDetail = () => {
@@ -96,12 +97,10 @@ export default function ProductCard({
                     >
                         {data.firstsButton}
                     </Button>
-                    <Button
-                        size="small"
-                        variant="contained"
-                        onClick={buttonTwo}
-                    >
-                        {data.secondButton}
+                    <Button size="small" variant="contained">
+                        <a href={`https://docs.google.com/forms/d/e/1FAIpQLSddhIRTghZ8oNDsqBNN3QffZnqWRgOAoh8rw7pfURT2Uj1xew/viewform?usp=pp_url&entry.1979261734=${item.name}&entry.1040828766=1&entry.512539991=${shelterDetail.name}&entry.577423619=user`} 
+                            target="_blank"
+                            >Buy!</a>
                     </Button>
                 </CardActions>
             </Card>
