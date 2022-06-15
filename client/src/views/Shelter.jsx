@@ -16,6 +16,7 @@ import Loading from '../components/Loading/Loading'
 import Modal from '../components/Modal/Modal'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
 import ProductModal from '../components/Products/ProductModal'
+import PetModal from '../components/Pet/PetModal'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -117,17 +118,10 @@ const Shelter = () => {
                             </>
                         )}
                     </Grid>
-                    <Modal
-                        estado={modalState}
-                        setEstado={buttonOne}
-                        mostrarHeader={true}
-                        mostrarOverlay={true}
-                        posicionModal={'center'}
-                        padding={'20px'}
-                    />
                     <Container>
                         <Grid>
                             <ProductModal />
+                            <PetModal/>
                         </Grid>
                     </Container>
                 </Container>

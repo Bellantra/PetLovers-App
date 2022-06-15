@@ -15,11 +15,20 @@ import MaleIcon from '@mui/icons-material/Male'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import LocationCityIcon from '@mui/icons-material/LocationCity'
 
+import { useDispatch } from 'react-redux'
+import { getPetById  } from '../../redux/features/adopt/adoptSlice'
+
 export default function PetCard({
     item,
-    buttonOne = null,
     buttonTwo = null,
 }) {
+
+    const dispatch = useDispatch()
+
+    const handleDetail = () => {
+        dispatch(getPetById(item._id))
+    }
+
     // IMPLEMENT LOGIN
     const login = false
     const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la base de datos
@@ -92,7 +101,7 @@ export default function PetCard({
                     <Button
                         size="small"
                         variant="contained"
-                        onClick={() => buttonOne(item._id)}
+                        onClick={handleDetail}
                     >
                         {data.firstsButton}
                     </Button>

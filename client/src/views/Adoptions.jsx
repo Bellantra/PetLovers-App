@@ -8,12 +8,13 @@ import Container from '@mui/material/Container'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import Loading from '../components/Loading/Loading'
 import Filtros from '../components/PetFilter/PetFilter'
-import Modal from '../components/Modal/Modal'
+
 import {
     getPetById,
     getAdoptablePets,
     cleanPetDetail,
 } from '../redux/features/adopt/adoptSlice'
+import PetModal from '../components/Pet/PetModal'
 
 const theme = createTheme()
 
@@ -78,14 +79,7 @@ export default function Adoptions() {
                     <Loading />
                 )}
             </main>
-            <Modal
-                estado={modalState}
-                setEstado={buttonOne}
-                mostrarHeader={true}
-                mostrarOverlay={true}
-                posicionModal={'center'}
-                padding={'20px'}
-            />
+            <PetModal/>
         </ThemeProvider>
     )
 }

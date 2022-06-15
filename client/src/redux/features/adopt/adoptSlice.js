@@ -21,6 +21,7 @@ const initialState = {
     statusCreate: 'loading',
     statusDetail: 'loading',
     error: '',
+    openModal:false
 }
 
 const adoptSlice = createSlice({
@@ -34,6 +35,9 @@ const adoptSlice = createSlice({
         cleanStatusCreate: (state) => {
             state.statusCreate = 'loading'
         },
+        closeModal: (state) => {
+            state.openModal = false
+        },
     },
     extraReducers: {
         ...extraGetAdoptablePets,
@@ -44,5 +48,5 @@ const adoptSlice = createSlice({
 })
 
 export { getAdoptablePets, getPetById, createPetAdoption, editPetAdoption }
-export const { cleanPetDetail, cleanStatusCreate } = adoptSlice.actions
+export const { cleanPetDetail, cleanStatusCreate, closeModal } = adoptSlice.actions
 export default adoptSlice.reducer

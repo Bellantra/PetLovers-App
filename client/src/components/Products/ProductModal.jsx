@@ -25,11 +25,10 @@ export default function ProductModal() {
 
     const handleClose = () => {
         dispatch(closeModal())
+        setTimeout(() => {
+            dispatch(cleanDetail())
+        }, 500);
     }
-
-    useEffect(() => {
-        return () => dispatch(cleanDetail)
-    }, [])
 
     return (
         <div>
@@ -40,8 +39,8 @@ export default function ProductModal() {
                 keepMounted
                 aria-describedby="alert-dialog-slide-description"
                 scroll={'body'}
-                fullWidth={'sm'}
                 maxWidth={'sm'}
+                fullWidth={true}
             >
                 {status === 'success' ? (
                     <>
