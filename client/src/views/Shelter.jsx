@@ -13,7 +13,6 @@ import {
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import Loading from '../components/Loading/Loading'
-import Modal from '../components/Modal/Modal'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
 import ProductModal from '../components/Products/ProductModal'
 import PetModal from '../components/Pet/PetModal'

@@ -4,9 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getAdoptablePets } from '../../redux/asyncActions/pet/getAdoptablePets'
 
+import swal from 'sweetalert'
+import { editPetAdoption } from '../../redux/asyncActions/pet/editPetAdopcion'
+import { cleanStatusCreate } from '../../redux/features/adopt/adoptSlice'
+
 export default function ManagePets({ renderControl, setRenderControl }) {
     const { userInfo } = useSelector((state) => state.user)
     const { adoptPets } = useSelector((state) => state.adopt)
+    const { statusCreate } = useSelector((state) => state.adopt)
 
     const dispatch = useDispatch()
 
@@ -18,11 +23,22 @@ export default function ManagePets({ renderControl, setRenderControl }) {
 
     useEffect(() => {
         dispatch(getAdoptablePets())
-    }, [])
+        if (statusCreate === 'success') {
+            swal({
+                title: 'Your Pet has been Deleted!',
+                icon: 'success',
+                button: 'Ok!',
+            })
+            dispatch(cleanStatusCreate())
+        }
+    }, [statusCreate])
 
     const rows = petsAdoption?.map((pet, index) => ({
+        _id: pet._id,
         id: index + 1,
         nickname: pet.nickname,
+        description: pet.description,
+        image: pet.image,
         age: pet.age,
         race: pet.race,
         city: pet.city,
@@ -33,12 +49,18 @@ export default function ManagePets({ renderControl, setRenderControl }) {
     }))
 
     const handleDelete = (e, params) => {
-        console.log(params)
-        console.log(e)
+        params.row.status = 'Deleted'
+        const _id = params.row._id
+        const { id, ...values } = params.row
+
+        // console.log(_id)
+        // console.log(values)
+
+        dispatch(editPetAdoption({ _id, values }))
     }
     const handleEdit = (e, params) => {
-        console.log(params)
-        console.log(petsAdoption[params.id - 1])
+        // console.log(params)
+        // console.log(petsAdoption[params.id - 1])
 
         setRenderControl({
             ...renderControl,
