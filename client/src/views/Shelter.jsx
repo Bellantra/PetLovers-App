@@ -43,7 +43,7 @@ const Shelter = () => {
         dispatch(getAllProducts())
     }, [dispatch])
 
-    const shelterProducts = prod.filter((el) => el.shelter._id === id)
+    const shelterProducts = prod?.filter((el) => el.shelter._id === id)
 
     return (
         <>
@@ -125,9 +125,9 @@ const Shelter = () => {
                         posicionModal={'center'}
                         padding={'20px'}
                     />
-                                        <Container>
+                    <Container>
                         <Grid>
-                        <ProductModal/>
+                            <ProductModal />
                         </Grid>
                     </Container>
                 </Container>

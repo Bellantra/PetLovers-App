@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllProducts } from '../../redux/asyncActions/product/getAllProducts.js'
 
-export default function ManageProducts() {
+export default function ManageProducts({ renderControl, setRenderControl }) {
     const shelterId = useSelector((state) => state.user.userInfo.shelter)
     const products = useSelector((state) => state.product.products)
     console.log(products)
@@ -26,10 +26,14 @@ export default function ManageProducts() {
         const { id } = params.row
         const prodToDelete = productsShelter[id - 1]
         console.log(prodToDelete)
-        dispatch()
     }
     const handleEdit = (e, params) => {
-        console.log(params)
+        setRenderControl({
+            ...renderControl,
+            shelterEditProductInfo: productsShelter[params.id - 1],
+            shelterProducts: false,
+            shelterEditProduct: true,
+        })
     }
 
     const columns = [
@@ -100,7 +104,9 @@ export default function ManageProducts() {
     ]
 
     useEffect(() => {
-        dispatch(getAllProducts())
+        if (products.length === 0) {
+            dispatch(getAllProducts())
+        }
     }, [])
 
     return (

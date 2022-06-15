@@ -19,8 +19,6 @@ import { Box } from '@mui/system'
 
 import Typography from '@mui/material/node/Typography'
 
-// import Swal from 'sweetalert2'
-
 import { postCreateProducts } from '../../redux/asyncActions/product/postCreateProduct'
 import { cleanCreateStatus } from '../../redux/features/product/productSlice'
 
