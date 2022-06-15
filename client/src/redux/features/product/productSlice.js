@@ -23,6 +23,7 @@ const initialState = {
     productDetail: {},
     status: 'loading',
     statusCreate: 'loading',
+    statusEdit: 'loading',
     statusDetail: 'loading',
     error: '',
     openModal: false,
@@ -51,6 +52,9 @@ const productSlice = createSlice({
         cleanCreateStatus: (state) => {
             state.statusCreate = 'loading'
         },
+        cleanEditStatus: (state) => {
+            state.statusEdit = 'loading'
+        },
     },
     extraReducers: {
         ...extraGetAllProducts,
@@ -62,6 +66,6 @@ const productSlice = createSlice({
 
 export { getAllProducts, postCreateProducts, putProduct, getProductById }
 
-export const { cleanDetail, closeModal, cleanCreateStatus } =
+export const { cleanDetail, closeModal, cleanCreateStatus, cleanEditStatus } =
     productSlice.actions
 export default productSlice.reducer
