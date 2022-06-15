@@ -1,4 +1,12 @@
-import {Button, Dialog , DialogActions, DialogContent, DialogContentText, DialogTitle, Slide} from '@mui/material'
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Slide,
+} from '@mui/material'
 import PaidIcon from '@mui/icons-material/Paid'
 import InventoryIcon from '@mui/icons-material/Inventory'
 import Carousel from 'react-material-ui-carousel'
@@ -17,17 +25,21 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 export default function ProductModal() {
     const dispatch = useDispatch()
+
     const {
         productDetail,
         statusDetail: status,
         openModal,
     } = useSelector((state) => state.product)
 
+    const { userInfo } = useSelector((state) => state.user)
+    const { shelterDetail } = useSelector((state) => state.shelter)
+    
     const handleClose = () => {
         dispatch(closeModal())
         setTimeout(() => {
             dispatch(cleanDetail())
-        }, 500);
+        }, 500)
     }
 
     return (
@@ -61,8 +73,26 @@ export default function ProductModal() {
                                     ))}
                                 </Carousel>
                                 <ul>
-                                    <li> <PaidIcon sx={{ fontSize: 40, margin: '0 8px' }} /> {productDetail.price}</li>
-                                    <li> <InventoryIcon sx={{ fontSize: 40, margin: '0 8px' }}/> {productDetail.stock}</li>
+                                    <li>
+                                        {' '}
+                                        <PaidIcon
+                                            sx={{
+                                                fontSize: 40,
+                                                margin: '0 8px',
+                                            }}
+                                        />{' '}
+                                        {productDetail.price}
+                                    </li>
+                                    <li>
+                                        {' '}
+                                        <InventoryIcon
+                                            sx={{
+                                                fontSize: 40,
+                                                margin: '0 8px',
+                                            }}
+                                        />{' '}
+                                        {productDetail.stock}
+                                    </li>
                                 </ul>
                             </div>
                             <div className={styles.description}>
@@ -73,7 +103,14 @@ export default function ProductModal() {
                             </div>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose}>Buy</Button>
+                            <Button size="small" variant="contained">
+                                <a
+                                    href={`https://docs.google.com/forms/d/e/1FAIpQLSddhIRTghZ8oNDsqBNN3QffZnqWRgOAoh8rw7pfURT2Uj1xew/viewform?usp=pp_url&entry.1979261734=${productDetail.name}&entry.1040828766=1&entry.512539991=${shelterDetail.name}&entry.577423619=user`}
+                                    target="_blank"
+                                >
+                                    Buy!
+                                </a>
+                            </Button>
                         </DialogActions>
                     </>
                 ) : (
