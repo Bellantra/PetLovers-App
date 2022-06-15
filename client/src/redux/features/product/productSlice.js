@@ -37,18 +37,11 @@ const productSlice = createSlice({
             state.productDetail = {}
             state.statusDetail = 'loading'
         },
-        createProduct: (state, action) => {
-            state.products.push(action.payload)
-        },
+
         closeModal: (state) => {
             state.openModal = false
         },
-        updateProduct: (state, action) => {
-            const index = state.products.findIndex(
-                (product) => product.id === action.payload.id
-            )
-            state.products[index] = action.payload
-        },
+
         cleanCreateStatus: (state) => {
             state.statusCreate = 'loading'
         },
