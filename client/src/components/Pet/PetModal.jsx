@@ -1,35 +1,38 @@
 import {Button, Dialog , DialogActions, DialogContent, DialogContentText, DialogTitle, Slide} from '@mui/material'
-import PaidIcon from '@mui/icons-material/Paid'
-import InventoryIcon from '@mui/icons-material/Inventory'
 import Carousel from 'react-material-ui-carousel'
-import { forwardRef, useEffect, useState } from 'react'
+
+import FemaleIcon from '@mui/icons-material/Female'
+import MaleIcon from '@mui/icons-material/Male'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import LocationCityIcon from '@mui/icons-material/LocationCity'
+
+import { forwardRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    cleanDetail,
+    cleanPetDetail,
     closeModal,
-} from '../../redux/features/product/productSlice'
+} from '../../redux/features/adopt/adoptSlice'
 import Loading from '../Loading/Loading'
-import styles from './product-modal.module.css'
+import styles from './pet-modal.module.css'
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />
 })
 
-export default function ProductModal() {
+export default () => {
     const dispatch = useDispatch()
     const {
-        productDetail,
+        petDetail,
         statusDetail: status,
         openModal,
-    } = useSelector((state) => state.product)
+    } = useSelector((state) => state.adopt)
 
     const handleClose = () => {
         dispatch(closeModal())
+        setTimeout(() => {
+            dispatch(cleanPetDetail())
+        }, 500);
     }
-
-    useEffect(() => {
-        return () => dispatch(cleanDetail)
-    }, [])
 
     return (
         <div>
@@ -40,14 +43,14 @@ export default function ProductModal() {
                 keepMounted
                 aria-describedby="alert-dialog-slide-description"
                 scroll={'body'}
-                fullWidth={'sm'}
                 maxWidth={'sm'}
+                fullWidth={true}
             >
                 {status === 'success' ? (
                     <>
                         <div className={styles.title}>
                             <DialogTitle>
-                                {productDetail.name}
+                                {petDetail.nickname}
                                 <hr />
                             </DialogTitle>
                         </div>
@@ -57,24 +60,28 @@ export default function ProductModal() {
                                     height={200}
                                     className={styles.carousel}
                                 >
-                                    {productDetail.img.map((image, i) => (
+                                    {petDetail.image.map((image, i) => (
                                         <img src={image} key={i} />
                                     ))}
                                 </Carousel>
                                 <ul>
-                                    <li> <PaidIcon sx={{ fontSize: 40, margin: '0 8px' }} /> {productDetail.price}</li>
-                                    <li> <InventoryIcon sx={{ fontSize: 40, margin: '0 8px' }}/> {productDetail.stock}</li>
+                                    <li> <AccessTimeIcon sx={{ fontSize: 40, margin: '0 8px' }} /> {petDetail.age}</li>
+                                    <li> <LocationCityIcon sx={{ fontSize: 40, margin: '0 8px' }}/> {petDetail.city}</li>
+                                    <li> {petDetail.genre === 'Male' 
+                                        ? <MaleIcon sx={{ fontSize: 40, margin: '0 8px' }} /> 
+                                        :<FemaleIcon sx={{ fontSize: 40, margin: '0 8px' }} />}
+                                    </li>
                                 </ul>
                             </div>
                             <div className={styles.description}>
                                 <h3>Descripton:</h3>
                                 <DialogContentText id="alert-dialog-slide-description">
-                                    {productDetail.description}
+                                    {petDetail.description}
                                 </DialogContentText>
                             </div>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose}>Buy</Button>
+                            <Button onClick={handleClose}>Adopt me!</Button>
                         </DialogActions>
                     </>
                 ) : (
