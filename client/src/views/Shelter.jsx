@@ -94,7 +94,7 @@ const Shelter = () => {
                     <PaginateArray
                         arrayType={'pet'}
                         arrayData={shelterDetail.petsAdoption}
-                        itemsPerPage={3}
+                        itemsPerPage={6}
                         buttonOne={buttonOne}
                     />
                     <Grid align={'center'}>
@@ -121,7 +121,7 @@ const Shelter = () => {
                     <Container>
                         <Grid>
                             <ProductModal />
-                            <PetModal/>
+                            <PetModal />
                         </Grid>
                     </Container>
                 </Container>
