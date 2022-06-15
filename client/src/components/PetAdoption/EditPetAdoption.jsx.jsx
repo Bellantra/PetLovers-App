@@ -51,7 +51,7 @@ const validationSchema = yup.object({
         .required('Description is required'),
 })
 
-const EditPetAdoption = ({ renderControl }) => {
+const EditPetAdoption = ({ renderControl, setRenderControl }) => {
     const {
         _id,
         age,
@@ -99,6 +99,12 @@ const EditPetAdoption = ({ renderControl }) => {
                 title: 'You Pet has been Edited!',
                 icon: 'success',
                 button: 'Ok!',
+            })
+
+            setRenderControl({
+                ...renderControl,
+                shelterPets: true,
+                shelterEditPet: false,
             })
         }
         dispatch(cleanStatusCreate())

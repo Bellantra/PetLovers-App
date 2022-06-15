@@ -1,14 +1,24 @@
 import { DataGrid } from '@mui/x-data-grid'
 import { Button } from '@mui/material'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getAdoptablePets } from '../../redux/asyncActions/pet/getAdoptablePets'
 
 export default function ManagePets({ renderControl, setRenderControl }) {
-    const shelterId = useSelector((state) => state.user.userInfo.shelter)
-    const shelters = useSelector((state) => state.shelter.shelters)
-    const shelter = shelters.find((shelter) => shelter._id === shelterId)
-    const petsAdoption = shelter.petsAdoption
+    const { userInfo } = useSelector((state) => state.user)
+    const { adoptPets } = useSelector((state) => state.adopt)
+
+    const dispatch = useDispatch()
+
+    const petsAdoption = adoptPets?.filter(
+        (pets) => pets.shelter?._id === userInfo.shelter
+    )
 
     console.log(petsAdoption)
+
+    useEffect(() => {
+        dispatch(getAdoptablePets())
+    }, [])
 
     const rows = petsAdoption?.map((pet, index) => ({
         id: index + 1,

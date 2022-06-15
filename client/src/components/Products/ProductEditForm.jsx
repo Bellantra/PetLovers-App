@@ -42,7 +42,7 @@ const validationSchema = yup.object({
         .required('Description is required'),
 })
 
-export const ProductEditForm = ({ renderControl }) => {
+export const ProductEditForm = ({ renderControl, setRenderControl }) => {
     const { _id, name, price, stock, description } =
         renderControl.shelterEditProductInfo
 
@@ -64,6 +64,12 @@ export const ProductEditForm = ({ renderControl }) => {
                 title: 'You Product has been Edited!',
                 icon: 'success',
                 button: 'Ok!',
+            })
+
+            setRenderControl({
+                ...renderControl,
+                shelterProducts: true,
+                shelterEditProduct: false,
             })
         }
         dispatch(cleanEditStatus())
