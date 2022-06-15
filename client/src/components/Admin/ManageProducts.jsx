@@ -14,6 +14,10 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
     const dispatch = useDispatch()
     console.log(productsShelter)
 
+    useEffect(() => {
+        dispatch(getAllProducts())
+    }, [])
+
     const rows = productsShelter?.map((prod, index) => ({
         id: index + 1,
         name: prod.name,
