@@ -17,11 +17,10 @@ import LocationCityIcon from '@mui/icons-material/LocationCity'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getPetById } from '../../redux/features/adopt/adoptSlice'
-import AdoptForm from '../../utils/adoptForm'
-import { Link } from 'react-router-dom'
 
 export default function PetCard({ item, buttonTwo = null }) {
     const { userInfo } = useSelector((state) => state.user)
+    const { shelterDetail } = useSelector((state) => state.shelter)
     const dispatch = useDispatch()
 
     const handleDetail = () => {
@@ -105,12 +104,20 @@ export default function PetCard({ item, buttonTwo = null }) {
                         {data.firstsButton}
                     </Button>
                     <Button size="small" variant="contained">
-                        <a href={`https://docs.google.com/forms/d/e/1FAIpQLScNt54-Y2wTswE6V4-TLVss76WUiOq5nPTYLyrMO7y_JPqQ4g/viewform?usp=pp_url&entry.1979261734=${item.nickname}&entry.1040828766=${item.age}&entry.512539991=${item.shelter.name}&entry.577423619=${userInfo
-                                                ? userInfo.fullName
-                                                : 'Prueba'
-                                        }`} 
+                        <a
+                            href={`https://docs.google.com/forms/d/e/1FAIpQLScNt54-Y2wTswE6V4-TLVss76WUiOq5nPTYLyrMO7y_JPqQ4g/viewform?usp=pp_url&entry.1979261734=${
+                                item.nickname
+                            }&entry.1040828766=${item.age}&entry.512539991=${
+                                item.shelter.name
+                                    ? item.shelter.name
+                                    : shelterDetail.name
+                            }&entry.577423619=${
+                                userInfo ? userInfo.fullName : ''
+                            }`}
                             target="_blank"
-                            >Adopt Me!</a>
+                        >
+                            Adopt Me!
+                        </a>
                     </Button>
                 </CardActions>
             </Card>
