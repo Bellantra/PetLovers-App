@@ -146,6 +146,7 @@ const PetCreationForm = () => {
         setChecked(false)
         setRace('')
         setGenre('')
+        setColor('')
     }
 
     const formik = useFormik({
