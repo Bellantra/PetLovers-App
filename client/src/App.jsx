@@ -16,7 +16,6 @@ import { getUserInfo } from './redux/asyncActions/user/getUserInfo'
 
 const App = () => {
     const dispatch = useDispatch()
-
     useEffect(() => {
         if (isUserLogged()) {
             dispatch(getUserInfo())

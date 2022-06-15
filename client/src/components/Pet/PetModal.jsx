@@ -26,7 +26,7 @@ export default () => {
         statusDetail: status,
         openModal,
     } = useSelector((state) => state.adopt)
-
+    const { userInfo } = useSelector((state) => state.user)
     const handleClose = () => {
         dispatch(closeModal())
         setTimeout(() => {
@@ -81,7 +81,16 @@ export default () => {
                             </div>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose}>Adopt me!</Button>
+                        <Button size="small" variant="contained">
+                        <a
+                            href={`https://docs.google.com/forms/d/e/1FAIpQLScNt54-Y2wTswE6V4-TLVss76WUiOq5nPTYLyrMO7y_JPqQ4g/viewform?usp=pp_url&entry.1979261734=${petDetail.nickname}&entry.1040828766=${petDetail.age}&entry.512539991=${petDetail.shelter.name}&entry.577423619=${
+                                userInfo ? userInfo.fullName : ''
+                            }`}
+                            target="_blank"
+                        >
+                            Adopt Me!
+                        </a>
+                    </Button>
                         </DialogActions>
                     </>
                 ) : (
