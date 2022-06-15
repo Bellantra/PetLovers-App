@@ -45,12 +45,12 @@ const shelterSchema = new Schema({
             ref: 'Pet',
         },
     ],
-    products: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Product',
-        },
-    ],
+    // products: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Product',
+    //     },
+    // ],
     status: {
         type: String,
         enum: ['Active', 'Deleted'],

@@ -34,6 +34,41 @@ const genres = [
     { value: 'Male', label: 'Male' },
 ]
 
+const colors = [
+    {
+        value: 'black',
+        label: 'black',
+    },
+    {
+        value: 'white',
+        label: 'white',
+    },
+    {
+        value: 'gray',
+        label: 'gray',
+    },
+    {
+        value: 'brown',
+        label: 'brown',
+    },
+    {
+        value: 'tricolor',
+        label: 'tricolor',
+    },
+    {
+        value: 'yellow',
+        label: 'yellow',
+    },
+    {
+        value: 'beige',
+        label: 'beige',
+    },
+    {
+        value: 'others',
+        label: 'others',
+    },
+]
+
 const validationSchema = yup.object({
     nickname: yup.string().required('Pet name is required'),
     age: yup
@@ -43,11 +78,11 @@ const validationSchema = yup.object({
     city: yup.string().required('City name is required'),
     // race: yup.string().required('Race is required'),
     // genre: yup.string(),
-    color: yup.string().max(100, 'Max 100 chars'),
+    color: yup.string().max(20, 'Max 20chars'),
     description: yup
         .string()
-        .min(15, 'Min 50 characters')
-        .max(200, 'Max 900 characters')
+        .min(50, 'Min 50 characters')
+        .max(900, 'Max 900 characters')
         .required('Description is required'),
 })
 
@@ -69,12 +104,17 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
 
     const [race2, setRace2] = useState(race)
     const [genre2, setGenre2] = useState(genre)
+    const [color2, setColor2] = useState(color)
 
     const handleRaceChange = (event) => {
         setRace2(event.target.value)
     }
     const handleGenreChange = (event) => {
         setGenre2(event.target.value)
+    }
+
+    const handleColorChange = (event) => {
+        setColor(event.target.value)
     }
 
     const [checked, setChecked] = useState(vaccinated)
@@ -114,6 +154,7 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
         values.image = image
         values.genre = genre2
         values.race = race2
+        values.color = color2
         values.vaccinated = checked
         values.shelter = userInfo.shelter
         console.log(values)
@@ -131,7 +172,7 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
             genre: genre2,
             race: race2,
             description,
-            color,
+            color: color2,
         },
         // validationSchema,
 
@@ -265,21 +306,24 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
                         </Grid>
                         <Grid item xs={6}>
                             <TextField
+                                select
                                 fullWidth
                                 id="color"
                                 name="color"
                                 label="Color"
-                                value={formik.values.color}
-                                onChange={formik.handleChange}
-                                error={
-                                    formik.touched.color &&
-                                    Boolean(formik.errors.color)
-                                }
-                                helperText={
-                                    formik.touched.name && formik.errors.color
-                                }
-                                style={{ marginBottom: '20px' }}
-                            />
+                                value={color}
+                                onChange={handleColorChange}
+                                helperText="Please select the gender"
+                            >
+                                {colors.map((option) => (
+                                    <MenuItem
+                                        key={option.value}
+                                        value={option.value}
+                                    >
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Grid>
                     </Grid>
 
