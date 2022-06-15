@@ -15,14 +15,13 @@ import MaleIcon from '@mui/icons-material/Male'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import LocationCityIcon from '@mui/icons-material/LocationCity'
 
-import { useDispatch } from 'react-redux'
-import { getPetById  } from '../../redux/features/adopt/adoptSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPetById } from '../../redux/features/adopt/adoptSlice'
+import AdoptForm from '../../utils/adoptForm'
+import { Link } from 'react-router-dom'
 
-export default function PetCard({
-    item,
-    buttonTwo = null,
-}) {
-
+export default function PetCard({ item, buttonTwo = null }) {
+    const { userInfo } = useSelector((state) => state.user)
     const dispatch = useDispatch()
 
     const handleDetail = () => {
@@ -49,11 +48,11 @@ export default function PetCard({
         ) : null,
         alt: item.subrace,
         img: item.image[0],
-        firstsIcon:<AccessTimeIcon />,
+        firstsIcon: <AccessTimeIcon />,
         firstsDesc: `${item.age} years`,
         secondIcon: <LocationCityIcon />,
         secondDesc: item.city,
-        firstsButton: 'About Me' ,
+        firstsButton: 'About Me',
         secondButton: 'Adopt Me',
     }
     // Fin Constantes para la card
@@ -105,12 +104,13 @@ export default function PetCard({
                     >
                         {data.firstsButton}
                     </Button>
-                    <Button
-                        size="small"
-                        variant="contained"
-                        onClick={buttonTwo}
-                    >
-                        {data.secondButton}
+                    <Button size="small" variant="contained">
+                        <a href={`https://docs.google.com/forms/d/e/1FAIpQLScNt54-Y2wTswE6V4-TLVss76WUiOq5nPTYLyrMO7y_JPqQ4g/viewform?usp=pp_url&entry.1979261734=${item.nickname}&entry.1040828766=${item.age}&entry.512539991=${item.shelter.name}&entry.577423619=${userInfo
+                                                ? userInfo.fullName
+                                                : 'Prueba'
+                                        }`} 
+                            target="_blank"
+                            >Adopt Me!</a>
                     </Button>
                 </CardActions>
             </Card>

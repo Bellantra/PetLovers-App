@@ -3,7 +3,7 @@ import Home from './views/Home'
 import UnderConstruction from './components/UnderConstruction/UnderConstruction'
 import Adoptions from './views/Adoptions'
 import Shelter from './views/Shelter'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Footer from '../src/components/Footer/Footer'
 import Profile from './views/Profile'
 import Login from './components/Login/Login'
@@ -13,10 +13,11 @@ import { useEffect } from 'react'
 import isUserLogged from './utils/isUserLogged'
 import { useDispatch } from 'react-redux'
 import { getUserInfo } from './redux/asyncActions/user/getUserInfo'
+import AdoptForm from './utils/adoptForm'
 
 const App = () => {
     const dispatch = useDispatch()
-
+    let {pathname} = useLocation();
     useEffect(() => {
         if (isUserLogged()) {
             dispatch(getUserInfo())
@@ -24,7 +25,7 @@ const App = () => {
     }, [])
     return (
         <>
-            <NavBar />
+            {pathname.match(/adopt-form/) ? null : <NavBar />}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -38,8 +39,9 @@ const App = () => {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/admin" element={<AdminShelter />}></Route>
                 <Route path="/register" element={<Register />}></Route>
+                <Route path="/adopt-form" element={<AdoptForm />}></Route>
             </Routes>
-            <Footer />
+            {pathname.match(/adopt-form/) ? null : <Footer />}
         </>
     )
 }
