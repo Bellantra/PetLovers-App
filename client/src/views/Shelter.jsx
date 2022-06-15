@@ -31,7 +31,11 @@ const Shelter = () => {
         else dispatch(cleanPetDetail())
         setModalState(!modalState)
     }
-
+    // console.log(shelterDetail, 'mis datos')
+    const petsActive = shelterDetail.petsAdoption?.filter(
+        (pet) => pet.status === 'Active'
+    )
+    // console.log(petsActive, 'Active')
     const prod = useSelector((state) => state.product.products)
 
     useEffect(() => {
@@ -92,7 +96,7 @@ const Shelter = () => {
 
                     <PaginateArray
                         arrayType={'pet'}
-                        arrayData={shelterDetail.petsAdoption}
+                        arrayData={petsActive}
                         itemsPerPage={6}
                         buttonOne={buttonOne}
                     />
