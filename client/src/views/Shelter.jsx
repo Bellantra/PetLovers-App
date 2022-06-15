@@ -76,7 +76,7 @@ const Shelter = () => {
                     </Typography>
 
                     <Container>
-                        <Grid>
+                        <Grid marginBottom={15}>
                             <Carousel
                                 width="100vw"
                                 images={shelterDetail.img}
@@ -84,24 +84,28 @@ const Shelter = () => {
                         </Grid>
                     </Container>
 
-                    <Typography
-                        marginTop={15}
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        marginBottom={10}
-                    >
-                        Nuestros animales en Adopción
-                    </Typography>
+                    {petsActive?.length > 0 && (
+                        <>
+                            <Typography
+                                variant="h3"
+                                align="center"
+                                color="text.primary"
+                                marginBottom={10}
+                            >
+                                Nuestros animales en Adopción
+                            </Typography>
 
-                    <PaginateArray
-                        arrayType={'pet'}
-                        arrayData={petsActive}
-                        itemsPerPage={6}
-                        buttonOne={buttonOne}
-                    />
+                            <PaginateArray
+                                arrayType={'pet'}
+                                arrayData={petsActive}
+                                itemsPerPage={6}
+                                buttonOne={buttonOne}
+                            />
+                        </>
+                    )}
+
                     <Grid align={'center'}>
-                        {shelterProducts.length > 0 && (
+                        {shelterProducts?.length > 0 && (
                             <>
                                 <Typography
                                     marginTop={5}

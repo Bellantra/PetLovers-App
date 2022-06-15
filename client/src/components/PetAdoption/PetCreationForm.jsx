@@ -35,6 +35,41 @@ const genres = [
     { value: 'Male', label: 'Male' },
 ]
 
+const colors = [
+    {
+        value: 'black',
+        label: 'black',
+    },
+    {
+        value: 'white',
+        label: 'white',
+    },
+    {
+        value: 'gray',
+        label: 'gray',
+    },
+    {
+        value: 'brown',
+        label: 'brown',
+    },
+    {
+        value: 'tricolor',
+        label: 'tricolor',
+    },
+    {
+        value: 'yellow',
+        label: 'yellow',
+    },
+    {
+        value: 'beige',
+        label: 'beige',
+    },
+    {
+        value: 'others',
+        label: 'others',
+    },
+]
+
 const validationSchema = yup.object({
     nickname: yup.string().required('Pet name is required'),
     age: yup
@@ -44,23 +79,28 @@ const validationSchema = yup.object({
     city: yup.string().required('City name is required'),
     // race: yup.string().required('Race is required'),
     // genre: yup.string(),
-    color: yup.string().max(100, 'Max 100 chars'),
+    color: yup.string().max(20, 'Max 20 chars'),
     description: yup
         .string()
-        .min(15, 'Min 50 characters')
-        .max(200, 'Max 900 characters')
+        .min(50, 'Min 50 characters')
+        .max(900, 'Max 900 characters')
         .required('Description is required'),
 })
 
 const PetCreationForm = () => {
     const [race, setRace] = useState('')
     const [genre, setGenre] = useState('')
+    const [color, setColor] = useState('')
 
     const handleRaceChange = (event) => {
         setRace(event.target.value)
     }
     const handleGenreChange = (event) => {
         setGenre(event.target.value)
+    }
+
+    const handleColorChange = (event) => {
+        setColor(event.target.value)
     }
 
     const [checked, setChecked] = useState(false)
@@ -96,6 +136,7 @@ const PetCreationForm = () => {
         values.image = image
         values.genre = genre
         values.race = race
+        values.color = color
         values.vaccinated = checked
         values.shelter = userInfo.shelter
         // console.log(values)
@@ -113,7 +154,7 @@ const PetCreationForm = () => {
             age: '',
             city: '',
             description: '',
-            color: '',
+            color,
             race,
             genre,
         },
@@ -251,21 +292,23 @@ const PetCreationForm = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <TextField
+                                select
                                 fullWidth
                                 id="color"
                                 name="color"
                                 label="Color"
-                                value={formik.values.color}
-                                onChange={formik.handleChange}
-                                error={
-                                    formik.touched.color &&
-                                    Boolean(formik.errors.color)
-                                }
-                                helperText={
-                                    formik.touched.name && formik.errors.color
-                                }
-                                style={{ marginBottom: '20px' }}
-                            />
+                                value={color}
+                                onChange={handleColorChange}
+                            >
+                                {colors.map((option) => (
+                                    <MenuItem
+                                        key={option.value}
+                                        value={option.value}
+                                    >
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Grid>
                     </Grid>
 
