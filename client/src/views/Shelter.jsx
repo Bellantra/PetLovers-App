@@ -16,6 +16,7 @@ import Loading from '../components/Loading/Loading'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
 import ProductModal from '../components/Products/ProductModal'
 import PetModal from '../components/Pet/PetModal'
+import { Box } from '@mui/system'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -31,7 +32,7 @@ const Shelter = () => {
         else dispatch(cleanPetDetail())
         setModalState(!modalState)
     }
-    // console.log(shelterDetail, 'mis datos')
+    console.log(shelterDetail, 'mis datos')
     const petsActive = shelterDetail.petsAdoption?.filter(
         (pet) => pet.status === 'Active'
     )
@@ -52,16 +53,36 @@ const Shelter = () => {
     return (
         <>
             {statusDetail === 'success' ? (
-                <Container padding={0} margin={0}>
-                    <Typography
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        marginTop={5}
-                        gutterBottom
+                <Container>
+                    <Grid
+                        container
+                        justifyContent={'center'}
+                        alignContent={'center'}
+                        marginY={5}
                     >
-                        Refugio {shelterDetail.name}{' '}
-                    </Typography>
+                        <Grid
+                            item
+                            display={'flex'}
+                            justifyContent={'center'}
+                            alignContent={'center'}
+                            marginRight={4}
+                        >
+                            <img src={shelterDetail.logo} width={'100px'}></img>
+                        </Grid>
+                        <Grid item>
+                            <Typography
+                                variant="h3"
+                                align="center"
+                                color="text.primary"
+                                marginTop={5}
+                                gutterBottom
+                            >
+                                {shelterDetail.name}{' '}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    {/* <img>{shelterDetail.logo}</img> */}
                     {/* <Divider variant="middle"></Divider> */}
 
                     <Typography
