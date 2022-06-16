@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-export const API_ROUTE = 'http://localhost:4001'
+export const API_ROUTE = import.meta.env.VITE_APP_API_ROUTE
 
 export const getAdoptablePets = createAsyncThunk(
     'pet/getAdoptablePets',
-    async (filter={}) => {
+    async (filter = {}) => {
         try {
             Object.keys(filter).forEach((key) => {
                 if (filter[key] === '') {

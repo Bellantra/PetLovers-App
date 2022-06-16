@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-export const API_ROUTE = 'http://localhost:4001'
+export const API_ROUTE = import.meta.env.VITE_APP_API_ROUTE
 
 export const getAllShelters = createAsyncThunk(
     'shelter/getAllShelters',
