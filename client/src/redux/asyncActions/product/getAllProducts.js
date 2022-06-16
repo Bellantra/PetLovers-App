@@ -1,17 +1,14 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-export const API_ROUTE = 'http://localhost:4001'
+export const API_ROUTE = import.meta.env.VITE_APP_API_ROUTE
 
-export const getAllProducts = createAsyncThunk(
-    'products',
-    async () => {
-        try {
-            return await axios.get(`${API_ROUTE}/products/`)
-        } catch (err) {
-            console.log(err)
-        }
+export const getAllProducts = createAsyncThunk('products', async () => {
+    try {
+        return await axios.get(`${API_ROUTE}/products/`)
+    } catch (err) {
+        console.log(err)
     }
-)
+})
 
 export const extraGetAllProducts = {
     [getAllProducts.pending]: (state) => {
