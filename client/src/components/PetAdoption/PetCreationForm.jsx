@@ -111,8 +111,6 @@ const PetCreationForm = () => {
     const { userInfo } = useSelector((state) => state.user)
     const { statusCreate } = useSelector((state) => state.adopt)
 
-    // console.log(statusCreate, 'estado al crear')
-
     useEffect(() => {
         if (statusCreate === 'success') {
             swal({
@@ -139,7 +137,6 @@ const PetCreationForm = () => {
         values.color = color
         values.vaccinated = checked
         values.shelter = userInfo.shelter
-        // console.log(values)
         dispatch(createPetAdoption(values))
         formik.resetForm()
         setImage([])

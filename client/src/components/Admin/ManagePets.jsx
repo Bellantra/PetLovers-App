@@ -19,8 +19,6 @@ export default function ManagePets({ renderControl, setRenderControl }) {
         (pets) => pets.shelter?._id === userInfo.shelter
     )
 
-    console.log(petsAdoption)
-
     useEffect(() => {
         dispatch(getAdoptablePets())
         if (statusCreate === 'success') {
@@ -53,15 +51,9 @@ export default function ManagePets({ renderControl, setRenderControl }) {
         const _id = params.row._id
         const { id, ...values } = params.row
 
-        // console.log(_id)
-        // console.log(values)
-
         dispatch(editPetAdoption({ _id, values }))
     }
     const handleEdit = (e, params) => {
-        // console.log(params)
-        // console.log(petsAdoption[params.id - 1])
-
         setRenderControl({
             ...renderControl,
             shelterEditPetInfo: petsAdoption[params.id - 1],
@@ -75,51 +67,51 @@ export default function ManagePets({ renderControl, setRenderControl }) {
         {
             field: 'nickname',
             headerName: 'Nickname',
-            // width: 100,
+
             editable: true,
         },
         {
             field: 'age',
             headerName: 'Age',
-            // width: 150,
+
             editable: true,
         },
 
         {
             field: 'race',
             headerName: 'Race',
-            // width: 110,
+
             editable: true,
         },
         {
             field: 'city',
             headerName: 'City',
-            // width: 110,
+
             editable: true,
         },
         {
             field: 'genre',
             headerName: 'Genre',
-            // width: 110,
+
             editable: true,
         },
         {
             field: 'vaccinated',
             headerName: 'Vaccinated',
-            // width: 110,
+
             editable: true,
         },
 
         {
             field: 'status',
             headerName: 'Status',
-            // width: 110,
+
             editable: true,
         },
         {
             field: 'deleteAction',
             headerName: 'Delete',
-            // width: 100,
+
             align: 'center',
             sortable: false,
             renderCell: (params) =>
@@ -138,7 +130,7 @@ export default function ManagePets({ renderControl, setRenderControl }) {
         {
             field: 'editAction',
             headerName: 'Edit',
-            // width: 100,
+
             align: 'center',
             sortable: false,
             renderCell: (params) =>
@@ -148,7 +140,6 @@ export default function ManagePets({ renderControl, setRenderControl }) {
                         color="success"
                         onClick={(e) => handleEdit(e, params)}
                         size="small"
-                        // style={{ width: '15px' }}
                     >
                         Edit
                     </Button>

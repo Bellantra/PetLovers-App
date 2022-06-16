@@ -29,7 +29,6 @@ const BearerStrategy = require('passport-http-bearer').Strategy
 
 passport.use(
     new BearerStrategy((token, done) => {
-        console.log(token, 'me llega??')
         jwt.verify(token, 'keyboard cat', function (err, usuario) {
             if (err) return done(err)
             return done(null, usuario || false)

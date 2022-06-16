@@ -100,7 +100,6 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
     } = renderControl.shelterEditPetInfo
 
     const images = renderControl.shelterEditPetInfo.image
-    console.log(renderControl.shelterEditPetInfo, 'que me llega')
 
     const [race2, setRace2] = useState(race)
     const [genre2, setGenre2] = useState(genre)
@@ -114,7 +113,7 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
     }
 
     const handleColorChange = (event) => {
-        setColor(event.target.value)
+        setColor2(event.target.value)
     }
 
     const [checked, setChecked] = useState(vaccinated)
@@ -157,10 +156,7 @@ const EditPetAdoption = ({ renderControl, setRenderControl }) => {
         values.color = color2
         values.vaccinated = checked
         values.shelter = userInfo.shelter
-        console.log(values)
         dispatch(editPetAdoption({ _id, values }))
-        // setImage([])
-        // formik.resetForm()
     }
 
     const formik = useFormik({

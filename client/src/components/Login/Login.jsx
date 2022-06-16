@@ -65,7 +65,7 @@ const Login = () => {
     })
 
     const handleGoogleLogin = async (googleData) => {
-        console.log(googleData)
+        // console.log(googleData)
     }
 
     return (

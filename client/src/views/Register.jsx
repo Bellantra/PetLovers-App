@@ -57,8 +57,6 @@ const Register = () => {
 
     const navigate = useNavigate()
 
-    console.log(userInfo)
-
     const preset = VITE_APP_PRESET_USER
 
     useEffect(() => {

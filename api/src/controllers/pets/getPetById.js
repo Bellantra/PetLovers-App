@@ -11,7 +11,6 @@ const getPetById = async (req, res) => {
         ])
         petDetail ? res.json(petDetail) : res.json('Pet not found')
     } catch (err) {
-        console.log(err)
         res.json(err)
     }
 }

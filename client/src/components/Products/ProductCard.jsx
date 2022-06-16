@@ -16,16 +16,11 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductById } from '../../redux/features/product/productSlice'
 
-export default function ProductCard({
-    item,
-}) {
-    const { shelterDetail } = useSelector(
-        (state) => state.shelter
-    )
+export default function ProductCard({ item }) {
+    const { shelterDetail } = useSelector((state) => state.shelter)
     const dispatch = useDispatch()
 
     const handleDetail = () => {
-        console.log(item._id)
         dispatch(getProductById(item._id))
     }
 
@@ -34,7 +29,6 @@ export default function ProductCard({
     const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la base de datos
     const addFavorite = () => {
         setFavorite(!favorite)
-        console.log(favorite)
     }
 
     // Constantes para la card
@@ -98,9 +92,13 @@ export default function ProductCard({
                         {data.firstsButton}
                     </Button>
                     <Button size="small" variant="contained">
-                        <a href={`https://docs.google.com/forms/d/e/1FAIpQLSddhIRTghZ8oNDsqBNN3QffZnqWRgOAoh8rw7pfURT2Uj1xew/viewform?usp=pp_url&entry.1979261734=${item.name}&entry.1040828766=1&entry.512539991=${shelterDetail.name}&entry.577423619=user`} 
+                        <a
+                            href={`https://docs.google.com/forms/d/e/1FAIpQLSddhIRTghZ8oNDsqBNN3QffZnqWRgOAoh8rw7pfURT2Uj1xew/viewform?usp=pp_url&entry.1979261734=${item.name}&entry.1040828766=1&entry.512539991=${shelterDetail.name}&entry.577423619=user`}
                             target="_blank"
-                            >Buy!</a>
+                            rel="noreferrer"
+                        >
+                            Buy!
+                        </a>
                     </Button>
                 </CardActions>
             </Card>
