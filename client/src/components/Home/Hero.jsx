@@ -1,11 +1,13 @@
 import Button from '@mui/material/Button'
 import SendIcon from '@mui/icons-material/Send'
 import imgHero from '../../assets/img-home.png'
+import img from '../../assets/patitas.png'
 
 import { Link as LinkRouter } from 'react-router-dom'
 
 import Typography from '@mui/material/node/Typography'
 import { Grid } from '@mui/material'
+import { Box } from '@mui/system'
 
 const Hero = () => {
     return (
@@ -14,6 +16,7 @@ const Hero = () => {
             justifyContent="space-evenly"
             display={'flex'}
             alignItems={'center'}
+            style={{ backgroundImage: `url(${img})` }}
         >
             <Grid
                 item
