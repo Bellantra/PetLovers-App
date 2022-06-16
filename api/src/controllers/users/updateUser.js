@@ -4,7 +4,6 @@ module.exports = async (req, res, next) => {
     const { id } = req.params
     const newData = req.body
 
-    console.log(newData, id, 'esto llegaaa')
     try {
         const userUpdated = await Users.findOneAndUpdate({ _id: id }, newData, {
             new: true,

@@ -12,12 +12,10 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
     const shelterId = useSelector((state) => state.user.userInfo.shelter)
     const products = useSelector((state) => state.product.products)
     const { statusEdit } = useSelector((state) => state.product)
-    console.log(products)
     const productsShelter = products.filter(
         (prod) => prod.shelter._id === shelterId
     )
     const dispatch = useDispatch()
-    console.log(productsShelter)
 
     useEffect(() => {
         dispatch(getAllProducts())
@@ -70,26 +68,26 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
         {
             field: 'price',
             headerName: 'Price',
-            // width: 150,
+
             editable: true,
         },
         {
             field: 'stock',
             headerName: 'Stock',
-            // width: 110,
+
             editable: true,
         },
         {
             field: 'status',
             headerName: 'Status',
-            // width: 110,
+
             editable: true,
         },
 
         {
             field: 'deleteAction',
             headerName: 'Delete',
-            // width: 100,
+
             align: 'center',
             sortable: false,
             renderCell: (params) =>
@@ -98,8 +96,6 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
                         variant="contained"
                         color="error"
                         onClick={(e) => handleDelete(e, params)}
-                        // size="small"
-                        // style={{ width: '15px' }}
                     >
                         Delete
                     </Button>
@@ -108,7 +104,7 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
         {
             field: 'editAction',
             headerName: 'Edit',
-            // width: 100,
+
             align: 'center',
             sortable: false,
             renderCell: (params) =>
@@ -117,8 +113,6 @@ export default function ManageProducts({ renderControl, setRenderControl }) {
                         variant="contained"
                         color="success"
                         onClick={(e) => handleEdit(e, params)}
-                        // size="small"
-                        // style={{ width: '15px' }}
                     >
                         Edit
                     </Button>

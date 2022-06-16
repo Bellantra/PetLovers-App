@@ -16,8 +16,6 @@ const Pet = () => {
         return () => dispatch(cleanDetail())
     }, [dispatch, id])
 
-    // console.log(petDetail)
-
     return (
         <div>
             {statusDetail === 'success' ? (

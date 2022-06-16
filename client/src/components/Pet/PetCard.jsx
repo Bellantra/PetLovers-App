@@ -32,7 +32,6 @@ export default function PetCard({ item, buttonTwo = null }) {
     const [favorite, setFavorite] = useState(true) // Debe ser utilizado con la base de datos
     const addFavorite = () => {
         setFavorite(!favorite)
-        console.log(favorite)
     }
 
     // Constantes para la card
@@ -115,6 +114,7 @@ export default function PetCard({ item, buttonTwo = null }) {
                                 userInfo ? userInfo.fullName : ''
                             }`}
                             target="_blank"
+                            rel="noreferrer"
                         >
                             Adopt Me!
                         </a>

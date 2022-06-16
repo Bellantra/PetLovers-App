@@ -5,7 +5,6 @@ const getSubraces = async (req, res) => {
         const Subraces = await Subrace.find()
         res.json(Subraces)
     } catch (err) {
-        console.log(err)
         res.json(err)
     }
 }

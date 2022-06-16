@@ -16,7 +16,6 @@ import Loading from '../components/Loading/Loading'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
 import ProductModal from '../components/Products/ProductModal'
 import PetModal from '../components/Pet/PetModal'
-import { Box } from '@mui/system'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -32,11 +31,11 @@ const Shelter = () => {
         else dispatch(cleanPetDetail())
         setModalState(!modalState)
     }
-    console.log(shelterDetail, 'mis datos')
+
     const petsActive = shelterDetail.petsAdoption?.filter(
         (pet) => pet.status === 'Active'
     )
-    // console.log(petsActive, 'Active')
+
     const prod = useSelector((state) => state.product.products)
 
     useEffect(() => {
@@ -81,9 +80,6 @@ const Shelter = () => {
                             </Typography>
                         </Grid>
                     </Grid>
-
-                    {/* <img>{shelterDetail.logo}</img> */}
-                    {/* <Divider variant="middle"></Divider> */}
 
                     <Typography
                         variant="h6"

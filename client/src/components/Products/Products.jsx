@@ -16,7 +16,7 @@ export const Products = ({ array, arrayType, petPerPage }) => {
     const perPage = petPerPage
     const [currentPage, setCurrentPage] = useState(1)
     const count = Math.ceil(array.length / perPage)
-    console.log(count)
+
     const leftLimit = currentPage * perPage - perPage
     const rightLimit = leftLimit + perPage
 
