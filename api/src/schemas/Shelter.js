@@ -9,7 +9,7 @@ const shelterSchema = new Schema({
     },
     logo: {
         type: String,
-        //Debemos hacer un logo default nuestro!!!
+        // Debemos hacer un logo default nuestro!!!
         default:
             'https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1334245221/content-items/000/228/813/tr10h-original.jpg?1334245221',
     },
@@ -31,7 +31,7 @@ const shelterSchema = new Schema({
     },
     color: {
         type: String,
-        default: '#F5917C', //Elegir mejor color!!
+        default: '#F5917C', // Elegir mejor color!!
     },
     user: [
         {
@@ -45,6 +45,12 @@ const shelterSchema = new Schema({
             ref: 'Pet',
         },
     ],
+    // products: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Product',
+    //     },
+    // ],
     status: {
         type: String,
         enum: ['Active', 'Deleted'],

@@ -93,3 +93,13 @@ button {
   height: 100%;
   object-fit: cover;
 }
+
+a {
+  text-decoration: none;
+  color:inherit
+}
+
+a:visited{
+  text-decoration: none;
+  color:inherit
+}

@@ -89,6 +89,8 @@ const Filtros = (pet) => {
                     <MenuItem value={'gray'}>gray</MenuItem>
                     <MenuItem value={'brown'}>brown</MenuItem>
                     <MenuItem value={'tricolor'}>tricolor</MenuItem>
+                    <MenuItem value={'beige'}>beige</MenuItem>
+                    <MenuItem value={'yellow'}>yellow</MenuItem>
                     <MenuItem value={'others'}>others</MenuItem>
                 </Select>
             </FormControl>

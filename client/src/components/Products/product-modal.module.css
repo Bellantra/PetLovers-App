@@ -1,0 +1,44 @@
+.detail {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.detail li {
+    display: flex;
+    list-style: none;
+    font-size: 1.5em;
+    align-items: center;
+}
+
+
+.carousel {
+    text-align: center;
+    width : 300px;
+}
+
+.carousel img{
+   height: 200px;
+}
+
+@media (max-width: 600px) {
+    .detail {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.description {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.title h2 {
+    padding-bottom: 0;
+}

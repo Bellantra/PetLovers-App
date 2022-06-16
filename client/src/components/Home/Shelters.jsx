@@ -16,7 +16,7 @@ const Shelters = () => {
             <Typography
                 component="h1"
                 variant="h5"
-                sx={{ fontWeight: 800, fontSize: 80 }}
+                sx={{ fontWeight: 800, fontSize: '5rem' }}
                 align={'center'}
                 marginY={10}
             >
@@ -36,16 +36,19 @@ const Shelters = () => {
                                 <Box
                                     component="img"
                                     src={shelter.logo}
+                                    objectFit={'cover'}
                                     alt="green iguana"
                                     height={'200px'}
                                     width={'200px'}
                                     padding={'1rem'}
                                 ></Box>
+
                                 <Typography
                                     gutterBottom
-                                    variant="h5"
-                                    component="div"
+                                    variant="h6"
                                     padding={'1rem'}
+                                    maxHeight={'200px'}
+                                    maxWidth={'200px'}
                                 >
                                     {shelter.name}
                                 </Typography>

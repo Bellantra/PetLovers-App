@@ -13,8 +13,10 @@ import {
 import { getAllProducts } from '../redux/asyncActions/product/getAllProducts'
 import PaginateArray from '../components/PaginateArray/PaginateArray'
 import Loading from '../components/Loading/Loading'
-import Modal from '../components/Modal/Modal'
 import { getPetById, cleanPetDetail } from '../redux/features/adopt/adoptSlice'
+import ProductModal from '../components/Products/ProductModal'
+import PetModal from '../components/Pet/PetModal'
+import { Box } from '@mui/system'
 
 const Shelter = () => {
     const { id } = useParams()
@@ -30,7 +32,11 @@ const Shelter = () => {
         else dispatch(cleanPetDetail())
         setModalState(!modalState)
     }
-
+    console.log(shelterDetail, 'mis datos')
+    const petsActive = shelterDetail.petsAdoption?.filter(
+        (pet) => pet.status === 'Active'
+    )
+    // console.log(petsActive, 'Active')
     const prod = useSelector((state) => state.product.products)
 
     useEffect(() => {
@@ -40,24 +46,43 @@ const Shelter = () => {
 
     useEffect(() => {
         dispatch(getAllProducts())
-        return () => dispatch(cleanDetail())
     }, [dispatch])
 
-    const shelterProducts = prod.filter((el) => el.shelter._id === id)
+    const shelterProducts = prod?.filter((el) => el.shelter._id === id)
 
     return (
         <>
             {statusDetail === 'success' ? (
-                <Container padding={0} margin={0}>
-                    <Typography
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        marginTop={5}
-                        gutterBottom
+                <Container>
+                    <Grid
+                        container
+                        justifyContent={'center'}
+                        alignContent={'center'}
+                        marginY={5}
                     >
-                        Refugio {shelterDetail.name}{' '}
-                    </Typography>
+                        <Grid
+                            item
+                            display={'flex'}
+                            justifyContent={'center'}
+                            alignContent={'center'}
+                            marginRight={4}
+                        >
+                            <img src={shelterDetail.logo} width={'100px'}></img>
+                        </Grid>
+                        <Grid item>
+                            <Typography
+                                variant="h3"
+                                align="center"
+                                color="text.primary"
+                                marginTop={5}
+                                gutterBottom
+                            >
+                                {shelterDetail.name}{' '}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    {/* <img>{shelterDetail.logo}</img> */}
                     {/* <Divider variant="middle"></Divider> */}
 
                     <Typography
@@ -72,7 +97,7 @@ const Shelter = () => {
                     </Typography>
 
                     <Container>
-                        <Grid>
+                        <Grid marginBottom={15}>
                             <Carousel
                                 width="100vw"
                                 images={shelterDetail.img}
@@ -80,24 +105,28 @@ const Shelter = () => {
                         </Grid>
                     </Container>
 
-                    <Typography
-                        marginTop={15}
-                        variant="h3"
-                        align="center"
-                        color="text.primary"
-                        marginBottom={10}
-                    >
-                        Nuestros animales en Adopción
-                    </Typography>
+                    {petsActive?.length > 0 && (
+                        <>
+                            <Typography
+                                variant="h3"
+                                align="center"
+                                color="text.primary"
+                                marginBottom={10}
+                            >
+                                Nuestros animales en Adopción
+                            </Typography>
 
-                    <PaginateArray
-                        arrayType={'pet'}
-                        arrayData={shelterDetail.petsAdoption}
-                        itemsPerPage={3}
-                        buttonOne={buttonOne}
-                    />
+                            <PaginateArray
+                                arrayType={'pet'}
+                                arrayData={petsActive}
+                                itemsPerPage={6}
+                                buttonOne={buttonOne}
+                            />
+                        </>
+                    )}
+
                     <Grid align={'center'}>
-                        {shelterProducts.length > 0 && (
+                        {shelterProducts?.length > 0 && (
                             <>
                                 <Typography
                                     marginTop={5}
@@ -113,19 +142,16 @@ const Shelter = () => {
                                     arrayData={shelterProducts}
                                     itemsPerPage={6}
                                     md={4}
-                                    cardSize={'lg'}
                                 />
                             </>
                         )}
                     </Grid>
-                    <Modal
-                        estado={modalState}
-                        setEstado={buttonOne}
-                        mostrarHeader={true}
-                        mostrarOverlay={true}
-                        posicionModal={'center'}
-                        padding={'20px'}
-                    />
+                    <Container>
+                        <Grid>
+                            <ProductModal />
+                            <PetModal />
+                        </Grid>
+                    </Container>
                 </Container>
             ) : (
                 <Loading />

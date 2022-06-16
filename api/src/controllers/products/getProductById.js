@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
         const product = await Product.findById({ _id: id, status: 'Active' })
 
         if (product) {
-            res.status(200).json({ msg: 'Product found', product })
+            res.status(200).json(product)
         } else {
             res.json({ msg: 'There is no any product with this Id' })
         }

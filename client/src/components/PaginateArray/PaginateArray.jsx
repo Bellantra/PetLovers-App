@@ -3,10 +3,23 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
-import InfoCard from '../InfoCard/InfoCard'
 import Pagination from '../Pagination/Pagination'
 import PropTypes from 'prop-types'
+import PetCard from '../Pet/PetCard'
+import ProductCard from '../Products/ProductCard'
+
 const theme = createTheme()
+
+/* 
+Este componente contiene la infoCard y el paginado, para asociar el paginado de manera inmediata a un array de datos
+
+arrayData: Array de objetos con la info de productos o de mascotas
+arrayType: 'pet' / 'products' para identificar el tipo de informacion que se va a mostrar en la infoCard
+itemsPerPage: cantidad de items que mostrara el paginado
+xs, sm y md : son las variables del grid que contiene las cards (ver documentacion de Material UI)
+cardSize : El ancho maximo del container.
+buttonOne : callback function del primer boton de la card.
+*/
 
 export default function PaginateArray({
     arrayData,
@@ -18,7 +31,16 @@ export default function PaginateArray({
     cardSize = 'md',
     buttonOne,
 }) {
-    // ----------   PAGINADO------------
+
+    // ------------------- CARD TYPE ------------------------
+    const selectCard = () => {
+        if(arrayType === 'pet') return PetCard
+        if(arrayType === 'products') return ProductCard
+    }
+   
+    const Card = selectCard()
+    // ------------------   PAGINADO   ----------------------
+
     const perPage = itemsPerPage
     const [currentPage, setCurrentPage] = useState(1)
     const count = Math.ceil(arrayData.length / perPage)
@@ -27,7 +49,7 @@ export default function PaginateArray({
     const rightLimit = leftLimit + perPage
     const dataSlice = arrayData.slice(leftLimit, rightLimit)
 
-    // -----------FIN PAGINADO----------------
+    // -----------------  FIN PAGINADO  ---------------------
 
     return (
         <ThemeProvider theme={theme}>
@@ -37,7 +59,7 @@ export default function PaginateArray({
                     <Grid container spacing={4}>
                         {dataSlice.map((item) => (
                             <Grid item key={item._id} xs={xs} sm={sm} md={md}>
-                                <InfoCard
+                                <Card
                                     sx={{
                                         height: '100%',
                                         display: 'flex',
