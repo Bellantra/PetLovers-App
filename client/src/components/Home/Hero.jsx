@@ -2,26 +2,6 @@ import Button from '@mui/material/Button'
 import SendIcon from '@mui/icons-material/Send'
 import imgHero from '../../assets/img-home.png'
 
-// import dogPaw from '../../assets/dogpaw1.png'
-// import dogPaw2 from '../../assets/dogpaw2.png'
-// import dogPaw3 from '../../assets/dogpaw3.png'
-// import dogPaw4 from '../../assets/dogpaw4.png'
-// import dogPaw5 from '../../assets/dogpaw5.png'
-// import {
-// DivHero,
-// TextHero,
-// DivImgHero,
-// ImageHero,
-// WeCare,
-// AboutPets,
-// ParagraphHero,
-// DivButtonAdopt,
-// ImageDogPaw1,
-// ImageDogPaw2,
-// ImageDogPaw3,
-// ImageDogPaw4,
-// ImageDogPaw5
-//  } from "./HomeStyle";
 import { Link as LinkRouter } from 'react-router-dom'
 
 import Typography from '@mui/material/node/Typography'
@@ -29,7 +9,12 @@ import { Grid } from '@mui/material'
 
 const Hero = () => {
     return (
-        <Grid container>
+        <Grid
+            container
+            justifyContent="space-evenly"
+            display={'flex'}
+            alignItems={'center'}
+        >
             <Grid
                 item
                 md={6}
@@ -83,30 +68,13 @@ const Hero = () => {
                         waiting for that dream family.
                     </Typography>
                     <LinkRouter to={'/Adoptions'}>
-                        <Button
-                            variant="contained"
-                            endIcon={<SendIcon />}
-                            // sx={{
-                            //     backgroundColor: '#1565C0 !important',
-                            //     boxShadow:
-                            //         '2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12) !important',
-                            //     borderRadius: '4px !important',
-                            // }}
-                        >
+                        <Button variant="contained" endIcon={<SendIcon />}>
                             Adopt Now
                         </Button>
                     </LinkRouter>
                 </Grid>
             </Grid>
-            <Grid
-                item
-                md={6}
-                sx={12}
-                display={'flex'}
-                alignContent={'center'}
-                justifyContent={'center'}
-                maxWidth={'96%'}
-            >
+            <Grid item md={6} sx={12}>
                 <img src={imgHero} alt="various-pets" width={'100%'}></img>
             </Grid>
         </Grid>
