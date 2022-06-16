@@ -9,8 +9,6 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=Javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=React&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/Redux-%23593d88.svg?style=flat&logo=redux&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=flat&logo=Material-ui&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=Node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat&logo=Express&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=MongoDB&logoColor=white) ![GitHub](https://img.shields.io/badge/Github-%23121011.svg?style=flat&logo=github&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=flat&logo=Heroku&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=flat&logo=Vercel&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=HTML5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=CSS3&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=flat&logo=VS-Code&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=flat&logo=Trello&logoColor=white)
 
-#
-
 ## Requirements 📋
 
 _1 - You will have to create a .env in client and api folders_
@@ -49,8 +47,6 @@ VITE_APP_API_ROUTE = localhost of you api ( ex. http://localhost:4001)
 
 ### You can check out our webpage in the following link: [click here](https://pet-lovers-henna.vercel.app/)
 
-#
-
 ## Developers 🚀
 
 ### Yamila Paez : [LinkedIn](https://www.linkedin.com/in/yamila-paez-70b7587b/) [GitHub](https://github.com/Bellantra)
@@ -58,8 +54,6 @@ VITE_APP_API_ROUTE = localhost of you api ( ex. http://localhost:4001)
 ### Gabriel Garcia : [GitHub](https://github.com/gabriel20x)
 
 ### Cesar Galeano : [LinkedIn](https://www.linkedin.com/in/cesargaleanotorres/) [GitHub](https://github.com/cesargaleano)
-
-#
 
 ## Some Pictures
 
