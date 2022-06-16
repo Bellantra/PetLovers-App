@@ -21,12 +21,11 @@ const Hero = () => {
             <Grid
                 item
                 md={6}
-                sx={12}
+                xs={12}
                 display={'flex'}
                 alignItems={'center'}
                 justifyContent={'center'}
                 maxWidth={'96%'}
-                direction={'row'}
                 textAlign={'center'}
                 marginTop={'2rem'}
             >
@@ -77,7 +76,7 @@ const Hero = () => {
                     </LinkRouter>
                 </Grid>
             </Grid>
-            <Grid item md={6} sx={12}>
+            <Grid item md={6} xs={12}>
                 <img src={imgHero} alt="various-pets" width={'100%'}></img>
             </Grid>
         </Grid>
