@@ -77,47 +77,27 @@ const NavBar = () => {
                 }}
             >
                 <Toolbar disableGutters>
-                    <AdbIcon
-                        sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-                    />
+                   
                     <LinkRouter to={'/home'}>
                         <img src={logo} alt="logo" className="imageLogo" />
                     </LinkRouter>
 
-                    <AdbIcon
-                        sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-                    />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: '#515151',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        Pet Lovers
-                    </Typography>
+                                        
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'none', md: 'flex' },
+                            display: { xs: 'flex', md: 'flex' },
                         }}
                         marginX={5}
                     >
                         <Button
                             onClick={handleClick}
-                            sx={{ my: 2, color: '#515151', display: 'block' }}
+                            sx={{ my: 2, color: '#515151', display: 'block', size:{xs:'small', md:'medium'} }}
                             // aria-control={openMenu ? 'sheltersMenu' : undefined}
                             aria-haspopup="true"
                             aria-expanded={openMenu ? 'true' : undefined}
+                            
+                            
                         >
                             Shelters
                         </Button>
