@@ -16,7 +16,7 @@ const Shelters = () => {
             <Typography
                 component="h1"
                 variant="h5"
-                sx={{ fontWeight: 800, fontSize: 80 }}
+                sx={{ fontWeight: 800, fontSize: '5rem' }}
                 align={'center'}
                 marginY={10}
             >
