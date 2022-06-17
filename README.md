@@ -56,7 +56,7 @@ VITE_APP_API_ROUTE = localhost of you api ( ex. http://localhost:4001)
 
 ### Yamila Paez : [LinkedIn](https://www.linkedin.com/in/yamila-paez-70b7587b/) [GitHub](https://github.com/Bellantra)
 
-### Gabriel Garcia : [GitHub](https://github.com/gabriel20x)
+### Gabriel Garcia : [LinkedIn](https://www.linkedin.com/in/gabrielgarcia-full-stack-developer/) [GitHub](https://github.com/gabriel20x)
 
 ### Cesar Galeano : [LinkedIn](https://www.linkedin.com/in/cesargaleanotorres/) [GitHub](https://github.com/cesargaleano)
 
