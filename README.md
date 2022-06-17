@@ -19,7 +19,7 @@ _2 - You will have to create you own database in [Mongo](https://www.mongodb.com
 
 _3 - You will have to create you own account for [emailjs](https://www.emailjs.com/)_
 
-_4 - You will have to create you own account for [cloudinary](hhttps://cloudinary.com/ip/gr-sea-gg-brand-home-base?utm_source=google&utm_medium=search&utm_campaign=goog_selfserve_brand_wk22_replicate_core_branded_keyword&utm_term=1329&campaignid=17381743824&adgroupid=134181473221&keyword=cloudinary&device=c&matchtype=e&adposition=&gclid=CjwKCAjwqauVBhBGEiwAXOepkQSmPIAB3Qhqm50-LxSeiN6nyKjYLJC1dFan4tyyq5RIuAcnJe-jMxoC5CgQAvD_BwE/)_
+_4 - You will have to create you own account for [cloudinary](https://cloudinary.com/)
 
 _Api .env_
 
