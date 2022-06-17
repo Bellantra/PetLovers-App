@@ -109,7 +109,7 @@ const Shelter = () => {
                                 color="text.primary"
                                 marginBottom={10}
                             >
-                                Nuestros animales en Adopción
+                                Our Pets in Adoption
                             </Typography>
 
                             <PaginateArray
@@ -131,7 +131,7 @@ const Shelter = () => {
                                     color="text.primary"
                                     gutterBottom
                                 >
-                                    Nuestros Productos
+                                    Our Products
                                 </Typography>
                                 <PaginateArray
                                     arrayType="products"
