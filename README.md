@@ -1,4 +1,5 @@
-# Pet Lovers 🐱 🐶
+
+<h1 align="center"> Pet Lovers 🐱 🐶 </h1>
 
 #### We are a website that seeks to provide a place for all shelters and organizations dedicated to animal help. Our associated shelters have their personal space to publish their pets for adoption and products they have for sale to cover their expenses. They can also post the donations they need. If you need a space for your refuge, here you can find a place to have it. People can find rescued animals for adoption in good health, waiting for that dream family.
 
@@ -63,12 +64,12 @@ VITE_APP_API_ROUTE = localhost of you api ( ex. http://localhost:4001)
 
 ### Some Pictures
 
-<img src="client/src/assets/1.png" width="550px">
-<img src="client/src/assets/2.png" width="550px">
-<img src="client/src/assets/3.png" width="550px">
-<img src="client/src/assets/4.png" width="550px">
-<img src="client/src/assets/5.png" width="550px">
-<img src="client/src/assets/6.png" width="550px">
-<img src="client/src/assets/7.png" width="550px">
-<img src="client/src/assets/8.png" width="550px">
-<img src="client/src/assets/9.png" width="550px">
+<img align="center" src="client/src/assets/1.png" width="550px">
+<img align="center" src="client/src/assets/2.png" width="550px">
+<img align="center" src="client/src/assets/3.png" width="550px">
+<img align="center" src="client/src/assets/4.png" width="550px">
+<img align="center" src="client/src/assets/5.png" width="550px">
+<img align="center" src="client/src/assets/6.png" width="550px">
+<img align="center" src="client/src/assets/7.png" width="550px">
+<img align="center" src="client/src/assets/8.png" width="550px">
+<img align="center" src="client/src/assets/9.png" width="550px">
