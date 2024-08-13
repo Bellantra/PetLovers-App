@@ -48,7 +48,7 @@ VITE_APP_API_ROUTE = localhost of you api ( ex. http://localhost:4001)
 
 #
 
-### You can check out our webpage in the following link: <a href="https://pet-lovers-app.vercel.app/" target="_blank">Click Here</a>
+### You can check out our webpage in the following link: <a href="https://pet-lovers-app.vercel.app/" target="_blank" rel="noopener">Click Here</a>
 
 
 #
