@@ -54,10 +54,12 @@ const petSchema = new Schema({
         enum: ['Male', 'Female', 'Undefined'],
         default: 'Undefined',
     },
-    color: {
-        type: String,
-        default: 'Undefined',
-    },
+    color: [
+        {
+            type: String,
+            default: 'Undefined',
+        },
+    ],
     vaccinated: {
         type: Boolean,
         default: false,
