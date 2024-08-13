@@ -53,7 +53,7 @@ export default function ProductCard({ item }) {
                     alt={data.alt}
                     height={'250'}
                     image={data.img}
-                    sx={{ objectFit: 'cover' }}
+                    sx={{ objectfit: 'cover' }}
                 />
                 <CardContent>
                     <Typography

@@ -36,7 +36,7 @@ const Shelters = () => {
                                 <Box
                                     component="img"
                                     src={shelter.logo}
-                                    objectFit={'cover'}
+                                    objectfit={'cover'}
                                     alt="green iguana"
                                     height={'200px'}
                                     width={'200px'}
